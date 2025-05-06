@@ -13,7 +13,7 @@
             Transformamos ideas en soluciones tecnológicas avanzadas, impulsadas por Inteligencia Artificial y desarrolladas con Laravel
         </p>
         <div class="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
-            <a href="{{ route('contact') }}" class="accent-gradient hover:opacity-90 text-white font-bold py-3 px-8 rounded-lg transition transform hover:scale-105">
+            <a href="{{ route('project.start') }}" class="accent-gradient hover:opacity-90 text-white font-bold py-3 px-8 rounded-lg transition transform hover:scale-105">
                 Iniciar proyecto
             </a>
             <a href="{{ route('services') }}" class="bg-gray-800 border border-gray-700 hover:bg-gray-700 text-white font-bold py-3 px-8 rounded-lg transition">
@@ -176,7 +176,7 @@
                 <p class="text-xl text-blue-100">Desde aplicaciones web personalizadas hasta soluciones impulsadas por IA, estamos aquí para llevar tu visión al siguiente nivel.</p>
             </div>
             <div>
-                <a href="{{ route('contact') }}" class="inline-block bg-white text-blue-600 font-bold py-4 px-8 rounded-lg shadow-lg transition transform hover:scale-105 hover:shadow-xl">
+                <a href="{{ route('project.start') }}" class="inline-block bg-white text-blue-600 font-bold py-4 px-8 rounded-lg shadow-lg transition transform hover:scale-105 hover:shadow-xl">
                     Comenzar proyecto
                 </a>
             </div>

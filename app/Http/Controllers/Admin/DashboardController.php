@@ -8,6 +8,7 @@ use App\Models\Contact;
 use App\Models\Project;
 use App\Models\Testimonial;
 use App\Models\TeamMember;
+use App\Models\ProjectRequest;
 use Illuminate\Support\Facades\Storage;
 use App\Models\BlogPost;
 use Illuminate\Support\Str;
@@ -20,8 +21,49 @@ class DashboardController extends Controller
         $projectsCount = Project::count();
         $testimonialsCount = Testimonial::count();
         $teamCount = TeamMember::count();
+        $projectRequestsCount = ProjectRequest::count();
+        $pendingProjectRequestsCount = ProjectRequest::where('status', 'pending')->count();
         
-        return view('admin.dashboard', compact('contactsCount', 'projectsCount', 'testimonialsCount', 'teamCount'));
+        return view('admin.dashboard', compact(
+            'contactsCount', 
+            'projectsCount', 
+            'testimonialsCount', 
+            'teamCount', 
+            'projectRequestsCount', 
+            'pendingProjectRequestsCount'
+        ));
+    }
+
+    // Project Requests methods
+    public function projectRequests()
+    {
+        $projectRequests = ProjectRequest::orderBy('created_at', 'desc')->paginate(10);
+        return view('admin.project_requests.index', compact('projectRequests'));
+    }
+
+    public function showProjectRequest(ProjectRequest $projectRequest)
+    {
+        return view('admin.project_requests.show', compact('projectRequest'));
+    }
+
+    public function updateProjectRequestStatus(Request $request, ProjectRequest $projectRequest)
+    {
+        $request->validate([
+            'status' => 'required|string|in:pending,contacted,in_progress,completed,rejected',
+        ]);
+        
+        $projectRequest->update([
+            'status' => $request->status,
+        ]);
+        
+        return redirect()->back()->with('success', 'Estado de la solicitud actualizado con éxito.');
+    }
+
+    public function destroyProjectRequest(ProjectRequest $projectRequest)
+    {
+        $projectRequest->delete();
+        
+        return redirect()->route('admin.project_requests')->with('success', 'Solicitud de proyecto eliminada con éxito.');
     }
     
     public function contacts()

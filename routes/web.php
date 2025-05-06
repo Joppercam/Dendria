@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-
+use App\Http\Controllers\ProjectController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,12 +24,16 @@ Route::get('/politica-de-cookies', [HomeController::class, 'cookies'])->name('co
 // Handle contact form submission
 Route::post('/contacto', [HomeController::class, 'submitContactForm'])->name('contact.submit');
 
+// Project routes
+Route::get('/iniciar-proyecto', [ProjectController::class, 'showStartForm'])->name('project.start');
+Route::post('/iniciar-proyecto', [ProjectController::class, 'submitProjectRequest'])->name('project.submit');
+Route::get('/proyecto-enviado', [ProjectController::class, 'showThanksPage'])->name('project.thanks');
+
 // In routes/web.php
 Route::get('/proyectos/{project}', [HomeController::class, 'showProject'])->name('projects.show');
 
 Route::get('/blog', [HomeController::class, 'blog'])->name('blog');
 Route::get('/blog/{post}', [HomeController::class, 'showPost'])->name('blog.show');
-
 
 
 // Admin routes
@@ -71,5 +75,21 @@ Route::prefix('admin')->middleware(['auth'])->name('admin.')->group(function () 
     Route::put('/blog/{blogPost}', [App\Http\Controllers\Admin\DashboardController::class, 'updateBlogPost'])->name('blog.update');
     Route::delete('/blog/{blogPost}', [App\Http\Controllers\Admin\DashboardController::class, 'destroyBlogPost'])->name('blog.destroy');
 
+    // Project Requests
+    Route::get('/project-requests', [App\Http\Controllers\Admin\DashboardController::class, 'projectRequests'])->name('project_requests');
+    Route::get('/project-requests/{projectRequest}', [App\Http\Controllers\Admin\DashboardController::class, 'showProjectRequest'])->name('project_requests.show');
+    Route::put('/project-requests/{projectRequest}/status', [App\Http\Controllers\Admin\DashboardController::class, 'updateProjectRequestStatus'])->name('project_requests.update_status');
+    Route::delete('/project-requests/{projectRequest}', [App\Http\Controllers\Admin\DashboardController::class, 'destroyProjectRequest'])->name('project_requests.destroy');
+    
+    // Contacts
+    Route::get('/contacts', [App\Http\Controllers\Admin\DashboardController::class, 'contacts'])->name('contacts');
+    
+    // Projects
+    Route::get('/projects', [App\Http\Controllers\Admin\DashboardController::class, 'projects'])->name('projects');
+    Route::get('/projects/create', [App\Http\Controllers\Admin\DashboardController::class, 'createProject'])->name('projects.create');
+    Route::post('/projects', [App\Http\Controllers\Admin\DashboardController::class, 'storeProject'])->name('projects.store');
+    Route::get('/projects/{project}/edit', [App\Http\Controllers\Admin\DashboardController::class, 'editProject'])->name('projects.edit');
+    Route::put('/projects/{project}', [App\Http\Controllers\Admin\DashboardController::class, 'updateProject'])->name('projects.update');
+    Route::delete('/projects/{project}', [App\Http\Controllers\Admin\DashboardController::class, 'destroyProject'])->name('projects.destroy');
 });
 

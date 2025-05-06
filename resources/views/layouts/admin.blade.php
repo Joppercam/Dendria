@@ -21,6 +21,10 @@
                             <i class="fas fa-tachometer-alt mr-3"></i>
                             Dashboard
                         </a>
+                        <a href="{{ route('admin.project_requests') }}" class="flex items-center px-4 py-2 text-sm font-medium {{ Request::routeIs('admin.project_requests*') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }} rounded-md">
+                            <i class="fas fa-tasks mr-3"></i>
+                            Solicitudes de Proyectos
+                        </a>
                         <a href="{{ route('admin.contacts') }}" class="flex items-center px-4 py-2 text-sm font-medium {{ Request::routeIs('admin.contacts') ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white' }} rounded-md">
                             <i class="fas fa-envelope mr-3"></i>
                             Contactos

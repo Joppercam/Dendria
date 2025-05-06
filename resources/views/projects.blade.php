@@ -58,7 +58,7 @@
                 <p class="text-xl text-blue-100">Contáctanos para discutir cómo podemos ayudarte a hacerlo realidad.</p>
             </div>
             <div>
-                <a href="{{ route('contact') }}" class="inline-block bg-white text-blue-600 font-bold py-4 px-8 rounded-lg shadow-lg transition transform hover:scale-105 hover:shadow-xl">
+                <a href="{{ route('project.start') }}" class="inline-block bg-white text-blue-600 font-bold py-4 px-8 rounded-lg shadow-lg transition transform hover:scale-105 hover:shadow-xl">
                     Iniciar proyecto
                 </a>
             </div>

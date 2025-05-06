@@ -8,14 +8,31 @@
     <div class="bg-white rounded-lg shadow p-6">
         <div class="flex items-center">
             <div class="p-3 rounded-full bg-blue-500 bg-opacity-10">
-                <i class="fas fa-envelope text-blue-500 text-xl"></i>
+                <i class="fas fa-tasks text-blue-500 text-xl"></i>
+            </div>
+            <div class="ml-4">
+                <p class="text-sm font-medium text-gray-500">Solicitudes de Proyectos</p>
+                <p class="text-2xl font-semibold text-gray-700">{{ $projectRequestsCount }}</p>
+                <p class="text-sm text-gray-500">{{ $pendingProjectRequestsCount }} pendientes</p>
+            </div>
+        </div>
+        <a href="{{ route('admin.project_requests') }}" class="mt-4 inline-block text-sm font-medium text-blue-500 hover:text-blue-600">
+            Ver solicitudes
+            <i class="fas fa-arrow-right ml-1"></i>
+        </a>
+    </div>
+    
+    <div class="bg-white rounded-lg shadow p-6">
+        <div class="flex items-center">
+            <div class="p-3 rounded-full bg-green-500 bg-opacity-10">
+                <i class="fas fa-envelope text-green-500 text-xl"></i>
             </div>
             <div class="ml-4">
                 <p class="text-sm font-medium text-gray-500">Contactos</p>
                 <p class="text-2xl font-semibold text-gray-700">{{ $contactsCount }}</p>
             </div>
         </div>
-        <a href="{{ route('admin.contacts') }}" class="mt-4 inline-block text-sm font-medium text-blue-500 hover:text-blue-600">
+        <a href="{{ route('admin.contacts') }}" class="mt-4 inline-block text-sm font-medium text-green-500 hover:text-green-600">
             Ver contactos
             <i class="fas fa-arrow-right ml-1"></i>
         </a>
