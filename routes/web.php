@@ -35,6 +35,7 @@ Route::get('/proyectos/{project}', [HomeController::class, 'showProject'])->name
 Route::get('/blog', [HomeController::class, 'blog'])->name('blog');
 Route::get('/blog/{post}', [HomeController::class, 'showPost'])->name('blog.show');
 
+Route::get('/productos', [HomeController::class, 'products'])->name('products');
 
 // Admin routes
 Route::prefix('admin')->middleware(['auth'])->name('admin.')->group(function () {

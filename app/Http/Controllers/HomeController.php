@@ -111,4 +111,9 @@ class HomeController extends Controller
             
         return view('blog.show', compact('post', 'relatedPosts'));
     }
+
+    public function products()
+    {
+        return view('products');
+    }
 }

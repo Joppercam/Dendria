@@ -35,6 +35,43 @@
             70% { box-shadow: 0 0 0 15px rgba(14, 165, 233, 0); }
             100% { box-shadow: 0 0 0 0 rgba(14, 165, 233, 0); }
         }
+
+        .compact-header {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            min-height: auto !important;
+        }
+
+        /* En tu archivo CSS (o sección de estilos) */
+    .hero-image-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 8px;
+    }
+
+    .hero-image {
+    width: 100%;
+    display: block;
+    transition: all 0.5s ease;
+    }
+
+    /* Efecto de capa transparente superpuesta */
+    .hero-image-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, rgba(23, 32, 48, 0.7), rgba(23, 32, 48, 0));
+    z-index: 1;
+    }
+
+    /* Efecto de mezcla para integrar la imagen con el fondo */
+    .hero-image {
+    mix-blend-mode: screen; /* Esta propiedad hace que los negros sean transparentes */
+    }
     </style>
 </head>
 <body class="bg-gray-900 text-gray-100 font-sans">

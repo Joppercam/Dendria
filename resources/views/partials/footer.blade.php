@@ -37,8 +37,10 @@
                     <li><a href="{{ route('services') }}#ai" class="text-gray-400 hover:text-blue-400">Soluciones de IA</a></li>
                     <li><a href="{{ route('services') }}#mobile" class="text-gray-400 hover:text-blue-400">Desarrollo Móvil</a></li>
                     <li><a href="{{ route('services') }}#consulting" class="text-gray-400 hover:text-blue-400">Consultoría Tecnológica</a></li>
+                    <li><a href="{{ route('products') }}" class="text-gray-400 hover:text-blue-400">Productos</a></li>
                 </ul>
             </div>
+
             
             <div class="w-full md:w-1/4">
                 <h4 class="font-bold mb-6">Legal</h4>

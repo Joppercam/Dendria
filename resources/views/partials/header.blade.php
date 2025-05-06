@@ -1,5 +1,5 @@
 <header class="relative">
-    <div class="gradient-bg min-h-screen pt-20 pb-24">
+    <div class="gradient-bg compact-header">
         <!-- Navigation -->
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <div class="flex items-center">
@@ -9,6 +9,7 @@
             </div>
             <div class="hidden md:flex space-x-10 items-center">
                 <a href="{{ route('services') }}" class="hover:text-blue-400 transition">Servicios</a>
+                <a href="{{ route('products') }}" class="hover:text-blue-400 transition">Productos</a>
                 <a href="{{ route('technologies') }}" class="hover:text-blue-400 transition">Tecnologías</a>
                 <a href="{{ route('projects') }}" class="hover:text-blue-400 transition">Proyectos</a>
                 <a href="{{ route('team') }}" class="hover:text-blue-400 transition">Equipo</a>
