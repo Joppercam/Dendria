@@ -170,27 +170,33 @@
         100% { transform: scale(1); opacity: 0.8; }
     }
 
-    /* Card alignment tweaks */
-    .team-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 2.5rem;
+    /* Card alignment tweaks - flexbox approach */
+    .team-flex {
+        display: flex;
+        flex-wrap: wrap;
+        margin: -1rem;
     }
 
-    @media (max-width: 1024px) {
-        .team-grid {
-            grid-template-columns: repeat(2, 1fr);
+    .team-card-wrapper {
+        width: 100%;
+        padding: 1rem;
+    }
+
+    @media (min-width: 768px) {
+        .team-card-wrapper {
+            width: 50%;
         }
     }
 
-    @media (max-width: 768px) {
-        .team-grid {
-            grid-template-columns: 1fr;
+    @media (min-width: 1024px) {
+        .team-card-wrapper {
+            width: 33.333333%;
         }
     }
 
     .team-card {
-        height: auto;
+        height: 100%;
+        width: 100%;
         margin-bottom: 0;
     }
 </style>
@@ -208,9 +214,10 @@
 
 <section class="py-20 bg-gray-900">
     <div class="container mx-auto px-6">
-        <div class="team-grid">
+        <div class="team-flex">
             @foreach($team as $member)
-            <div class="bg-gray-800 rounded-xl overflow-hidden group transform transition duration-300 hover:-translate-y-2 hover:shadow-xl team-card">
+            <div class="team-card-wrapper">
+                <div class="bg-gray-800 rounded-xl overflow-hidden group transform transition duration-300 hover:-translate-y-2 hover:shadow-xl team-card">
                 <div class="relative h-64">
                     @if($member->photo)
                         <img src="{{ Storage::url($member->photo) }}" alt="{{ $member->name }}" class="w-full h-full object-cover">
@@ -423,6 +430,7 @@
                         @endforeach
                     </div>
                     @endif
+                </div>
                 </div>
             </div>
             @endforeach
