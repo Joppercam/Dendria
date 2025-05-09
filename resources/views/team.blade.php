@@ -313,13 +313,47 @@
                                             <path d="M5,25 L15,15 L25,25 L35,15 L45,25" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" fill="none"></path>
                                         </svg>
                                     </div>
-                                    @elseif(strpos($role, 'project') !== false || strpos($role, 'manager') !== false || strpos($role, 'scrum') !== false || strpos($role, 'product') !== false)
+                                    @elseif(strpos($role, 'project') !== false)
+                                    <div class="absolute inset-0 flex items-center justify-center">
+                                        <div class="flex flex-col space-y-1">
+                                            <div class="flex space-x-1">
+                                                <div class="w-6 h-3 bg-white bg-opacity-80 rounded-sm"></div>
+                                                <div class="w-12 h-3 bg-white bg-opacity-40 rounded-sm"></div>
+                                            </div>
+                                            <div class="flex space-x-1">
+                                                <div class="w-10 h-3 bg-white bg-opacity-60 rounded-sm"></div>
+                                                <div class="w-8 h-3 bg-white bg-opacity-20 rounded-sm"></div>
+                                            </div>
+                                            <div class="flex space-x-1">
+                                                <div class="w-14 h-3 bg-white bg-opacity-50 rounded-sm"></div>
+                                                <div class="w-4 h-3 bg-white bg-opacity-30 rounded-sm"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @elseif(strpos($role, 'manager') !== false)
                                     <div class="absolute inset-0 flex items-center justify-center">
                                         <div class="grid grid-cols-2 gap-1">
                                             <div class="w-6 h-6 bg-white bg-opacity-80 rounded-sm"></div>
                                             <div class="w-6 h-6 bg-white bg-opacity-40 rounded-sm"></div>
                                             <div class="w-6 h-6 bg-white bg-opacity-20 rounded-sm"></div>
                                             <div class="w-6 h-6 bg-white bg-opacity-60 rounded-sm"></div>
+                                        </div>
+                                    </div>
+                                    @elseif(strpos($role, 'scrum') !== false)
+                                    <div class="absolute inset-0 flex items-center justify-center">
+                                        <div class="w-22 h-20 flex flex-col items-center">
+                                            <div class="w-full h-4 bg-white bg-opacity-70 rounded-sm mb-1"></div>
+                                            <div class="w-full h-4 bg-white bg-opacity-50 rounded-sm mb-1"></div>
+                                            <div class="w-full h-4 bg-white bg-opacity-30 rounded-sm"></div>
+                                        </div>
+                                    </div>
+                                    @elseif(strpos($role, 'product') !== false || strpos($role, 'owner') !== false)
+                                    <div class="absolute inset-0 flex items-center justify-center">
+                                        <div class="relative">
+                                            <div class="w-12 h-12 rounded-full border-2 border-white border-opacity-70"></div>
+                                            <div class="absolute inset-0 flex items-center justify-center">
+                                                <div class="w-5 h-5 bg-white bg-opacity-90 rounded-full"></div>
+                                            </div>
                                         </div>
                                     </div>
                                     @endif
