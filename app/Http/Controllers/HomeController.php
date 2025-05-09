@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BlogPost;
+use App\Models\Project;
+use App\Models\TeamMember;
+use App\Models\Testimonial;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -45,7 +49,9 @@ class HomeController extends Controller
 
     public function testimonials()
     {
-        return view('testimonials');
+        $testimonials = Testimonial::all();
+        $featuredTestimonials = Testimonial::where('featured', true)->get();
+        return view('testimonials', compact('testimonials', 'featuredTestimonials'));
     }
 
     public function terms()
