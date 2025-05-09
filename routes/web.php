@@ -15,6 +15,7 @@ Route::get('/tecnologias', [HomeController::class, 'technologies'])->name('techn
 Route::get('/proyectos', [HomeController::class, 'projects'])->name('projects');
 Route::get('/equipo', [HomeController::class, 'team'])->name('team');
 Route::get('/sobre-nosotros', [HomeController::class, 'about'])->name('about');
+Route::get('/casos-de-exito', [HomeController::class, 'caseStudies'])->name('case-studies');
 Route::get('/contacto', [HomeController::class, 'contact'])->name('contact');
 Route::get('/testimonios', [HomeController::class, 'testimonials'])->name('testimonials');
 Route::get('/terminos-y-condiciones', [HomeController::class, 'terms'])->name('terms');

@@ -116,4 +116,9 @@ class HomeController extends Controller
     {
         return view('products');
     }
+
+    public function caseStudies()
+    {
+        return view('case-studies');
+    }
 }

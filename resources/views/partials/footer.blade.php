@@ -24,7 +24,7 @@
                 <h4 class="font-bold mb-6">Empresa</h4>
                 <ul class="space-y-3">
                     <li><a href="{{ route('about') }}" class="text-gray-400 hover:text-blue-400">Sobre nosotros</a></li>
-                    <li><a href="{{ route('projects') }}" class="text-gray-400 hover:text-blue-400">Proyectos</a></li>
+                    <li><a href="{{ route('case-studies') }}" class="text-gray-400 hover:text-blue-400">Casos de Éxito</a></li>
                     <li><a href="{{ route('testimonials') }}" class="text-gray-400 hover:text-blue-400">Testimonios</a></li>
                     <li><a href="{{ route('team') }}" class="text-gray-400 hover:text-blue-400">Equipo</a></li>
                 </ul>
