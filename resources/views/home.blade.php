@@ -418,41 +418,113 @@
             <p class="text-gray-400 max-w-3xl mx-auto">Nuestras soluciones listas para implementar más populares</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="bg-gray-900 rounded-xl p-6 shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2">
-                <div class="flex justify-center mb-6 relative">
-                    <div class="absolute inset-0 bg-blue-500 opacity-20 rounded-full blur-3xl"></div>
-                    <img src="{{ asset('images/dendria-chat.svg') }}" alt="DendrIA Chat" class="h-48 relative z-10 floating">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+            <!-- DendrIA Chat -->
+            <div class="bg-gray-900 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2">
+                <div class="h-64 relative">
+                    <!-- Efecto de resplandor -->
+                    <div class="absolute inset-0 bg-gradient-to-br from-blue-900 to-blue-800"></div>
+                    <div class="product-glow chat-glow absolute" style="width: 80%; height: 80%; top: 10%; left: 10%; border-radius: 50%; filter: blur(60px); opacity: 0.6; background: radial-gradient(circle, rgba(59, 130, 246, 0.8) 0%, rgba(0, 0, 0, 0) 70%); animation: pulse-glow 6s ease-in-out infinite;"></div>
+
+                    <!-- Animación de chat -->
+                    <div class="absolute inset-0 p-4">
+                        <div class="chat-bubble user-bubble absolute" style="padding: 8px 12px; border-radius: 12px; font-size: 0.8rem; opacity: 0; background-color: rgba(59, 130, 246, 0.2); border: 1px solid rgba(59, 130, 246, 0.3); right: 10%; text-align: right; top: 20%; animation: fadeInOut 8s ease-in-out infinite;">
+                            ¿Cómo puedo ayudarte?
+                        </div>
+                        <div class="chat-bubble ai-bubble absolute" style="padding: 8px 12px; border-radius: 12px; font-size: 0.8rem; opacity: 0; background-color: rgba(59, 130, 246, 0.7); color: white; left: 10%; top: 35%; animation: fadeInOut 8s ease-in-out 1s infinite;">
+                            Soy tu asistente virtual inteligente
+                        </div>
+
+                        <!-- Elemento de asistente flotante -->
+                        <div class="absolute bottom-4 right-4 w-12 h-12 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center shadow-lg" style="box-shadow: 0 4px 10px rgba(59, 130, 246, 0.5);">
+                            <i class="fas fa-robot text-white text-xl"></i>
+                        </div>
+                    </div>
                 </div>
-                <h3 class="text-xl font-bold mb-3 text-center">DendrIA Chat</h3>
-                <p class="text-gray-400 mb-4">Asistente virtual que se integra en tu sitio web para brindar soporte 24/7 a tus clientes y responder consultas automáticamente.</p>
-                <a href="{{ route('products') }}" class="block text-center text-blue-400 hover:text-blue-300">
-                    Conocer más <i class="fas fa-arrow-right ml-1"></i>
-                </a>
+
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-3">DendrIA Chat</h3>
+                    <p class="text-gray-400 mb-4">Asistente virtual inteligente que integra IA para brindar soporte 24/7 a tus clientes y responder consultas automáticamente.</p>
+                    <a href="{{ route('products') }}" class="inline-flex items-center text-blue-400 hover:text-blue-300 font-medium">
+                        Conocer más <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
             </div>
 
-            <div class="bg-gray-900 rounded-xl p-6 shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2">
-                <div class="flex justify-center mb-6 relative">
-                    <div class="absolute inset-0 bg-green-500 opacity-20 rounded-full blur-3xl"></div>
-                    <img src="{{ asset('images/pymecommerce.svg') }}" alt="PymeCommerce" class="h-48 relative z-10 floating" style="animation-delay: 0.5s;">
+            <!-- PymeCommerce -->
+            <div class="bg-gray-900 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2">
+                <div class="h-64 relative">
+                    <!-- Efecto de resplandor -->
+                    <div class="absolute inset-0 bg-gradient-to-br from-green-900 to-green-800"></div>
+                    <div class="product-glow commerce-glow absolute" style="width: 80%; height: 80%; top: 10%; left: 10%; border-radius: 50%; filter: blur(60px); opacity: 0.6; background: radial-gradient(circle, rgba(16, 185, 129, 0.8) 0%, rgba(0, 0, 0, 0) 70%); animation: pulse-glow 6s ease-in-out infinite;"></div>
+
+                    <!-- Animación de eCommerce -->
+                    <div class="absolute inset-0">
+                        <!-- Rejilla de fondo -->
+                        <div class="absolute inset-0" style="background-image: linear-gradient(rgba(16, 185, 129, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(16, 185, 129, 0.1) 1px, transparent 1px); background-size: 20px 20px;"></div>
+
+                        <!-- Tarjetas de productos flotantes -->
+                        <div class="absolute w-24 h-36 bg-gray-800/50 border border-green-500/20 rounded-lg shadow-lg transform" style="top: 15%; left: 15%; animation: float 6s ease-in-out infinite;">
+                            <div class="h-3/5 bg-gradient-to-b from-green-500/20 to-green-600/10 rounded-t-lg"></div>
+                            <div class="p-2">
+                                <div class="w-4/5 h-2 bg-white/30 rounded-full mb-1"></div>
+                                <div class="w-3/5 h-2 bg-white/20 rounded-full"></div>
+                            </div>
+                        </div>
+
+                        <div class="absolute w-24 h-36 bg-gray-800/50 border border-green-500/20 rounded-lg shadow-lg transform" style="top: 25%; left: 55%; animation: float 6s ease-in-out 2s infinite;">
+                            <div class="h-3/5 bg-gradient-to-b from-green-500/20 to-green-600/10 rounded-t-lg"></div>
+                            <div class="p-2">
+                                <div class="w-4/5 h-2 bg-white/30 rounded-full mb-1"></div>
+                                <div class="w-3/5 h-2 bg-white/20 rounded-full"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <h3 class="text-xl font-bold mb-3 text-center">PymeCommerce</h3>
-                <p class="text-gray-400 mb-4">Plataforma de comercio electrónico diseñada específicamente para PyMEs chilenas, con todas las integraciones locales necesarias.</p>
-                <a href="{{ route('products') }}" class="block text-center text-blue-400 hover:text-blue-300">
-                    Conocer más <i class="fas fa-arrow-right ml-1"></i>
-                </a>
+
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-3">PymeCommerce</h3>
+                    <p class="text-gray-400 mb-4">Plataforma de e-commerce para PyMEs con integraciones locales, análisis de datos y experiencia de compra optimizada.</p>
+                    <a href="{{ route('products') }}" class="inline-flex items-center text-green-400 hover:text-green-300 font-medium">
+                        Conocer más <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
             </div>
 
-            <div class="bg-gray-900 rounded-xl p-6 shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2">
-                <div class="flex justify-center mb-6 relative">
-                    <div class="absolute inset-0 bg-purple-500 opacity-20 rounded-full blur-3xl"></div>
-                    <img src="{{ asset('images/insightmind.svg') }}" alt="InsightMind" class="h-48 relative z-10 floating" style="animation-delay: 1s;">
+            <!-- InsightMind -->
+            <div class="bg-gray-900 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2">
+                <div class="h-64 relative">
+                    <!-- Efecto de resplandor -->
+                    <div class="absolute inset-0 bg-gradient-to-br from-purple-900 to-purple-800"></div>
+                    <div class="product-glow insight-glow absolute" style="width: 80%; height: 80%; top: 10%; left: 10%; border-radius: 50%; filter: blur(60px); opacity: 0.6; background: radial-gradient(circle, rgba(168, 85, 247, 0.8) 0%, rgba(0, 0, 0, 0) 70%); animation: pulse-glow 6s ease-in-out infinite;"></div>
+
+                    <!-- Animación de analítica -->
+                    <div class="absolute inset-0">
+                        <!-- Rejilla de fondo -->
+                        <div class="absolute inset-0" style="background-image: linear-gradient(rgba(168, 85, 247, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(168, 85, 247, 0.1) 1px, transparent 1px); background-size: 20px 20px;"></div>
+
+                        <!-- Contenedor de gráfico -->
+                        <div class="absolute w-4/5 h-3/5 top-1/5 left-1/10 border-b border-l border-purple-500/30">
+                            <!-- Barras de gráfico -->
+                            <div class="absolute bottom-0 left-1/5 w-6 rounded-t-md bg-purple-500/50 transform origin-bottom" style="height: 60%; animation: grow-bar 8s ease-in-out infinite;"></div>
+                            <div class="absolute bottom-0 left-2/4 w-6 rounded-t-md bg-purple-500/50 transform origin-bottom" style="height: 40%; animation: grow-bar 8s ease-in-out 1s infinite;"></div>
+                            <div class="absolute bottom-0 left-3/4 w-6 rounded-t-md bg-purple-500/50 transform origin-bottom" style="height: 75%; animation: grow-bar 8s ease-in-out 2s infinite;"></div>
+                        </div>
+
+                        <!-- Etiquetas de datos -->
+                        <div class="absolute top-1/4 right-1/4 px-2 py-1 bg-purple-500/70 text-white text-xs rounded-full opacity-0" style="animation: fade-in 8s ease-in-out infinite;">
+                            +45%
+                        </div>
+                    </div>
                 </div>
-                <h3 class="text-xl font-bold mb-3 text-center">InsightMind</h3>
-                <p class="text-gray-400 mb-4">Plataforma de análisis de datos impulsada por IA que transforma información compleja en insights accionables para tu negocio.</p>
-                <a href="{{ route('products') }}" class="block text-center text-blue-400 hover:text-blue-300">
-                    Conocer más <i class="fas fa-arrow-right ml-1"></i>
-                </a>
+
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-3">InsightMind</h3>
+                    <p class="text-gray-400 mb-4">Plataforma de análisis de datos que utiliza IA para transformar información compleja en insights accionables para tu negocio.</p>
+                    <a href="{{ route('products') }}" class="inline-flex items-center text-purple-400 hover:text-purple-300 font-medium">
+                        Conocer más <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
             </div>
         </div>
 
@@ -463,6 +535,40 @@
         </div>
     </div>
 </section>
+
+<style>
+    @keyframes fadeInOut {
+        0%, 100% { opacity: 0; transform: translateY(10px); }
+        20%, 80% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse-glow {
+        0%, 100% {
+            opacity: 0.6;
+            transform: scale(1);
+        }
+        50% {
+            opacity: 0.3;
+            transform: scale(1.2);
+        }
+    }
+
+    @keyframes grow-bar {
+        0% { transform: scaleY(0); }
+        20%, 80% { transform: scaleY(1); }
+        100% { transform: scaleY(0); }
+    }
+
+    @keyframes fade-in {
+        0%, 100% { opacity: 0; }
+        30%, 70% { opacity: 1; }
+    }
+
+    @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-15px); }
+    }
+</style>
 
 
 
