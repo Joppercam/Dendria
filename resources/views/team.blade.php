@@ -4,6 +4,7 @@
 
 @section('styles')
 <style>
+    /* Animaciones específicas para roles de equipo */
     .code-animation div {
         opacity: 0;
         animation: fadeIn 2.5s ease-in-out forwards;
@@ -165,7 +166,7 @@
     <div class="container mx-auto px-6">
         <div class="text-center">
             <h1 class="text-4xl md:text-5xl font-bold mb-6">Nuestro Equipo</h1>
-            <p class="text-xl text-gray-300 max-w-3xl mx-auto">Profesionales apasionados por la tecnología y la innovación</p>
+            <p class="text-xl text-gray-300 max-w-3xl mx-auto">Un grupo diverso de profesionales expertos en desarrollo de software, IA y diseño, trabajando juntos para crear soluciones innovadoras</p>
         </div>
     </div>
 </div>

@@ -7,10 +7,11 @@
                     DendrIA
                 </a>
             </div>
-            <div class="hidden md:flex space-x-10 items-center">
+            <div class="hidden md:flex space-x-8 items-center">
                 <a href="{{ route('services') }}" class="hover:text-blue-400 transition">Servicios</a>
                 <a href="{{ route('products') }}" class="hover:text-blue-400 transition">Productos</a>
                 <a href="{{ route('case-studies') }}" class="hover:text-blue-400 transition">Casos de Éxito</a>
+                <a href="{{ route('team') }}" class="hover:text-blue-400 transition">Equipo</a>
                 <a href="{{ route('contact') }}" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg transition">Contacto</a>
             </div>
             <div class="md:hidden">
