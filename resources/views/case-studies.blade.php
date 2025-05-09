@@ -2,26 +2,55 @@
 
 @section('title', 'Casos de Éxito - Proyectos de Desarrollo de Software')
 
-@section('hero')
-<!-- Hero Section -->
-<div class="container mx-auto px-6 py-16">
-    <div class="text-center">
-        <h1 class="text-4xl md:text-5xl font-bold mb-6">Casos de Éxito</h1>
-        <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-            Proyectos transformadores que han ayudado a nuestros clientes a crecer y destacarse en su industria.
-        </p>
-    </div>
-</div>
+@section('styles')
+<style>
+    /* Animación del encabezado igual que productos y servicios */
+    .cases-header {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .cases-header::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, rgba(0, 0, 0, 0) 60%);
+        animation: rotate 20s linear infinite;
+        z-index: 0;
+    }
+
+    @keyframes rotate {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+</style>
 @endsection
 
 @section('content')
+<div class="gradient-bg py-12 cases-header">
+    <div class="container mx-auto px-6">
+        <div class="text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4 relative z-10">Casos de Éxito</h1>
+            <p class="text-xl text-gray-300 max-w-3xl mx-auto relative z-10 mb-8">
+                Proyectos transformadores que han ayudado a nuestros clientes a crecer y destacarse en su industria.
+            </p>
+        </div>
+    </div>
+</div>
 <!-- Caso de Éxito Principal: ConocIA -->
 <section class="py-16 bg-gray-900">
     <div class="container mx-auto px-6">
-        <div class="bg-gray-800 rounded-xl overflow-hidden shadow-xl">
+        <div class="bg-gray-800 rounded-xl overflow-hidden shadow-xl border border-blue-500/20 hover:border-blue-500/30 transition-all duration-500">
             <div class="md:flex">
                 <!-- Imagen del Proyecto - Visualización Dinámica -->
-                <div class="md:w-1/2 h-80 md:h-auto relative overflow-hidden">
+                <div class="md:w-1/2 h-96 md:h-auto relative overflow-hidden">
                     <!-- Imagen de fondo dinámica específica para ConocIA -->
                     <div class="absolute inset-0">
                         <div class="w-full h-full relative overflow-hidden">
@@ -33,21 +62,35 @@
                             >
 
                             <!-- Capa de color para mejorar contraste -->
-                            <div class="absolute inset-0 bg-gradient-to-br from-blue-900/50 via-blue-800/30 to-blue-900/50"></div>
+                            <div class="absolute inset-0 bg-gradient-to-br from-blue-900/70 via-blue-800/40 to-blue-900/70"></div>
 
                             <!-- Efecto de brillo central -->
-                            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-40 h-40 bg-blue-500 opacity-30 rounded-full blur-3xl animate-pulse"></div>
+                            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-blue-500 opacity-30 rounded-full blur-3xl animate-pulse"></div>
+
+                            <!-- Elementos decorativos -->
+                            <div class="absolute top-0 left-0 w-full h-full">
+                                <div class="absolute top-1/4 left-1/4 w-2 h-2 bg-blue-400 rounded-full animate-ping" style="animation-duration: 3s;"></div>
+                                <div class="absolute top-3/4 left-2/3 w-2 h-2 bg-blue-300 rounded-full animate-ping" style="animation-duration: 2.5s;"></div>
+                                <div class="absolute top-1/3 left-3/4 w-2 h-2 bg-cyan-400 rounded-full animate-ping" style="animation-duration: 4s;"></div>
+                                <div class="absolute top-2/3 left-1/3 w-2 h-2 bg-blue-200 rounded-full animate-ping" style="animation-duration: 3.5s;"></div>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Logo generado con CSS con efecto de iluminación -->
+                    <!-- Logo con Badge de "Caso Destacado" -->
                     <div class="absolute inset-0 flex flex-col items-center justify-center z-10 p-8">
+                        <div class="absolute top-4 left-4">
+                            <span class="bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg flex items-center">
+                                <i class="fas fa-star mr-1"></i> CASO DESTACADO
+                            </span>
+                        </div>
+
                         <div class="relative mb-4">
                             <div class="absolute inset-0 -m-4 bg-blue-500 opacity-20 blur-3xl rounded-full animate-pulse"></div>
 
-                            <!-- Logo text de ConocIA -->
+                            <!-- Logo text de ConocIA con efecto de neón -->
                             <div class="relative z-10 floating">
-                                <h2 class="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-cyan-200 tracking-tight">
+                                <h2 class="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-cyan-200 tracking-tight shadow-text">
                                     Conoc<span class="text-white">IA</span>
                                 </h2>
                             </div>
@@ -55,36 +98,73 @@
 
                         <!-- Texto descriptivo con efecto de brillo -->
                         <div class="text-center relative mt-4">
-                            <div class="text-lg md:text-xl font-medium text-white mb-2 glass-effect px-4 py-2 rounded-lg bg-blue-900/30 backdrop-blur-sm border border-blue-500/20">
+                            <div class="text-lg md:text-xl font-medium text-white mb-2 glass-effect px-4 py-2 rounded-lg bg-blue-900/40 backdrop-blur-sm border border-blue-500/30 shadow-lg">
                                 Portal IA de Noticias
                             </div>
-                            <div class="text-sm text-blue-100/80 max-w-xs">
+                            <div class="text-sm text-blue-100/90 max-w-xs mt-3 bg-blue-900/20 backdrop-blur-sm p-2 rounded-lg">
                                 "El futuro del conocimiento es artificialmente inteligente"
                             </div>
                         </div>
+
+                        <!-- Decoración inferior -->
+                        <div class="absolute bottom-8 left-0 right-0 flex justify-center">
+                            <div class="h-1 w-32 bg-gradient-to-r from-transparent via-blue-500/50 to-transparent rounded-full"></div>
+                        </div>
                     </div>
                 </div>
-                
+
                 <!-- Información del Proyecto -->
-                <div class="md:w-1/2 p-8 md:p-10">
-                    <div class="mb-6">
-                        <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blue-400 bg-blue-900 last:mr-0 mr-1">
-                            Portal de Noticias
-                        </span>
-                        <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-green-400 bg-green-900 last:mr-0 mr-1">
-                            Inteligencia Artificial
-                        </span>
+                <div class="md:w-1/2 p-8 md:p-10 relative">
+                    <!-- Fondo sutil -->
+                    <div class="absolute inset-0 bg-gradient-to-br from-transparent to-blue-900/5"></div>
+
+                    <div class="relative z-10">
+                        <!-- Badges en diseño coherente -->
+                        <div class="mb-6 flex flex-wrap gap-2">
+                            <span class="text-xs font-semibold inline-block py-1 px-3 uppercase rounded-full text-blue-300 bg-blue-900/80 border border-blue-700/50">
+                                <i class="fas fa-newspaper mr-1"></i> Portal de Noticias
+                            </span>
+                            <span class="text-xs font-semibold inline-block py-1 px-3 uppercase rounded-full text-blue-300 bg-blue-900/80 border border-blue-700/50">
+                                <i class="fas fa-brain mr-1"></i> Inteligencia Artificial
+                            </span>
+                            <span class="text-xs font-semibold inline-block py-1 px-3 uppercase rounded-full text-blue-300 bg-blue-900/80 border border-blue-700/50">
+                                <i class="fas fa-podcast mr-1"></i> Podcasts Automatizados
+                            </span>
+                        </div>
+
+                        <h2 class="text-3xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-white">ConocIA</h2>
+                        <p class="text-gray-300 mb-6 text-lg">
+                            Portal especializado en noticias, investigaciones y análisis sobre inteligencia artificial, tecnología e innovación con generación automática de podcasts mediante IA.
+                        </p>
+
+                        <!-- Resultados destacados -->
+                        <div class="bg-gray-900/50 rounded-lg p-4 mb-6 border border-blue-500/10">
+                            <h4 class="font-bold text-blue-300 mb-2 text-sm uppercase">Resultados destacados</h4>
+                            <div class="grid grid-cols-3 gap-2 text-center">
+                                <div>
+                                    <div class="text-2xl font-bold text-blue-400">+25K</div>
+                                    <div class="text-xs text-gray-400">Lectores mensuales</div>
+                                </div>
+                                <div>
+                                    <div class="text-2xl font-bold text-blue-400">15min</div>
+                                    <div class="text-xs text-gray-400">Tiempo promedio</div>
+                                </div>
+                                <div>
+                                    <div class="text-2xl font-bold text-blue-400">+5K</div>
+                                    <div class="text-xs text-gray-400">Suscriptores</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-wrap gap-3">
+                            <a href="https://www.conocia.cl" target="_blank" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg shadow-md transition transform hover:-translate-y-1 hover:shadow-lg border border-blue-500/50 flex items-center">
+                                <i class="fas fa-external-link-alt mr-2"></i> Visitar sitio
+                            </a>
+                            <a href="#conocia-details" class="inline-block text-blue-300 hover:text-blue-200 font-bold py-2 px-6 transition border border-blue-500/30 rounded-lg hover:bg-blue-900/30 flex items-center">
+                                <i class="fas fa-info-circle mr-2"></i> Ver detalles
+                            </a>
+                        </div>
                     </div>
-                    <h2 class="text-3xl font-bold mb-4">ConocIA</h2>
-                    <p class="text-gray-300 mb-6">
-                        Portal especializado en noticias, investigaciones y análisis sobre inteligencia artificial, tecnología e innovación.
-                    </p>
-                    <a href="https://www.conocia.cl" target="_blank" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-lg transition mr-4">
-                        Visitar sitio
-                    </a>
-                    <a href="#conocia-details" class="inline-block text-blue-400 hover:text-blue-300 font-bold py-2 transition">
-                        Ver detalles
-                    </a>
                 </div>
             </div>
         </div>
@@ -92,132 +172,353 @@
 </section>
 
 <!-- Detalles del Caso ConocIA -->
-<section id="conocia-details" class="py-16 bg-gray-800">
-    <div class="container mx-auto px-6">
-        <div class="mb-12 text-center">
-            <h2 class="text-3xl font-bold mb-4">ConocIA - Portal de Noticias de IA</h2>
+<section id="conocia-details" class="py-20 bg-gray-800 relative">
+    <!-- Decoración de fondo - ondas sutiles -->
+    <div class="absolute top-0 left-0 right-0 h-20 bg-gradient-to-b from-gray-900 to-transparent"></div>
+    <div class="absolute top-0 inset-x-0 h-40 bg-opacity-50">
+        <div class="w-full h-full" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjUwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIiBwYXR0ZXJuVHJhbnNmb3JtPSJyb3RhdGUoMCkiPjxwYXRoIGQ9Ik0wIDI1IGQ1MC0yNSBkNTAgMjUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzNiODJmNiIgc3Ryb2tlLXdpZHRoPSIwLjUiIHN0cm9rZS1vcGFjaXR5PSIwLjA1Ii8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI3BhdHRlcm4pIiAvPjwvc3ZnPg==');"></div>
+    </div>
+
+    <div class="container mx-auto px-6 relative z-10">
+        <div class="mb-16 text-center relative">
+            <!-- Elemento decorativo sobre el título -->
+            <div class="w-16 h-1 bg-gradient-to-r from-blue-500 to-cyan-400 mx-auto mb-6 rounded-full"></div>
+
+            <h2 class="text-3xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-white">ConocIA - Portal de Noticias de IA</h2>
             <p class="text-xl text-gray-300 max-w-3xl mx-auto">
                 Una plataforma completa de contenido especializado en inteligencia artificial
             </p>
-        </div>
-        
-        <!-- Desafío y Solución -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
-            <div>
-                <h3 class="text-2xl font-bold mb-6 flex items-center">
-                    <div class="w-12 h-12 rounded-full bg-blue-900 flex items-center justify-center mr-4">
-                        <i class="fas fa-mountain text-blue-400"></i>
-                    </div>
-                    El Desafío
-                </h3>
-                <div class="space-y-4 text-gray-300">
-                    <p>
-                        El cliente necesitaba una plataforma especializada para difundir contenido de alta calidad sobre inteligencia artificial, capaz de presentar diversos formatos (texto, audio, video) y ofrecer una experiencia única a los lectores.
-                    </p>
-                    <p>
-                        El desafío principal era crear un portal de noticias con alto rendimiento que integrara tecnologías de IA no solo como tema, sino como parte de la generación de contenido, especialmente para la producción de podcasts diarios.
-                    </p>
-                    <p>
-                        Adicionalmente, se requería un sistema de categorización inteligente y un diseño que reflejara la naturaleza tecnológica e innovadora del contenido.
-                    </p>
-                </div>
-            </div>
-            
-            <div>
-                <h3 class="text-2xl font-bold mb-6 flex items-center">
-                    <div class="w-12 h-12 rounded-full bg-green-900 flex items-center justify-center mr-4">
-                        <i class="fas fa-lightbulb text-green-400"></i>
-                    </div>
-                    La Solución
-                </h3>
-                <div class="space-y-4 text-gray-300">
-                    <p>
-                        Desarrollamos un portal completo utilizando tecnologías modernas que permitió la gestión eficiente de contenidos en múltiples formatos, con un enfoque especial en la experiencia del usuario.
-                    </p>
-                    <p>
-                        Implementamos un sistema de generación automatizada de podcasts utilizando tecnologías de IA para transformar artículos escritos en audio de alta calidad, con un reproductor personalizado que ofrece controles avanzados.
-                    </p>
-                    <p>
-                        Creamos un diseño responsivo con una paleta de colores azules y gradientes que refleja la identidad de la marca, optimizado para diferentes dispositivos y velocidades de conexión.
-                    </p>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Características Destacadas con Fondo de Gradiente -->
-        <div class="mb-16 relative">
-            <!-- Fondo de gradiente en lugar de imagen -->
-            <div class="absolute inset-0 bg-gradient-to-br from-blue-900/10 via-transparent to-blue-800/10"></div>
 
-            <div class="relative z-10">
-                <h3 class="text-2xl font-bold mb-10 text-center">Características Destacadas</h3>
+            <!-- Decoración bajo el subtítulo -->
+            <div class="w-20 h-1 bg-gradient-to-r from-transparent via-blue-500/50 to-transparent mx-auto mt-6 rounded-full"></div>
+        </div>
+
+        <!-- Desafío y Solución -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20">
+            <div class="bg-gray-900/80 p-8 rounded-xl border border-blue-500/10 shadow-lg transform transition-all duration-300 hover:shadow-blue-900/5 hover:border-blue-500/20">
+                <h3 class="text-2xl font-bold mb-6 flex items-center">
+                    <div class="w-14 h-14 rounded-full bg-blue-900 flex items-center justify-center mr-4 shadow-inner shadow-blue-500/10 border border-blue-800">
+                        <i class="fas fa-mountain text-blue-400 text-xl"></i>
+                    </div>
+                    <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-white">El Desafío</span>
+                </h3>
+                <div class="space-y-5 text-gray-300 ml-16">
+                    <p class="flex items-start">
+                        <span class="inline-block w-5 h-5 rounded-full bg-blue-900 flex-shrink-0 flex items-center justify-center mr-3 mt-1 border border-blue-700">
+                            <i class="fas fa-check text-blue-400 text-xs"></i>
+                        </span>
+                        <span>Crear una plataforma especializada para difundir contenido de alta calidad sobre inteligencia artificial, presentando diversos formatos (texto, audio, video).</span>
+                    </p>
+                    <p class="flex items-start">
+                        <span class="inline-block w-5 h-5 rounded-full bg-blue-900 flex-shrink-0 flex items-center justify-center mr-3 mt-1 border border-blue-700">
+                            <i class="fas fa-check text-blue-400 text-xs"></i>
+                        </span>
+                        <span>Desarrollar un portal de noticias con alto rendimiento que integrara tecnologías de IA para la generación de contenido, especialmente producción automática de podcasts diarios.</span>
+                    </p>
+                    <p class="flex items-start">
+                        <span class="inline-block w-5 h-5 rounded-full bg-blue-900 flex-shrink-0 flex items-center justify-center mr-3 mt-1 border border-blue-700">
+                            <i class="fas fa-check text-blue-400 text-xs"></i>
+                        </span>
+                        <span>Implementar un sistema de categorización inteligente y un diseño que reflejara la naturaleza tecnológica e innovadora del contenido.</span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="bg-gray-900/80 p-8 rounded-xl border border-blue-500/10 shadow-lg transform transition-all duration-300 hover:shadow-blue-900/5 hover:border-blue-500/20">
+                <h3 class="text-2xl font-bold mb-6 flex items-center">
+                    <div class="w-14 h-14 rounded-full bg-blue-900 flex items-center justify-center mr-4 shadow-inner shadow-blue-500/10 border border-blue-800">
+                        <i class="fas fa-lightbulb text-blue-400 text-xl"></i>
+                    </div>
+                    <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-white">La Solución</span>
+                </h3>
+                <div class="space-y-5 text-gray-300 ml-16">
+                    <p class="flex items-start">
+                        <span class="inline-block w-5 h-5 rounded-full bg-blue-900 flex-shrink-0 flex items-center justify-center mr-3 mt-1 border border-blue-700">
+                            <i class="fas fa-check text-blue-400 text-xs"></i>
+                        </span>
+                        <span>Desarrollo de un CMS personalizado basado en Laravel con un enfoque en la experiencia del usuario y optimizado para SEO.</span>
+                    </p>
+                    <p class="flex items-start">
+                        <span class="inline-block w-5 h-5 rounded-full bg-blue-900 flex-shrink-0 flex items-center justify-center mr-3 mt-1 border border-blue-700">
+                            <i class="fas fa-check text-blue-400 text-xs"></i>
+                        </span>
+                        <span>Implementación de un sistema de generación automatizada de podcasts utilizando tecnologías de IA para transformar artículos escritos en audio de alta calidad.</span>
+                    </p>
+                    <p class="flex items-start">
+                        <span class="inline-block w-5 h-5 rounded-full bg-blue-900 flex-shrink-0 flex items-center justify-center mr-3 mt-1 border border-blue-700">
+                            <i class="fas fa-check text-blue-400 text-xs"></i>
+                        </span>
+                        <span>Diseño responsive con paleta de azules y gradientes que reflejan la identidad de marca, optimizado para diferentes dispositivos y velocidades de conexión.</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Características Destacadas con mejor estructura y diseño -->
+        <div class="mb-20 relative">
+            <!-- Fondo de gradiente mejorado -->
+            <div class="absolute inset-0 bg-gradient-to-br from-blue-900/10 via-transparent to-blue-800/10 rounded-xl"></div>
+
+            <div class="relative z-10 p-8 border border-blue-500/10 rounded-xl shadow-lg bg-gray-900/30 backdrop-blur-sm">
+                <div class="text-center mb-12">
+                    <h3 class="text-2xl font-bold mb-4 inline-block relative">
+                        <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-white">Características Destacadas</span>
+                        <div class="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-blue-500 to-transparent"></div>
+                    </h3>
+                    <p class="text-gray-400 max-w-2xl mx-auto">Implementamos funcionalidades innovadoras que hacen de ConocIA una plataforma única en su categoría</p>
+                </div>
+
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="bg-gray-900/90 backdrop-blur-sm p-6 rounded-xl hover:shadow-lg hover:shadow-blue-900/20 transition transform hover:-translate-y-1 border border-blue-500/10">
-                        <div class="w-14 h-14 bg-gradient-to-br from-blue-600 to-blue-900 rounded-xl flex items-center justify-center mb-6 relative overflow-hidden">
+                    <div class="bg-gray-800 p-6 rounded-xl hover:shadow-lg hover:shadow-blue-900/10 transition transform hover:-translate-y-1 border border-blue-500/20 flex flex-col h-full">
+                        <div class="w-16 h-16 bg-gradient-to-br from-blue-600 to-blue-900 rounded-2xl flex items-center justify-center mb-6 relative overflow-hidden shadow-lg mx-auto">
                             <div class="absolute inset-0 bg-blue-500 opacity-20 animate-pulse"></div>
                             <i class="fas fa-robot text-2xl text-white"></i>
                         </div>
-                        <h4 class="text-xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-300">Podcast por IA</h4>
-                        <p class="text-gray-400">
+                        <h4 class="text-xl font-bold mb-4 text-blue-300 text-center">Podcast por IA</h4>
+                        <p class="text-gray-400 text-center flex-grow">
                             Sistema de generación automatizada de podcasts a partir de artículos escritos, con voces naturales y controles de reproducción avanzados.
                         </p>
+                        <div class="mt-4 pt-4 border-t border-blue-900/30 text-center">
+                            <span class="text-xs font-semibold inline-block py-1 px-2 rounded-full text-blue-400 bg-blue-900/80 border border-blue-800/80">
+                                <i class="fas fa-code mr-1"></i> Text-to-Speech
+                            </span>
+                        </div>
                     </div>
 
-                    <div class="bg-gray-900/90 backdrop-blur-sm p-6 rounded-xl hover:shadow-lg hover:shadow-blue-900/20 transition transform hover:-translate-y-1 border border-blue-500/10">
-                        <div class="w-14 h-14 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-xl flex items-center justify-center mb-6 relative overflow-hidden">
+                    <div class="bg-gray-800 p-6 rounded-xl hover:shadow-lg hover:shadow-blue-900/10 transition transform hover:-translate-y-1 border border-blue-500/20 flex flex-col h-full">
+                        <div class="w-16 h-16 bg-gradient-to-br from-blue-600 to-blue-900 rounded-2xl flex items-center justify-center mb-6 relative overflow-hidden shadow-lg mx-auto">
                             <div class="absolute inset-0 bg-blue-500 opacity-20 animate-pulse" style="animation-delay: 0.5s"></div>
                             <i class="fas fa-newspaper text-2xl text-white"></i>
                         </div>
-                        <h4 class="text-xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-300">CMS Especializado</h4>
-                        <p class="text-gray-400">
+                        <h4 class="text-xl font-bold mb-4 text-blue-300 text-center">CMS Especializado</h4>
+                        <p class="text-gray-400 text-center flex-grow">
                             Sistema de gestión de contenido personalizado para diferentes formatos, con categorización avanzada y opciones de personalización.
                         </p>
+                        <div class="mt-4 pt-4 border-t border-blue-900/30 text-center">
+                            <span class="text-xs font-semibold inline-block py-1 px-2 rounded-full text-blue-400 bg-blue-900/80 border border-blue-800/80">
+                                <i class="fas fa-database mr-1"></i> Laravel
+                            </span>
+                        </div>
                     </div>
 
-                    <div class="bg-gray-900/90 backdrop-blur-sm p-6 rounded-xl hover:shadow-lg hover:shadow-blue-900/20 transition transform hover:-translate-y-1 border border-blue-500/10">
-                        <div class="w-14 h-14 bg-gradient-to-br from-cyan-600 to-blue-600 rounded-xl flex items-center justify-center mb-6 relative overflow-hidden">
+                    <div class="bg-gray-800 p-6 rounded-xl hover:shadow-lg hover:shadow-blue-900/10 transition transform hover:-translate-y-1 border border-blue-500/20 flex flex-col h-full">
+                        <div class="w-16 h-16 bg-gradient-to-br from-blue-600 to-blue-900 rounded-2xl flex items-center justify-center mb-6 relative overflow-hidden shadow-lg mx-auto">
                             <div class="absolute inset-0 bg-blue-500 opacity-20 animate-pulse" style="animation-delay: 1s"></div>
                             <i class="fas fa-envelope text-2xl text-white"></i>
                         </div>
-                        <h4 class="text-xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-300">Newsletter Personalizable</h4>
-                        <p class="text-gray-400">
+                        <h4 class="text-xl font-bold mb-4 text-blue-300 text-center">Newsletter Personalizable</h4>
+                        <p class="text-gray-400 text-center flex-grow">
                             Sistema de suscripción con segmentación por categorías, permitiendo a los lectores recibir solo el contenido que les interesa.
                         </p>
+                        <div class="mt-4 pt-4 border-t border-blue-900/30 text-center">
+                            <span class="text-xs font-semibold inline-block py-1 px-2 rounded-full text-blue-400 bg-blue-900/80 border border-blue-800/80">
+                                <i class="fas fa-envelope-open mr-1"></i> Personalización
+                            </span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        
-        <!-- Resultados -->
-        <div class="bg-gray-900 p-8 md:p-10 rounded-xl">
-            <h3 class="text-2xl font-bold mb-8 text-center">Resultados</h3>
-            
-            <!-- Visualización dinámica de resultados -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-                <div class="text-center relative">
-                    <div class="absolute inset-0 bg-blue-500 opacity-5 rounded-full blur-2xl animate-pulse" style="animation-delay: 0s"></div>
-                    <div class="text-4xl font-bold text-blue-400 mb-2 relative z-10">+25K</div>
-                    <p class="text-gray-400 relative z-10">Lectores mensuales</p>
+
+        <!-- Tecnologías Utilizadas - Nueva sección -->
+        <div class="mb-20">
+            <h3 class="text-2xl font-bold mb-8 text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-white">Tecnologías Utilizadas</h3>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                <div class="bg-gray-900 rounded-lg p-4 border border-blue-500/10 flex flex-col items-center hover:border-blue-500/30 transition-all duration-300">
+                    <i class="fab fa-laravel text-3xl text-blue-500 mb-2"></i>
+                    <span class="text-sm text-gray-300">Laravel</span>
                 </div>
-                <div class="text-center relative">
-                    <div class="absolute inset-0 bg-blue-500 opacity-5 rounded-full blur-2xl animate-pulse" style="animation-delay: 1s"></div>
-                    <div class="text-4xl font-bold text-blue-400 mb-2 relative z-10">15min</div>
-                    <p class="text-gray-400 relative z-10">Tiempo promedio de lectura</p>
+                <div class="bg-gray-900 rounded-lg p-4 border border-blue-500/10 flex flex-col items-center hover:border-blue-500/30 transition-all duration-300">
+                    <i class="fab fa-vuejs text-3xl text-blue-500 mb-2"></i>
+                    <span class="text-sm text-gray-300">Vue.js</span>
                 </div>
-                <div class="text-center relative">
-                    <div class="absolute inset-0 bg-blue-500 opacity-5 rounded-full blur-2xl animate-pulse" style="animation-delay: 2s"></div>
-                    <div class="text-4xl font-bold text-blue-400 mb-2 relative z-10">+5K</div>
-                    <p class="text-gray-400 relative z-10">Suscriptores al newsletter</p>
+                <div class="bg-gray-900 rounded-lg p-4 border border-blue-500/10 flex flex-col items-center hover:border-blue-500/30 transition-all duration-300">
+                    <i class="fas fa-database text-3xl text-blue-500 mb-2"></i>
+                    <span class="text-sm text-gray-300">MySQL</span>
+                </div>
+                <div class="bg-gray-900 rounded-lg p-4 border border-blue-500/10 flex flex-col items-center hover:border-blue-500/30 transition-all duration-300">
+                    <i class="fas fa-brain text-3xl text-blue-500 mb-2"></i>
+                    <span class="text-sm text-gray-300">AI API</span>
+                </div>
+                <div class="bg-gray-900 rounded-lg p-4 border border-blue-500/10 flex flex-col items-center hover:border-blue-500/30 transition-all duration-300">
+                    <i class="fas fa-server text-3xl text-blue-500 mb-2"></i>
+                    <span class="text-sm text-gray-300">AWS</span>
+                </div>
+                <div class="bg-gray-900 rounded-lg p-4 border border-blue-500/10 flex flex-col items-center hover:border-blue-500/30 transition-all duration-300">
+                    <i class="fab fa-css3-alt text-3xl text-blue-500 mb-2"></i>
+                    <span class="text-sm text-gray-300">Tailwind CSS</span>
                 </div>
             </div>
-            <div class="text-gray-300">
-                <p class="text-center mb-6">
-                    ConocIA se ha posicionado como un referente en el ámbito de la información sobre inteligencia artificial en español, atrayendo a un público profesional y especializado.
+        </div>
+
+        <!-- Resultados con mejor visualización -->
+        <div class="bg-gradient-to-br from-gray-900 to-blue-900/20 p-8 md:p-10 rounded-xl border border-blue-500/20 shadow-lg">
+            <div class="text-center mb-12">
+                <h3 class="text-2xl font-bold mb-4 inline-block relative">
+                    <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-white">Resultados e Impacto</span>
+                    <div class="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-blue-500 to-transparent"></div>
+                </h3>
+                <p class="text-gray-300 max-w-2xl mx-auto">Un vistazo a los resultados obtenidos después de 6 meses del lanzamiento</p>
+            </div>
+
+            <!-- Visualización dinámica de resultados -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                <div class="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 text-center relative border border-blue-500/10 hover:border-blue-500/30 transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="absolute inset-0 bg-blue-500 opacity-5 rounded-2xl blur-xl animate-pulse" style="animation-delay: 0s"></div>
+                    <div class="relative z-10">
+                        <i class="fas fa-users text-blue-400 text-3xl mb-4"></i>
+                        <div class="text-4xl font-bold text-blue-300 mb-2">+25K</div>
+                        <p class="text-gray-400">Lectores mensuales activos</p>
+                        <div class="mt-3 text-sm">
+                            <span class="text-green-400"><i class="fas fa-arrow-up"></i> 50%</span> más que el objetivo
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 text-center relative border border-blue-500/10 hover:border-blue-500/30 transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="absolute inset-0 bg-blue-500 opacity-5 rounded-2xl blur-xl animate-pulse" style="animation-delay: 1s"></div>
+                    <div class="relative z-10">
+                        <i class="fas fa-clock text-blue-400 text-3xl mb-4"></i>
+                        <div class="text-4xl font-bold text-blue-300 mb-2">15min</div>
+                        <p class="text-gray-400">Tiempo promedio de lectura</p>
+                        <div class="mt-3 text-sm">
+                            <span class="text-green-400"><i class="fas fa-arrow-up"></i> 3x</span> el promedio del sector
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 text-center relative border border-blue-500/10 hover:border-blue-500/30 transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="absolute inset-0 bg-blue-500 opacity-5 rounded-2xl blur-xl animate-pulse" style="animation-delay: 2s"></div>
+                    <div class="relative z-10">
+                        <i class="fas fa-envelope-open text-blue-400 text-3xl mb-4"></i>
+                        <div class="text-4xl font-bold text-blue-300 mb-2">+5K</div>
+                        <p class="text-gray-400">Suscriptores al newsletter</p>
+                        <div class="mt-3 text-sm">
+                            <span class="text-green-400"><i class="fas fa-arrow-up"></i> 25%</span> tasa de conversión
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Conclusión y llamado a la acción -->
+            <div class="text-center max-w-3xl mx-auto">
+                <p class="text-gray-300 mb-8 text-lg">
+                    ConocIA se ha posicionado como un referente en el ámbito de la información sobre inteligencia artificial en español, atrayendo a un público profesional y especializado gracias a su contenido de alta calidad y su innovadora propuesta de consumo multimedia.
                 </p>
-                <div class="flex justify-center">
-                    <a href="https://www.conocia.cl" target="_blank" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg transition">
-                        Visitar ConocIA
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="https://www.conocia.cl" target="_blank" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-lg shadow-md transition transform hover:-translate-y-1 hover:shadow-lg border border-blue-500/50 flex items-center">
+                        <i class="fas fa-external-link-alt mr-2"></i> Visitar sitio
                     </a>
+                    <a href="#" class="inline-block bg-transparent hover:bg-blue-900/30 text-blue-300 font-bold py-3 px-8 rounded-lg transition border border-blue-500/30 flex items-center">
+                        <i class="fas fa-arrow-left mr-2"></i> Explorar más casos
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Más casos de éxito en formato compacto -->
+<section class="py-20 bg-gray-900">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl font-bold mb-4">Más Casos de Éxito</h2>
+            <p class="text-gray-300 max-w-3xl mx-auto">Descubre otros proyectos innovadores que hemos desarrollado</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- PymeCommerce -->
+            <div class="bg-gray-800 rounded-xl overflow-hidden shadow-lg border border-blue-500/10 transform transition duration-300 hover:-translate-y-2 hover:shadow-blue-500/5 group">
+                <div class="h-48 bg-gradient-to-br from-blue-900 to-gray-900 relative overflow-hidden">
+                    <!-- Elementos gráficos de eCommerce -->
+                    <div class="absolute inset-0 bg-pattern-grid opacity-10"></div>
+                    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-blue-500 opacity-20 rounded-full blur-xl group-hover:w-40 transition-all duration-700"></div>
+
+                    <!-- Logo -->
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="text-center">
+                            <h3 class="text-2xl font-bold text-white mb-2">Pyme<span class="text-blue-400">Commerce</span></h3>
+                            <span class="inline-block px-3 py-1 text-sm bg-blue-600/80 text-white rounded-full">Plataforma eCommerce</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-6">
+                    <p class="text-gray-300 mb-4">Plataforma de comercio electrónico con integración nativa a sistemas de pago chilenos, diseñada específicamente para pequeñas y medianas empresas.</p>
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blue-400 bg-blue-900 mr-2">
+                                Laravel
+                            </span>
+                            <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-green-400 bg-green-900">
+                                eCommerce
+                            </span>
+                        </div>
+                        <a href="#" class="text-blue-400 hover:text-blue-300 font-medium">Ver detalles <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- InsightMind -->
+            <div class="bg-gray-800 rounded-xl overflow-hidden shadow-lg border border-blue-500/10 transform transition duration-300 hover:-translate-y-2 hover:shadow-blue-500/5 group">
+                <div class="h-48 bg-gradient-to-br from-blue-900 to-gray-900 relative overflow-hidden">
+                    <!-- Elementos gráficos de dashboard analítico -->
+                    <div class="absolute inset-0 bg-pattern-dots opacity-10"></div>
+                    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-blue-500 opacity-20 rounded-full blur-xl group-hover:w-40 transition-all duration-700"></div>
+
+                    <!-- Logo -->
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="text-center">
+                            <h3 class="text-2xl font-bold text-white mb-2">Insight<span class="text-blue-400">Mind</span></h3>
+                            <span class="inline-block px-3 py-1 text-sm bg-blue-600/80 text-white rounded-full">Analítica Predictiva</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-6">
+                    <p class="text-gray-300 mb-4">Plataforma de análisis de datos impulsada por IA que transforma información compleja en insights accionables para la toma de decisiones estratégicas.</p>
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blue-400 bg-blue-900 mr-2">
+                                IA
+                            </span>
+                            <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-green-400 bg-green-900">
+                                BigData
+                            </span>
+                        </div>
+                        <a href="#" class="text-blue-400 hover:text-blue-300 font-medium">Ver detalles <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SecuriTech -->
+            <div class="bg-gray-800 rounded-xl overflow-hidden shadow-lg border border-blue-500/10 transform transition duration-300 hover:-translate-y-2 hover:shadow-blue-500/5 group">
+                <div class="h-48 bg-gradient-to-br from-blue-900 to-gray-900 relative overflow-hidden">
+                    <!-- Elementos gráficos de seguridad -->
+                    <div class="absolute inset-0 bg-pattern-circuit opacity-10"></div>
+                    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-blue-500 opacity-20 rounded-full blur-xl group-hover:w-40 transition-all duration-700"></div>
+
+                    <!-- Logo -->
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="text-center">
+                            <h3 class="text-2xl font-bold text-white mb-2">Securi<span class="text-blue-400">Tech</span></h3>
+                            <span class="inline-block px-3 py-1 text-sm bg-blue-600/80 text-white rounded-full">Ciberseguridad</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-6">
+                    <p class="text-gray-300 mb-4">Sistema integral de monitoreo de seguridad para empresas que utiliza IA para detectar amenazas y vulnerabilidades en tiempo real.</p>
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blue-400 bg-blue-900 mr-2">
+                                Seguridad
+                            </span>
+                            <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-green-400 bg-green-900">
+                                API
+                            </span>
+                        </div>
+                        <a href="#" class="text-blue-400 hover:text-blue-300 font-medium">Ver detalles <i class="fas fa-arrow-right ml-1"></i></a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -231,9 +532,12 @@
         <p class="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
             Nuestro equipo está preparado para ayudarte a convertir tu idea en una solución tecnológica innovadora.
         </p>
-        <div class="flex justify-center">
+        <div class="flex justify-center space-x-4">
             <a href="{{ route('contact') }}" class="inline-block bg-white text-blue-600 font-bold py-3 px-8 rounded-lg shadow-lg transition transform hover:scale-105 hover:shadow-xl">
                 Iniciar proyecto
+            </a>
+            <a href="{{ route('services') }}" class="inline-block bg-transparent border border-white text-white font-bold py-3 px-8 rounded-lg transition hover:bg-white/10">
+                Ver servicios
             </a>
         </div>
     </div>
@@ -242,9 +546,120 @@
 
 @section('scripts')
 <script>
-    // Simple animation for floating elements
     document.addEventListener('DOMContentLoaded', function() {
-        // Already handled via CSS animations
+        // Añadir soporte para patrones de fondo sutiles
+        const patterns = [
+            'bg-pattern-grid',
+            'bg-pattern-dots',
+            'bg-pattern-circuit'
+        ];
+
+        // Crear los estilos CSS para los patrones
+        const styleEl = document.createElement('style');
+        styleEl.textContent = `
+            .bg-pattern-grid {
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cpath d='M1 1h18v18H1V1z' fill='none' stroke='%233b82f6' stroke-opacity='0.05' stroke-width='0.5'/%3E%3C/svg%3E");
+            }
+            .bg-pattern-dots {
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Ccircle cx='10' cy='10' r='1' fill='%233b82f6' fill-opacity='0.05'/%3E%3C/svg%3E");
+            }
+            .bg-pattern-circuit {
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cpath d='M0 20h40M20 0v40' stroke='%233b82f6' stroke-opacity='0.05' stroke-width='0.5' stroke-dasharray='2,2'/%3E%3Ccircle cx='20' cy='20' r='2' fill='none' stroke='%233b82f6' stroke-opacity='0.1' stroke-width='0.5'/%3E%3C/svg%3E");
+            }
+            .shadow-text {
+                text-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
+            }
+        `;
+        document.head.appendChild(styleEl);
+
+        // Efecto de scroll reveal para las secciones
+        const revealElements = document.querySelectorAll('.mb-16, .mb-20, .grid > div, .rounded-xl');
+
+        function revealOnScroll() {
+            const windowHeight = window.innerHeight;
+            const elementVisible = 150;
+
+            for (let i = 0; i < revealElements.length; i++) {
+                const element = revealElements[i];
+                const elementTop = element.getBoundingClientRect().top;
+
+                if (elementTop < windowHeight - elementVisible) {
+                    element.classList.add('animate-fade-in');
+                }
+            }
+        }
+
+        // Añadir clase para animación fade-in
+        const animationStyle = document.createElement('style');
+        animationStyle.textContent = `
+            @keyframes fadeInUp {
+                0% { opacity: 0; transform: translateY(30px); }
+                100% { opacity: 1; transform: translateY(0); }
+            }
+            .animate-fade-in {
+                animation: fadeInUp 0.6s ease-out forwards;
+            }
+            .mb-16, .mb-20, .grid > div, .rounded-xl {
+                opacity: 0;
+            }
+
+            @keyframes float {
+                0%, 100% { transform: translateY(0); }
+                50% { transform: translateY(-10px); }
+            }
+            .floating {
+                animation: float 6s ease-in-out infinite;
+            }
+        `;
+        document.head.appendChild(animationStyle);
+
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll(); // Ejecutar una vez al cargar la página
+
+        // Resaltar la primera tarjeta de caso de éxito como destacada
+        const mainCaseStudy = document.querySelector('.bg-gray-800.rounded-xl.overflow-hidden.shadow-xl.border');
+        if (mainCaseStudy) {
+            setTimeout(() => {
+                mainCaseStudy.classList.add('ring', 'ring-blue-500/30', 'ring-offset-4', 'ring-offset-gray-900');
+            }, 1000);
+        }
+
+        // Añadir interactividad a las tarjetas en hover
+        const caseCards = document.querySelectorAll('.transform.transition');
+        caseCards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.querySelectorAll('.text-blue-300, .text-blue-400').forEach(el => {
+                    el.classList.add('text-blue-200');
+                });
+            });
+
+            card.addEventListener('mouseleave', function() {
+                this.querySelectorAll('.text-blue-200').forEach(el => {
+                    if (el.classList.contains('text-blue-300')) {
+                        el.classList.remove('text-blue-200');
+                    } else if (el.classList.contains('text-blue-400')) {
+                        el.classList.remove('text-blue-200');
+                    }
+                });
+            });
+        });
+
+        // Smooth scroll para enlaces internos
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
     });
 </script>
 @endsection

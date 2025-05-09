@@ -2,7 +2,10 @@
     <div class="container mx-auto px-6">
         <div class="flex flex-wrap">
             <div class="w-full md:w-1/4 mb-8 md:mb-0">
-                <h3 class="text-2xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-300">DendrIA</h3>
+                <h3 class="text-2xl font-bold mb-6 flex items-center">
+                    <i class="fas fa-brain text-sm mr-2 text-blue-400"></i>
+                    <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-300">Dendr</span><span class="bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-amber-500">IA</span>
+                </h3>
                 <p class="text-gray-400 mb-6">Soluciones de software inteligentes para el mundo moderno.</p>
                 <div class="flex space-x-4">
                     <a href="#" class="text-gray-400 hover:text-blue-400">
@@ -53,7 +56,7 @@
         </div>
         
         <div class="border-t border-gray-700 mt-10 pt-8 text-center">
-            <p class="text-gray-400">© {{ date('Y') }} DendrIA. Todos los derechos reservados.</p>
+            <p class="text-gray-400">© {{ date('Y') }} <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-300">Dendr</span><span class="bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-amber-500">IA</span>. Todos los derechos reservados.</p>
         </div>
     </div>
 </footer>

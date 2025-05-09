@@ -1,2 +1,10 @@
 User-agent: *
-Disallow:
+Allow: /
+
+# Allow all crawlers
+Disallow: /admin/
+Disallow: /storage/
+Disallow: /vendor/
+
+# Sitemap location
+Sitemap: https://dendria.cl/sitemap.xml

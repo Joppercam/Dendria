@@ -3,9 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="@yield('meta_description', 'DendrIA - Desarrollo de software potenciado por IA y Laravel. Soluciones inteligentes para empresas de todos los tamaños en Chile y Latinoamérica.')">
+    <meta name="keywords" content="@yield('meta_keywords', 'desarrollo software, inteligencia artificial, IA, machine learning, laravel, aplicaciones web, Chile, desarrollo web, consultora tecnológica')">
+    <meta name="author" content="DendrIA">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:title" content="DendrIA - @yield('title', 'Desarrollo de Software Potenciado por IA')">
+    <meta property="og:description" content="@yield('meta_description', 'DendrIA - Desarrollo de software potenciado por IA y Laravel. Soluciones inteligentes para empresas de todos los tamaños en Chile y Latinoamérica.')">
+    <meta property="og:image" content="@yield('og_image', asset('images/dendria-og.png'))">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{ url()->current() }}">
+    <meta property="twitter:title" content="DendrIA - @yield('title', 'Desarrollo de Software Potenciado por IA')">
+    <meta property="twitter:description" content="@yield('meta_description', 'DendrIA - Desarrollo de software potenciado por IA y Laravel. Soluciones inteligentes para empresas de todos los tamaños en Chile y Latinoamérica.')">
+    <meta property="twitter:image" content="@yield('og_image', asset('images/dendria-og.png'))">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="{{ url()->current() }}">
+
     <title>DendrIA - @yield('title', 'Desarrollo de Software Potenciado por IA')</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="{{ asset('favicon.svg') }}" type="image/svg+xml">
+    <link rel="alternate icon" href="{{ asset('favicon.ico') }}" type="image/png">
+    <link rel="manifest" href="{{ asset('site.webmanifest') }}">
+
+    <!-- CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
     @yield('styles')
     <style>
         .gradient-bg {

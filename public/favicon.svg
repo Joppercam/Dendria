@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="32" height="32">
+  <!-- Fondo circular con gradiente -->
+  <circle cx="50" cy="50" r="48" fill="url(#bg-gradient)" />
+  
+  <!-- Borde sutil -->
+  <circle cx="50" cy="50" r="48" fill="none" stroke="#3b82f6" stroke-width="1.5" />
+  
+  <!-- Red neuronal estilizada (símbolo de DendrIA) -->
+  <g fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round">
+    <!-- Nodo central -->
+    <circle cx="50" cy="50" r="8" fill="#3b82f6" stroke-width="0" />
+    
+    <!-- Conexiones -->
+    <path d="M50,42 L50,28" />
+    <path d="M50,58 L50,72" />
+    <path d="M42,50 L28,50" />
+    <path d="M58,50 L72,50" />
+    <path d="M44,44 L30,30" />
+    <path d="M56,44 L70,30" />
+    <path d="M44,56 L30,70" />
+    <path d="M56,56 L70,70" />
+    
+    <!-- Nodos secundarios -->
+    <circle cx="50" cy="25" r="5" fill="#3b82f6" stroke-width="0" />
+    <circle cx="50" cy="75" r="5" fill="#3b82f6" stroke-width="0" />
+    <circle cx="25" cy="50" r="5" fill="#3b82f6" stroke-width="0" />
+    <circle cx="75" cy="50" r="5" fill="#3b82f6" stroke-width="0" />
+    <circle cx="28" cy="28" r="5" fill="#3b82f6" stroke-width="0" />
+    <circle cx="72" cy="28" r="5" fill="#3b82f6" stroke-width="0" />
+    <circle cx="28" cy="72" r="5" fill="#3b82f6" stroke-width="0" />
+    <circle cx="72" cy="72" r="5" fill="#3b82f6" stroke-width="0" />
+  </g>
+  
+  <!-- Definición del gradiente -->
+  <defs>
+    <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e3a8a" />
+      <stop offset="100%" stop-color="#3b82f6" />
+    </linearGradient>
+  </defs>
+</svg>

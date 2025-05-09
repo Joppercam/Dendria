@@ -2,6 +2,10 @@
 
 @section('title', 'Inicio - Desarrollo de Software Potenciado por IA')
 
+@section('meta_description', 'Desarrollamos software inteligente con Laravel y tecnologías de IA/ML. Soluciones web personalizadas, apps móviles y consultoría tecnológica para empresas en Chile y Latinoamérica.')
+
+@section('meta_keywords', 'Laravel, desarrollo web, inteligencia artificial, IA, aplicaciones web, consultoría tecnológica, Chile, Latinoamérica, machine learning, software personalizado')
+
 @section('styles')
 <style>
     .neural-network-animation {
@@ -31,7 +35,7 @@
         z-index: -1;
     }
     
-    /* Efectos de iluminación ambiental */
+    /* Efectos de iluminación ambiental - simplificados */
     .gradient-bg::before {
         content: '';
         position: absolute;
@@ -39,12 +43,12 @@
         left: 5%;
         width: 30%;
         height: 30%;
-        background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+        background: radial-gradient(circle, rgba(56, 189, 248, 0.08) 0%, rgba(0, 0, 0, 0) 70%);
         z-index: 0;
-        filter: blur(50px);
-        animation: breathe 8s ease-in-out infinite;
+        filter: blur(40px);
+        /* Eliminada la animación */
     }
-    
+
     .gradient-bg::after {
         content: '';
         position: absolute;
@@ -52,21 +56,10 @@
         right: 5%;
         width: 35%;
         height: 35%;
-        background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
+        background: radial-gradient(circle, rgba(59, 130, 246, 0.05) 0%, rgba(0, 0, 0, 0) 70%);
         z-index: 0;
-        filter: blur(50px);
-        animation: breathe 8s ease-in-out infinite 4s;
-    }
-    
-    @keyframes breathe {
-        0%, 100% {
-            opacity: 1;
-            transform: scale(1);
-        }
-        50% {
-            opacity: 0.6;
-            transform: scale(1.1);
-        }
+        filter: blur(40px);
+        /* Eliminada la animación */
     }
 
     /* Animaciones para servicios */
@@ -95,15 +88,15 @@
     }
     
     .ai-glow {
-        background: radial-gradient(circle, rgba(16, 185, 129, 0.8) 0%, rgba(0, 0, 0, 0) 70%);
+        background: radial-gradient(circle, rgba(59, 130, 246, 0.6) 0%, rgba(0, 0, 0, 0) 70%);
     }
     
     .mobile-glow {
-        background: radial-gradient(circle, rgba(236, 72, 153, 0.8) 0%, rgba(0, 0, 0, 0) 70%);
+        background: radial-gradient(circle, rgba(59, 130, 246, 0.6) 0%, rgba(0, 0, 0, 0) 70%);
     }
     
     .consulting-glow {
-        background: radial-gradient(circle, rgba(245, 158, 11, 0.8) 0%, rgba(0, 0, 0, 0) 70%);
+        background: radial-gradient(circle, rgba(59, 130, 246, 0.6) 0%, rgba(0, 0, 0, 0) 70%);
     }
     
     @keyframes pulse-glow {
@@ -176,69 +169,63 @@
     }
     
     .commerce-glow {
-        background: radial-gradient(circle, rgba(16, 185, 129, 0.8) 0%, rgba(0, 0, 0, 0) 70%);
+        background: radial-gradient(circle, rgba(59, 130, 246, 0.6) 0%, rgba(0, 0, 0, 0) 70%);
     }
     
     .insight-glow {
-        background: radial-gradient(circle, rgba(168, 85, 247, 0.8) 0%, rgba(0, 0, 0, 0) 70%);
+        background: radial-gradient(circle, rgba(59, 130, 246, 0.6) 0%, rgba(0, 0, 0, 0) 70%);
     }
     
-    /* Animaciones para visualizaciones dinámicas */
+    /* Visualizaciones estáticas para demostración */
     .chat-animation {
         position: relative;
         width: 100%;
         height: 100%;
     }
-    
+
     .chat-bubble {
         position: absolute;
         padding: 8px 12px;
         border-radius: 12px;
         font-size: 0.8rem;
-        opacity: 0;
-        animation: fadeInOut 8s ease-in-out infinite;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        opacity: 1; /* Mostrar burbujas estáticamente */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         max-width: 70%;
     }
-    
+
     .user-bubble {
-        background-color: rgba(59, 130, 246, 0.2);
-        border: 1px solid rgba(59, 130, 246, 0.3);
+        background-color: rgba(59, 130, 246, 0.15);
+        border: 1px solid rgba(59, 130, 246, 0.2);
         right: 10%;
         text-align: right;
     }
-    
+
     .ai-bubble {
-        background-color: rgba(59, 130, 246, 0.7);
+        background-color: rgba(59, 130, 246, 0.6);
         color: white;
         left: 10%;
     }
     
-    @keyframes fadeInOut {
-        0%, 100% { opacity: 0; transform: translateY(20px); }
-        10%, 90% { opacity: 1; transform: translateY(0); }
-    }
-    
-    /* Animación para eCommerce */
+    /* Animación para eCommerce - simplificada */
     .commerce-animation {
         position: relative;
         width: 100%;
         height: 100%;
     }
-    
+
     .product-card {
         position: absolute;
         width: 120px;
         height: 160px;
-        background-color: rgba(255, 255, 255, 0.05);
+        background-color: rgba(255, 255, 255, 0.03);
         border-radius: 8px;
-        border: 1px solid rgba(16, 185, 129, 0.3);
+        border: 1px solid rgba(16, 185, 129, 0.2);
         overflow: hidden;
-        opacity: 0;
-        animation: floatIn 10s ease-in-out infinite;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        /* Animación eliminada para un aspecto más profesional */
+        opacity: 1;
     }
-    
+
     .product-card::after {
         content: '';
         position: absolute;
@@ -246,12 +233,7 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background: rgba(16, 185, 129, 0.1);
-    }
-    
-    @keyframes floatIn {
-        0%, 100% { opacity: 0; transform: scale(0.8) translateY(30px); }
-        20%, 80% { opacity: 1; transform: scale(1) translateY(0); }
+        background: rgba(16, 185, 129, 0.05);
     }
     
     /* Animación para analytics */
@@ -266,7 +248,7 @@
         width: 10px;
         height: 10px;
         border-radius: 50%;
-        background-color: rgba(168, 85, 247, 0.7);
+        background-color: rgba(59, 130, 246, 0.7);
         opacity: 0;
         z-index: 5;
     }
@@ -274,7 +256,7 @@
     .data-line {
         position: absolute;
         height: 2px;
-        background-color: rgba(168, 85, 247, 0.4);
+        background-color: rgba(59, 130, 246, 0.4);
         transform-origin: left center;
         transform: scaleX(0);
         z-index: 4;
@@ -303,8 +285,8 @@
         height: 60%;
         top: 20%;
         left: 10%;
-        border-bottom: 2px solid rgba(168, 85, 247, 0.3);
-        border-left: 2px solid rgba(168, 85, 247, 0.3);
+        border-bottom: 2px solid rgba(59, 130, 246, 0.3);
+        border-left: 2px solid rgba(59, 130, 246, 0.3);
     }
     
     .insight-tag {
@@ -312,7 +294,7 @@
         padding: 4px 8px;
         border-radius: 12px;
         font-size: 0.7rem;
-        background-color: rgba(168, 85, 247, 0.7);
+        background-color: rgba(59, 130, 246, 0.7);
         color: white;
         opacity: 0;
         animation: fadeSlideIn 12s ease-in-out infinite;
@@ -331,20 +313,72 @@
     }
     
     .tech-icon {
-        width: 60px;
-        height: 60px;
         background: rgba(59, 130, 246, 0.1);
         border-radius: 12px;
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-bottom: 16px;
         transition: all 0.3s ease;
     }
-    
+
     .tech-card:hover .tech-icon {
-        transform: translateY(-5px);
+        transform: translateY(-3px);
         box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.1);
+    }
+
+    /* Estilos para los filtros de tecnologías */
+    .tech-filter {
+        cursor: pointer;
+        transition: all 0.2s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .tech-filter.active {
+        font-weight: 600;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        transform: translateY(-1px);
+    }
+
+    .tech-filter:hover:not(.active) {
+        transform: translateY(-1px);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .tech-filter:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: currentColor;
+        transition: width 0.3s ease;
+    }
+
+    .tech-filter.active:after {
+        width: 100%;
+    }
+
+    /* Estilos para las categorías de tecnologías */
+    .tech-card.backend .tech-icon {
+        background: rgba(59, 130, 246, 0.1);
+    }
+
+    .tech-card.frontend .tech-icon {
+        background: rgba(59, 130, 246, 0.1);
+    }
+
+    .tech-card.ai .tech-icon {
+        background: rgba(59, 130, 246, 0.1);
+    }
+
+    .tech-card.devops .tech-icon {
+        background: rgba(59, 130, 246, 0.1);
+    }
+
+    .tech-card.security .tech-icon {
+        background: rgba(59, 130, 246, 0.1);
     }
 </style>
 @endsection
@@ -357,11 +391,11 @@
         <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-6">
             Desarrollo de <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-300">Software Inteligente</span> para el mundo moderno
         </h1>
-        <p class="text-xl md:text-2xl text-gray-300 mb-8">
+        <p class="text-xl md:text-xl text-gray-300 mb-8">
             Transformamos ideas en soluciones tecnológicas avanzadas, impulsadas por Inteligencia Artificial y desarrolladas con Laravel
         </p>
         <div class="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
-            <a href="{{ route('contact') }}" class="accent-gradient hover:opacity-90 text-white font-bold py-3 px-8 rounded-lg transition transform hover:scale-105">
+            <a href="{{ route('project.start') }}" class="accent-gradient hover:opacity-90 text-white font-bold py-3 px-8 rounded-lg transition transform hover:scale-105">
                 Iniciar proyecto
             </a>
             <a href="{{ route('services') }}" class="bg-gray-800 border border-gray-700 hover:bg-gray-700 text-white font-bold py-3 px-8 rounded-lg transition">
@@ -378,20 +412,29 @@
     </div>
 </div>
 
-<!-- Stats -->
+<!-- Logros clave -->
 <div class="container mx-auto mt-24">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="glass-card rounded-xl p-6 text-center">
-            <h3 class="text-4xl font-bold text-blue-400 mb-2">98%</h3>
-            <p class="text-gray-300">Satisfacción de clientes</p>
+        <div class="bg-gray-800 border border-gray-700 rounded-xl p-6 text-center shadow-lg transition hover:border-blue-800">
+            <div class="mb-4">
+                <i class="fas fa-handshake text-blue-500 text-3xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Soluciones Personalizadas</h3>
+            <p class="text-gray-400">Enfoque centrado en las necesidades específicas de cada cliente</p>
         </div>
-        <div class="glass-card rounded-xl p-6 text-center">
-            <h3 class="text-4xl font-bold text-blue-400 mb-2">+120</h3>
-            <p class="text-gray-300">Proyectos completados</p>
+        <div class="bg-gray-800 border border-gray-700 rounded-xl p-6 text-center shadow-lg transition hover:border-blue-800">
+            <div class="mb-4">
+                <i class="fas fa-cogs text-blue-500 text-3xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Tecnología Avanzada</h3>
+            <p class="text-gray-400">Integramos Laravel con algoritmos de IA para soluciones robustas</p>
         </div>
-        <div class="glass-card rounded-xl p-6 text-center">
-            <h3 class="text-4xl font-bold text-blue-400 mb-2">+50%</h3>
-            <p class="text-gray-300">Aumento en eficiencia</p>
+        <div class="bg-gray-800 border border-gray-700 rounded-xl p-6 text-center shadow-lg transition hover:border-blue-800">
+            <div class="mb-4">
+                <i class="fas fa-shield-alt text-blue-500 text-3xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Seguridad Garantizada</h3>
+            <p class="text-gray-400">Protección de datos y privacidad en cada etapa de desarrollo</p>
         </div>
     </div>
 </div>
@@ -446,16 +489,16 @@
                     
                     <!-- Elementos flotantes -->
                     <div class="mini-floating-elements">
-                        <div class="mini-floating-element" style="width: 8px; height: 8px; background-color: rgba(16, 185, 129, 0.4); top: 25%; left: 35%; animation-delay: 0.5s;"></div>
-                        <div class="mini-floating-element" style="width: 12px; height: 12px; background-color: rgba(5, 150, 105, 0.4); top: 65%; left: 25%; animation-delay: 1.5s;"></div>
-                        <div class="mini-floating-element" style="width: 15px; height: 15px; background-color: rgba(4, 120, 87, 0.4); top: 45%; left: 75%; animation-delay: 2.5s;"></div>
+                        <div class="mini-floating-element" style="width: 8px; height: 8px; background-color: rgba(59, 130, 246, 0.4); top: 25%; left: 35%; animation-delay: 0.5s;"></div>
+                        <div class="mini-floating-element" style="width: 12px; height: 12px; background-color: rgba(37, 99, 235, 0.4); top: 65%; left: 25%; animation-delay: 1.5s;"></div>
+                        <div class="mini-floating-element" style="width: 15px; height: 15px; background-color: rgba(29, 78, 216, 0.4); top: 45%; left: 75%; animation-delay: 2.5s;"></div>
                     </div>
                     
                     <!-- Icono central -->
                     <div class="flex items-center justify-center h-full">
                         <div class="mini-floating-icon">
-                            <div class="w-20 h-20 bg-green-900/30 rounded-full flex items-center justify-center">
-                                <i class="fas fa-brain text-3xl text-green-400"></i>
+                            <div class="w-20 h-20 bg-blue-900/30 rounded-full flex items-center justify-center">
+                                <i class="fas fa-brain text-3xl text-blue-400"></i>
                             </div>
                         </div>
                     </div>
@@ -477,16 +520,16 @@
                     
                     <!-- Elementos flotantes -->
                     <div class="mini-floating-elements">
-                        <div class="mini-floating-element" style="width: 10px; height: 10px; background-color: rgba(236, 72, 153, 0.4); top: 30%; left: 40%; animation-delay: 0.7s;"></div>
-                        <div class="mini-floating-element" style="width: 15px; height: 15px; background-color: rgba(219, 39, 119, 0.4); top: 70%; left: 30%; animation-delay: 1.7s;"></div>
-                        <div class="mini-floating-element" style="width: 12px; height: 12px; background-color: rgba(190, 24, 93, 0.4); top: 50%; left: 80%; animation-delay: 2.7s;"></div>
+                        <div class="mini-floating-element" style="width: 10px; height: 10px; background-color: rgba(59, 130, 246, 0.4); top: 30%; left: 40%; animation-delay: 0.7s;"></div>
+                        <div class="mini-floating-element" style="width: 15px; height: 15px; background-color: rgba(37, 99, 235, 0.4); top: 70%; left: 30%; animation-delay: 1.7s;"></div>
+                        <div class="mini-floating-element" style="width: 12px; height: 12px; background-color: rgba(29, 78, 216, 0.4); top: 50%; left: 80%; animation-delay: 2.7s;"></div>
                     </div>
                     
                     <!-- Icono central -->
                     <div class="flex items-center justify-center h-full">
                         <div class="mini-floating-icon">
-                            <div class="w-20 h-20 bg-pink-900/30 rounded-full flex items-center justify-center">
-                                <i class="fas fa-mobile-alt text-3xl text-pink-400"></i>
+                            <div class="w-20 h-20 bg-blue-900/30 rounded-full flex items-center justify-center">
+                                <i class="fas fa-mobile-alt text-3xl text-blue-400"></i>
                             </div>
                         </div>
                     </div>
@@ -508,16 +551,16 @@
                     
                     <!-- Elementos flotantes -->
                     <div class="mini-floating-elements">
-                        <div class="mini-floating-element" style="width: 9px; height: 9px; background-color: rgba(245, 158, 11, 0.4); top: 35%; left: 25%; animation-delay: 0.3s;"></div>
-                        <div class="mini-floating-element" style="width: 14px; height: 14px; background-color: rgba(217, 119, 6, 0.4); top: 55%; left: 15%; animation-delay: 1.3s;"></div>
-                        <div class="mini-floating-element" style="width: 11px; height: 11px; background-color: rgba(180, 83, 9, 0.4); top: 25%; left: 65%; animation-delay: 2.3s;"></div>
+                        <div class="mini-floating-element" style="width: 9px; height: 9px; background-color: rgba(59, 130, 246, 0.4); top: 35%; left: 25%; animation-delay: 0.3s;"></div>
+                        <div class="mini-floating-element" style="width: 14px; height: 14px; background-color: rgba(37, 99, 235, 0.4); top: 55%; left: 15%; animation-delay: 1.3s;"></div>
+                        <div class="mini-floating-element" style="width: 11px; height: 11px; background-color: rgba(29, 78, 216, 0.4); top: 25%; left: 65%; animation-delay: 2.3s;"></div>
                     </div>
                     
                     <!-- Icono central -->
                     <div class="flex items-center justify-center h-full">
                         <div class="mini-floating-icon">
-                            <div class="w-20 h-20 bg-yellow-900/30 rounded-full flex items-center justify-center">
-                                <i class="fas fa-lightbulb text-3xl text-yellow-400"></i>
+                            <div class="w-20 h-20 bg-blue-900/30 rounded-full flex items-center justify-center">
+                                <i class="fas fa-lightbulb text-3xl text-blue-400"></i>
                             </div>
                         </div>
                     </div>
@@ -566,7 +609,7 @@
                         
                         <!-- Elemento de asistente flotante -->
                         <div style="position: absolute; bottom: 20px; right: 20px; width: 60px; height: 60px; background: linear-gradient(145deg, #3B82F6, #2563EB); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 5px 15px rgba(37, 99, 235, 0.4);">
-                            <i class="fas fa-robot text-white text-2xl"></i>
+                            <i class="fas fa-robot text-white text-xl"></i>
                         </div>
                     </div>
                 </div>
@@ -587,11 +630,11 @@
                     <!-- Animación de eCommerce -->
                     <div class="commerce-animation">
                         <!-- Rejilla de fondo -->
-                        <div style="position: absolute; inset: 0; background-image: linear-gradient(rgba(16, 185, 129, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(16, 185, 129, 0.1) 1px, transparent 1px); background-size: 20px 20px;"></div>
+                        <div style="position: absolute; inset: 0; background-image: linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px); background-size: 20px 20px;"></div>
                         
                         <!-- Tarjetas de productos -->
                         <div class="product-card" style="top: 15%; left: 15%; animation-delay: 0s;">
-                            <div style="height: 60%; background: radial-gradient(circle at center, rgba(16, 185, 129, 0.3), rgba(5, 150, 105, 0.1))"></div>
+                            <div style="height: 60%; background: radial-gradient(circle at center, rgba(59, 130, 246, 0.3), rgba(37, 99, 235, 0.1))"></div>
                             <div style="padding: 8px;">
                                 <div style="width: 80%; height: 8px; background: rgba(255, 255, 255, 0.3); border-radius: 4px; margin-bottom: 5px;"></div>
                                 <div style="width: 60%; height: 8px; background: rgba(255, 255, 255, 0.2); border-radius: 4px;"></div>
@@ -599,7 +642,7 @@
                         </div>
                         
                         <div class="product-card" style="top: 30%; left: 50%; animation-delay: 2s;">
-                            <div style="height: 60%; background: radial-gradient(circle at center, rgba(16, 185, 129, 0.3), rgba(5, 150, 105, 0.1))"></div>
+                            <div style="height: 60%; background: radial-gradient(circle at center, rgba(59, 130, 246, 0.3), rgba(37, 99, 235, 0.1))"></div>
                             <div style="padding: 8px;">
                                 <div style="width: 70%; height: 8px; background: rgba(255, 255, 255, 0.3); border-radius: 4px; margin-bottom: 5px;"></div>
                                 <div style="width: 50%; height: 8px; background: rgba(255, 255, 255, 0.2); border-radius: 4px;"></div>
@@ -607,7 +650,7 @@
                         </div>
                         
                         <div class="product-card" style="top: 50%; left: 25%; animation-delay: 4s;">
-                            <div style="height: 60%; background: radial-gradient(circle at center, rgba(16, 185, 129, 0.3), rgba(5, 150, 105, 0.1))"></div>
+                            <div style="height: 60%; background: radial-gradient(circle at center, rgba(59, 130, 246, 0.3), rgba(37, 99, 235, 0.1))"></div>
                             <div style="padding: 8px;">
                                 <div style="width: 75%; height: 8px; background: rgba(255, 255, 255, 0.3); border-radius: 4px; margin-bottom: 5px;"></div>
                                 <div style="width: 55%; height: 8px; background: rgba(255, 255, 255, 0.2); border-radius: 4px;"></div>
@@ -615,12 +658,12 @@
                         </div>
                         
                         <!-- Recomendaciones de IA -->
-                        <div style="position: absolute; bottom: 20px; left: 20px; right: 20px; background: rgba(16, 185, 129, 0.2); border: 1px solid rgba(16, 185, 129, 0.4); border-radius: 8px; padding: 10px; backdrop-filter: blur(5px);">
+                        <div style="position: absolute; bottom: 20px; left: 20px; right: 20px; background: rgba(59, 130, 246, 0.2); border: 1px solid rgba(59, 130, 246, 0.4); border-radius: 8px; padding: 10px; backdrop-filter: blur(5px);">
                             <div style="display: flex; align-items: center; margin-bottom: 5px;">
-                                <div style="width: 20px; height: 20px; background: linear-gradient(145deg, #10B981, #059669); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 8px;">
+                                <div style="width: 20px; height: 20px; background: linear-gradient(145deg, #3B82F6, #2563EB); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 8px;">
                                     <i class="fas fa-robot text-white text-xs"></i>
                                 </div>
-                                <div style="font-size: 0.75rem; color: #10B981; font-weight: bold;">IA Recomienda</div>
+                                <div style="font-size: 0.75rem; color: #3B82F6; font-weight: bold;">IA Recomienda</div>
                             </div>
                             <div style="width: 100%; height: 8px; background: rgba(255, 255, 255, 0.3); border-radius: 4px; margin-bottom: 5px;"></div>
                             <div style="width: 80%; height: 8px; background: rgba(255, 255, 255, 0.2); border-radius: 4px;"></div>
@@ -644,7 +687,7 @@
                     <!-- Animación de analítica -->
                     <div class="analytics-animation">
                         <!-- Rejilla de fondo -->
-                        <div style="position: absolute; inset: 0; background-image: linear-gradient(rgba(168, 85, 247, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(168, 85, 247, 0.1) 1px, transparent 1px); background-size: 20px 20px;"></div>
+                        <div style="position: absolute; inset: 0; background-image: linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px); background-size: 20px 20px;"></div>
                         
                         <!-- Contenedor de gráfico -->
                         <div class="data-container">
@@ -674,12 +717,12 @@
                         </div>
                         
                         <!-- Panel de IA -->
-                        <div style="position: absolute; bottom: 20px; left: 20px; right: 20px; background: rgba(168, 85, 247, 0.2); border: 1px solid rgba(168, 85, 247, 0.4); border-radius: 8px; padding: 10px; backdrop-filter: blur(5px);">
+                        <div style="position: absolute; bottom: 20px; left: 20px; right: 20px; background: rgba(59, 130, 246, 0.2); border: 1px solid rgba(59, 130, 246, 0.4); border-radius: 8px; padding: 10px; backdrop-filter: blur(5px);">
                             <div style="display: flex; align-items: center; margin-bottom: 5px;">
-                                <div style="width: 20px; height: 20px; background: linear-gradient(145deg, #A855F7, #9333EA); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 8px;">
+                                <div style="width: 20px; height: 20px; background: linear-gradient(145deg, #3B82F6, #2563EB); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 8px;">
                                     <i class="fas fa-lightbulb text-white text-xs"></i>
                                 </div>
-                                <div style="font-size: 0.75rem; color: #A855F7; font-weight: bold;">Insight generado por IA</div>
+                                <div style="font-size: 0.75rem; color: #3B82F6; font-weight: bold;">Insight generado por IA</div>
                             </div>
                             <div style="width: 100%; height: 8px; background: rgba(255, 255, 255, 0.3); border-radius: 4px; margin-bottom: 5px;"></div>
                             <div style="width: 80%; height: 8px; background: rgba(255, 255, 255, 0.2); border-radius: 4px;"></div>
@@ -707,71 +750,211 @@
 
 
 <!-- Tecnologías para desarrollo de software con IA -->
-<section class="py-20 bg-gray-900">
+<section class="py-12 bg-gray-900">
     <div class="container mx-auto px-6">
-        <div class="text-center mb-16">
-            <h2 class="text-3xl md:text-4xl font-bold mb-4">Tecnologías para Desarrollo con IA</h2>
-            <p class="text-gray-400 max-w-3xl mx-auto">Combinamos las mejores herramientas y frameworks para crear soluciones de software inteligentes</p>
+        <div class="text-center mb-8">
+            <h2 class="text-2xl md:text-3xl font-bold mb-3">Tecnologías para Desarrollo con IA</h2>
+            <p class="text-gray-400 max-w-3xl mx-auto text-sm">Combinamos las mejores herramientas y frameworks para crear soluciones de software inteligentes</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div class="md:pr-10">
-                <div class="bg-gray-800 rounded-xl p-8 shadow-lg relative overflow-hidden">
+                <div class="bg-gray-800 rounded-lg p-4 md:p-6 shadow-lg relative overflow-hidden">
                     <!-- Efecto visual de fondo -->
                     <div class="absolute inset-0 opacity-10">
                         <img src="{{ asset('images/neural-network.jpg') }}" alt="IA Background" class="w-full h-full object-cover">
                     </div>
                     
                     <div class="relative z-10">
-                        <h3 class="text-2xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-300">Stack Tecnológico Potenciado por IA</h3>
+                        <h3 class="text-xl font-bold mb-3 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-300">Stack Tecnológico</h3>
+
+                        <p class="text-gray-300 mb-3 max-w-3xl mx-auto text-sm">Combinamos tecnologías líderes para crear soluciones robustas, seguras y escalables. Priorizamos calidad, seguridad y rendimiento en cada línea de código.</p>
+
+                        <div class="flex flex-wrap justify-center gap-2 mb-4">
+                            <span class="inline-block px-2 py-0.5 bg-blue-900/50 rounded-full text-xs text-blue-300 border border-blue-800/50">Backend</span>
+                            <span class="inline-block px-2 py-0.5 bg-blue-900/50 rounded-full text-xs text-blue-300 border border-blue-800/50">Frontend</span>
+                            <span class="inline-block px-2 py-0.5 bg-blue-900/50 rounded-full text-xs text-blue-300 border border-blue-800/50">IA</span>
+                            <span class="inline-block px-2 py-0.5 bg-blue-900/50 rounded-full text-xs text-blue-300 border border-blue-800/50">Seguridad</span>
+                            <span class="inline-block px-2 py-0.5 bg-blue-900/50 rounded-full text-xs text-blue-300 border border-blue-800/50">DevOps</span>
+                        </div>
                         
-                        <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
-                            <div class="tech-card bg-gray-900/80 p-4 rounded-lg backdrop-blur-sm hover:shadow-lg transition hover:-translate-y-1 text-center">
-                                <div class="tech-icon mx-auto">
-                                    <i class="fab fa-laravel text-2xl text-red-500"></i>
+                        <!-- Categorías de tecnologías -->
+                        <div class="mb-4 space-x-2 flex flex-wrap gap-2">
+                            <button class="tech-filter active px-3 py-1 text-xs rounded-full bg-blue-600/70 hover:bg-blue-500/70 transition text-white border border-blue-500/30" data-filter="all">Todas</button>
+                            <button class="tech-filter px-3 py-1 text-xs rounded-full bg-blue-900/70 hover:bg-blue-700/70 transition text-white border border-blue-500/30" data-filter="backend">Backend</button>
+                            <button class="tech-filter px-3 py-1 text-xs rounded-full bg-blue-900/70 hover:bg-blue-700/70 transition text-white border border-blue-500/30" data-filter="frontend">Frontend</button>
+                            <button class="tech-filter px-3 py-1 text-xs rounded-full bg-blue-900/70 hover:bg-blue-700/70 transition text-white border border-blue-500/30" data-filter="ai">IA & ML</button>
+                            <button class="tech-filter px-3 py-1 text-xs rounded-full bg-blue-900/70 hover:bg-blue-700/70 transition text-white border border-blue-500/30" data-filter="devops">DevOps</button>
+                            <button class="tech-filter px-3 py-1 text-xs rounded-full bg-blue-900/70 hover:bg-blue-700/70 transition text-white border border-blue-500/30" data-filter="security">Seguridad</button>
+                        </div>
+
+                        <!-- Grid de tecnologías más compacto -->
+                        <div class="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 gap-1 tech-grid">
+                            <!-- Backend -->
+                            <div class="tech-card backend bg-gray-900/80 p-1 pb-1.5 rounded-md backdrop-blur-sm hover:shadow-lg transition hover:-translate-y-1 text-center">
+                                <div class="tech-icon mx-auto w-10 h-10 flex items-center justify-center">
+                                    <i class="fab fa-laravel text-lg text-blue-500"></i>
                                 </div>
-                                <h4 class="font-bold">Laravel</h4>
-                                <p class="text-xs text-gray-400 mt-1">Framework Backend</p>
+                                <h4 class="font-bold text-[10px]">Laravel</h4>
                             </div>
-                            
-                            <div class="tech-card bg-gray-900/80 p-4 rounded-lg backdrop-blur-sm hover:shadow-lg transition hover:-translate-y-1 text-center">
-                                <div class="tech-icon mx-auto">
-                                    <i class="fas fa-brain text-2xl text-blue-500"></i>
+
+                            <div class="tech-card backend bg-gray-900/80 p-1 pb-1.5 rounded-md backdrop-blur-sm hover:shadow-lg transition hover:-translate-y-1 text-center">
+                                <div class="tech-icon mx-auto w-10 h-10 flex items-center justify-center">
+                                    <i class="fab fa-php text-lg text-blue-400"></i>
                                 </div>
-                                <h4 class="font-bold">OpenAI</h4>
-                                <p class="text-xs text-gray-400 mt-1">API de IA</p>
+                                <h4 class="font-bold text-[10px]">PHP</h4>
                             </div>
-                            
-                            <div class="tech-card bg-gray-900/80 p-4 rounded-lg backdrop-blur-sm hover:shadow-lg transition hover:-translate-y-1 text-center">
-                                <div class="tech-icon mx-auto">
-                                    <i class="fab fa-python text-2xl text-yellow-500"></i>
+
+                            <div class="tech-card backend bg-gray-900/80 p-1 pb-1.5 rounded-md backdrop-blur-sm hover:shadow-lg transition hover:-translate-y-1 text-center">
+                                <div class="tech-icon mx-auto w-10 h-10 flex items-center justify-center">
+                                    <i class="fab fa-node-js text-lg text-blue-500"></i>
                                 </div>
-                                <h4 class="font-bold">Python</h4>
-                                <p class="text-xs text-gray-400 mt-1">ML & Análisis</p>
+                                <h4 class="font-bold text-[10px]">Node.js</h4>
                             </div>
-                            
-                            <div class="tech-card bg-gray-900/80 p-4 rounded-lg backdrop-blur-sm hover:shadow-lg transition hover:-translate-y-1 text-center">
-                                <div class="tech-icon mx-auto">
-                                    <i class="fab fa-vuejs text-2xl text-green-500"></i>
+
+                            <div class="tech-card backend bg-gray-900/80 p-1 pb-1.5 rounded-md backdrop-blur-sm hover:shadow-lg transition hover:-translate-y-1 text-center">
+                                <div class="tech-icon mx-auto w-10 h-10 flex items-center justify-center">
+                                    <i class="fas fa-bolt text-lg text-blue-400"></i>
                                 </div>
-                                <h4 class="font-bold">Vue.js</h4>
-                                <p class="text-xs text-gray-400 mt-1">Frontend Reactivo</p>
+                                <h4 class="font-bold text-[10px]">FastAPI</h4>
                             </div>
-                            
-                            <div class="tech-card bg-gray-900/80 p-4 rounded-lg backdrop-blur-sm hover:shadow-lg transition hover:-translate-y-1 text-center">
-                                <div class="tech-icon mx-auto">
-                                    <i class="fas fa-database text-2xl text-orange-500"></i>
+
+                            <!-- Frontend -->
+                            <div class="tech-card frontend bg-gray-900/80 p-1 pb-1.5 rounded-md backdrop-blur-sm hover:shadow-lg transition hover:-translate-y-1 text-center">
+                                <div class="tech-icon mx-auto w-10 h-10 flex items-center justify-center">
+                                    <i class="fab fa-vuejs text-lg text-blue-500"></i>
                                 </div>
-                                <h4 class="font-bold">MySQL</h4>
-                                <p class="text-xs text-gray-400 mt-1">Base de Datos</p>
+                                <h4 class="font-bold text-[10px]">Vue.js</h4>
                             </div>
-                            
-                            <div class="tech-card bg-gray-900/80 p-4 rounded-lg backdrop-blur-sm hover:shadow-lg transition hover:-translate-y-1 text-center">
-                                <div class="tech-icon mx-auto">
-                                    <i class="fab fa-aws text-2xl text-yellow-500"></i>
+
+                            <div class="tech-card frontend bg-gray-900/80 p-1 pb-1.5 rounded-md backdrop-blur-sm hover:shadow-lg transition hover:-translate-y-1 text-center">
+                                <div class="tech-icon mx-auto w-10 h-10 flex items-center justify-center">
+                                    <i class="fab fa-react text-lg text-blue-400"></i>
                                 </div>
-                                <h4 class="font-bold">AWS</h4>
-                                <p class="text-xs text-gray-400 mt-1">Cloud Services</p>
+                                <h4 class="font-bold text-[10px]">React</h4>
+                            </div>
+
+                            <div class="tech-card frontend bg-gray-900/80 p-1 pb-1.5 rounded-md backdrop-blur-sm hover:shadow-lg transition hover:-translate-y-1 text-center">
+                                <div class="tech-icon mx-auto w-10 h-10 flex items-center justify-center">
+                                    <i class="fab fa-js text-lg text-blue-400"></i>
+                                </div>
+                                <h4 class="font-bold text-[10px]">JavaScript</h4>
+                            </div>
+
+                            <div class="tech-card frontend bg-gray-900/80 p-1 pb-1.5 rounded-md backdrop-blur-sm hover:shadow-lg transition hover:-translate-y-1 text-center">
+                                <div class="tech-icon mx-auto w-10 h-10 flex items-center justify-center">
+                                    <i class="fab fa-css3 text-lg text-blue-500"></i>
+                                </div>
+                                <h4 class="font-bold text-[10px]">TailwindCSS</h4>
+                            </div>
+
+                            <!-- Datos y AI -->
+                            <div class="tech-card ai bg-gray-900/80 p-1 pb-1.5 rounded-md backdrop-blur-sm hover:shadow-lg transition hover:-translate-y-1 text-center">
+                                <div class="tech-icon mx-auto w-10 h-10 flex items-center justify-center">
+                                    <i class="fab fa-python text-lg text-blue-500"></i>
+                                </div>
+                                <h4 class="font-bold text-[10px]">Python</h4>
+                            </div>
+
+                            <div class="tech-card ai bg-gray-900/80 p-1 pb-1.5 rounded-md backdrop-blur-sm hover:shadow-lg transition hover:-translate-y-1 text-center">
+                                <div class="tech-icon mx-auto w-10 h-10 flex items-center justify-center">
+                                    <i class="fas fa-brain text-lg text-blue-500"></i>
+                                </div>
+                                <h4 class="font-bold text-[10px]">OpenAI</h4>
+                            </div>
+
+                            <div class="tech-card ai bg-gray-900/80 p-1 pb-1.5 rounded-md backdrop-blur-sm hover:shadow-lg transition hover:-translate-y-1 text-center">
+                                <div class="tech-icon mx-auto w-10 h-10 flex items-center justify-center">
+                                    <i class="fas fa-network-wired text-lg text-blue-400"></i>
+                                </div>
+                                <h4 class="font-bold text-[10px]">PyTorch</h4>
+                            </div>
+
+                            <div class="tech-card ai bg-gray-900/80 p-1 pb-1.5 rounded-md backdrop-blur-sm hover:shadow-lg transition hover:-translate-y-1 text-center">
+                                <div class="tech-icon mx-auto w-10 h-10 flex items-center justify-center">
+                                    <i class="fas fa-cogs text-lg text-blue-400"></i>
+                                </div>
+                                <h4 class="font-bold text-[10px]">Hugging Face</h4>
+                            </div>
+
+                            <!-- Infraestructura -->
+                            <div class="tech-card devops bg-gray-900/80 p-1 pb-1.5 rounded-md backdrop-blur-sm hover:shadow-lg transition hover:-translate-y-1 text-center">
+                                <div class="tech-icon mx-auto w-10 h-10 flex items-center justify-center">
+                                    <i class="fas fa-database text-lg text-blue-500"></i>
+                                </div>
+                                <h4 class="font-bold text-[10px]">MySQL</h4>
+                            </div>
+
+                            <div class="tech-card devops bg-gray-900/80 p-1 pb-1.5 rounded-md backdrop-blur-sm hover:shadow-lg transition hover:-translate-y-1 text-center">
+                                <div class="tech-icon mx-auto w-10 h-10 flex items-center justify-center">
+                                    <i class="fab fa-aws text-lg text-blue-500"></i>
+                                </div>
+                                <h4 class="font-bold text-[10px]">AWS</h4>
+                            </div>
+
+                            <div class="tech-card devops bg-gray-900/80 p-1 pb-1.5 rounded-md backdrop-blur-sm hover:shadow-lg transition hover:-translate-y-1 text-center">
+                                <div class="tech-icon mx-auto w-10 h-10 flex items-center justify-center">
+                                    <i class="fab fa-docker text-lg text-blue-500"></i>
+                                </div>
+                                <h4 class="font-bold text-[10px]">Docker</h4>
+                            </div>
+
+                            <div class="tech-card devops bg-gray-900/80 p-1 pb-1.5 rounded-md backdrop-blur-sm hover:shadow-lg transition hover:-translate-y-1 text-center">
+                                <div class="tech-icon mx-auto w-10 h-10 flex items-center justify-center">
+                                    <i class="fab fa-github text-lg text-gray-300"></i>
+                                </div>
+                                <h4 class="font-bold text-[10px]">CI/CD</h4>
+                            </div>
+
+                            <!-- Seguridad -->
+                            <div class="tech-card security bg-gray-900/80 p-1 pb-1.5 rounded-md backdrop-blur-sm hover:shadow-lg transition hover:-translate-y-1 text-center">
+                                <div class="tech-icon mx-auto w-10 h-10 flex items-center justify-center">
+                                    <i class="fas fa-shield-alt text-lg text-blue-500"></i>
+                                </div>
+                                <h4 class="font-bold text-[10px]">OAuth 2.0</h4>
+                            </div>
+
+                            <div class="tech-card security bg-gray-900/80 p-1 pb-1.5 rounded-md backdrop-blur-sm hover:shadow-lg transition hover:-translate-y-1 text-center">
+                                <div class="tech-icon mx-auto w-10 h-10 flex items-center justify-center">
+                                    <i class="fas fa-lock text-lg text-blue-400"></i>
+                                </div>
+                                <h4 class="font-bold text-[10px]">SSL/TLS</h4>
+                            </div>
+
+                            <div class="tech-card security bg-gray-900/80 p-1 pb-1.5 rounded-md backdrop-blur-sm hover:shadow-lg transition hover:-translate-y-1 text-center">
+                                <div class="tech-icon mx-auto w-10 h-10 flex items-center justify-center">
+                                    <i class="fas fa-user-shield text-lg text-blue-500"></i>
+                                </div>
+                                <h4 class="font-bold text-[10px]">OWASP</h4>
+                            </div>
+
+                            <!-- Extras adicionales para cada categoría -->
+                            <div class="tech-card backend bg-gray-900/80 p-1 pb-1.5 rounded-md backdrop-blur-sm hover:shadow-lg transition hover:-translate-y-1 text-center">
+                                <div class="tech-icon mx-auto w-10 h-10 flex items-center justify-center">
+                                    <i class="fas fa-plug text-lg text-blue-400"></i>
+                                </div>
+                                <h4 class="font-bold text-[10px]">REST API</h4>
+                            </div>
+
+                            <div class="tech-card frontend bg-gray-900/80 p-1 pb-1.5 rounded-md backdrop-blur-sm hover:shadow-lg transition hover:-translate-y-1 text-center">
+                                <div class="tech-icon mx-auto w-10 h-10 flex items-center justify-center">
+                                    <i class="fas fa-mobile-alt text-lg text-blue-400"></i>
+                                </div>
+                                <h4 class="font-bold text-[10px]">Responsive</h4>
+                            </div>
+
+                            <div class="tech-card ai bg-gray-900/80 p-1 pb-1.5 rounded-md backdrop-blur-sm hover:shadow-lg transition hover:-translate-y-1 text-center">
+                                <div class="tech-icon mx-auto w-10 h-10 flex items-center justify-center">
+                                    <i class="fas fa-chart-line text-lg text-blue-400"></i>
+                                </div>
+                                <h4 class="font-bold text-[10px]">TensorFlow</h4>
+                            </div>
+
+                            <div class="tech-card devops bg-gray-900/80 p-1 pb-1.5 rounded-md backdrop-blur-sm hover:shadow-lg transition hover:-translate-y-1 text-center">
+                                <div class="tech-icon mx-auto w-10 h-10 flex items-center justify-center">
+                                    <i class="fas fa-server text-lg text-blue-400"></i>
+                                </div>
+                                <h4 class="font-bold text-[10px]">Kubernetes</h4>
                             </div>
                         </div>
                     </div>
@@ -782,19 +965,19 @@
                 <div class="space-y-6">
                     <div class="flex">
                         <div class="flex-shrink-0">
-                            <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-600 text-white">
+                            <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-600 text-white shadow-md">
                                 <i class="fas fa-shield-alt"></i>
                             </div>
                         </div>
                         <div class="ml-4">
-                            <h4 class="text-lg font-medium text-white">Seguridad integrada</h4>
-                            <p class="mt-2 text-gray-400">Nuestras soluciones incluyen protección contra vulnerabilidades comunes y algoritmos de IA para detección de patrones anómalos.</p>
+                            <h4 class="text-lg font-medium text-white">Seguridad por diseño</h4>
+                            <p class="mt-2 text-gray-400">Implementamos seguridad por diseño en cada fase del desarrollo, con protecciones multicapa, cifrado de datos, autenticación robusta y algoritmos de IA para detección de amenazas en tiempo real.</p>
                         </div>
                     </div>
                     
                     <div class="flex">
                         <div class="flex-shrink-0">
-                            <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-600 text-white">
+                            <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-600 text-white shadow-md">
                                 <i class="fas fa-tachometer-alt"></i>
                             </div>
                         </div>
@@ -806,7 +989,7 @@
                     
                     <div class="flex">
                         <div class="flex-shrink-0">
-                            <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-600 text-white">
+                            <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-600 text-white shadow-md">
                                 <i class="fas fa-expand-arrows-alt"></i>
                             </div>
                         </div>
@@ -818,7 +1001,7 @@
                     
                     <div class="flex">
                         <div class="flex-shrink-0">
-                            <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-600 text-white">
+                            <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-600 text-white shadow-md">
                                 <i class="fas fa-cogs"></i>
                             </div>
                         </div>
@@ -830,7 +1013,7 @@
                     
                     <div class="flex">
                         <div class="flex-shrink-0">
-                            <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-600 text-white">
+                            <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-600 text-white shadow-md">
                                 <i class="fas fa-code-branch"></i>
                             </div>
                         </div>
@@ -866,110 +1049,160 @@
 @section('scripts')
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        // Configuración para la animación
+        // Configuración simplificada para la animación
         const config = {
-            nodeCount: 30,           // Cantidad de nodos
-            connectionThreshold: 150, // Distancia máxima entre conexiones
-            nodeSize: [2, 5],         // Tamaño mínimo y máximo de nodos
-            speed: [0.2, 0.7],        // Velocidad mínima y máxima
-            colors: ['#3B82F6', '#38BDF8', '#7DD3FC'] // Colores azules para los nodos
+            nodeCount: 15,           // Cantidad reducida de nodos
+            connectionThreshold: 120, // Distancia máxima entre conexiones
+            nodeSize: [2, 4],         // Tamaño mínimo y máximo de nodos
+            speed: [0.1, 0.3],        // Velocidad mínima y máxima reducida
+            colors: ['#3B82F6', '#2563EB'] // Paleta de colores simplificada
         };
 
         // Obtener el contenedor
         const container = document.querySelector('.neural-network-animation');
-        const width = container.offsetWidth;
-        const height = container.offsetHeight;
-        
-        // Crear canvas
-        const canvas = document.createElement('canvas');
-        canvas.width = width;
-        canvas.height = height;
-        container.appendChild(canvas);
-        
-        const ctx = canvas.getContext('2d');
-        
-        // Crear nodos
-        const nodes = [];
-        for (let i = 0; i < config.nodeCount; i++) {
-            nodes.push({
-                x: Math.random() * width,
-                y: Math.random() * height,
-                size: config.nodeSize[0] + Math.random() * (config.nodeSize[1] - config.nodeSize[0]),
-                speedX: (Math.random() - 0.5) * config.speed[1],
-                speedY: (Math.random() - 0.5) * config.speed[1],
-                color: config.colors[Math.floor(Math.random() * config.colors.length)]
-            });
-        }
-        
-        // Función de animación
-        function animate() {
-            // Limpiar canvas
-            ctx.clearRect(0, 0, width, height);
-            
-            // Dibujar conexiones
-            ctx.lineWidth = 0.5;
-            for (let i = 0; i < nodes.length; i++) {
-                for (let j = i + 1; j < nodes.length; j++) {
-                    const dx = nodes[i].x - nodes[j].x;
-                    const dy = nodes[i].y - nodes[j].y;
-                    const distance = Math.sqrt(dx * dx + dy * dy);
-                    
-                    if (distance < config.connectionThreshold) {
-                        // Calcular opacidad basada en la distancia
-                        const opacity = 1 - (distance / config.connectionThreshold);
-                        ctx.strokeStyle = `rgba(59, 130, 246, ${opacity * 0.5})`;
-                        
-                        ctx.beginPath();
-                        ctx.moveTo(nodes[i].x, nodes[i].y);
-                        ctx.lineTo(nodes[j].x, nodes[j].y);
-                        ctx.stroke();
+        if (container) {
+            const width = container.offsetWidth;
+            const height = container.offsetHeight;
+
+            // Crear canvas
+            const canvas = document.createElement('canvas');
+            canvas.width = width;
+            canvas.height = height;
+            container.appendChild(canvas);
+
+            const ctx = canvas.getContext('2d');
+
+            // Crear nodos
+            const nodes = [];
+            for (let i = 0; i < config.nodeCount; i++) {
+                nodes.push({
+                    x: Math.random() * width,
+                    y: Math.random() * height,
+                    size: config.nodeSize[0] + Math.random() * (config.nodeSize[1] - config.nodeSize[0]),
+                    speedX: (Math.random() - 0.5) * config.speed[1],
+                    speedY: (Math.random() - 0.5) * config.speed[1],
+                    color: config.colors[Math.floor(Math.random() * config.colors.length)]
+                });
+            }
+
+            // Función de animación
+            function animate() {
+                // Limpiar canvas
+                ctx.clearRect(0, 0, width, height);
+
+                // Dibujar conexiones
+                ctx.lineWidth = 0.3; // Conexiones más sutiles
+                for (let i = 0; i < nodes.length; i++) {
+                    for (let j = i + 1; j < nodes.length; j++) {
+                        const dx = nodes[i].x - nodes[j].x;
+                        const dy = nodes[i].y - nodes[j].y;
+                        const distance = Math.sqrt(dx * dx + dy * dy);
+
+                        if (distance < config.connectionThreshold) {
+                            // Calcular opacidad basada en la distancia
+                            const opacity = 1 - (distance / config.connectionThreshold);
+                            ctx.strokeStyle = `rgba(59, 130, 246, ${opacity * 0.3})`;  // Opacidad reducida
+
+                            ctx.beginPath();
+                            ctx.moveTo(nodes[i].x, nodes[i].y);
+                            ctx.lineTo(nodes[j].x, nodes[j].y);
+                            ctx.stroke();
+                        }
                     }
                 }
+
+                // Dibujar nodos
+                for (const node of nodes) {
+                    ctx.fillStyle = node.color;
+                    ctx.beginPath();
+                    ctx.arc(node.x, node.y, node.size, 0, Math.PI * 2);
+                    ctx.fill();
+
+                    // Actualizar posición
+                    node.x += node.speedX;
+                    node.y += node.speedY;
+
+                    // Rebotar en los bordes
+                    if (node.x < 0 || node.x > width) node.speedX *= -1;
+                    if (node.y < 0 || node.y > height) node.speedY *= -1;
+                }
+
+                // Continuar animación
+                requestAnimationFrame(animate);
             }
-            
-            // Dibujar nodos
-            for (const node of nodes) {
-                ctx.fillStyle = node.color;
-                ctx.beginPath();
-                ctx.arc(node.x, node.y, node.size, 0, Math.PI * 2);
-                ctx.fill();
-                
-                // Añadir brillo
-                ctx.fillStyle = 'rgba(255, 255, 255, 0.7)';
-                ctx.beginPath();
-                ctx.arc(node.x - node.size/3, node.y - node.size/3, node.size/3, 0, Math.PI * 2);
-                ctx.fill();
-                
-                // Actualizar posición
-                node.x += node.speedX;
-                node.y += node.speedY;
-                
-                // Rebotar en los bordes
-                if (node.x < 0 || node.x > width) node.speedX *= -1;
-                if (node.y < 0 || node.y > height) node.speedY *= -1;
-            }
-            
-            // Continuar animación
-            requestAnimationFrame(animate);
+
+            // Iniciar animación
+            animate();
+
+            // Ajustar tamaño del canvas cuando cambia el tamaño de la ventana
+            window.addEventListener('resize', function() {
+                const newWidth = container.offsetWidth;
+                const newHeight = container.offsetHeight;
+
+                canvas.width = newWidth;
+                canvas.height = newHeight;
+
+                // Ajustar posiciones de nodos si es necesario
+                for (const node of nodes) {
+                    if (node.x > newWidth) node.x = newWidth - 10;
+                    if (node.y > newHeight) node.y = newHeight - 10;
+                }
+            });
         }
-        
-        // Iniciar animación
-        animate();
-        
-        // Ajustar tamaño del canvas cuando cambia el tamaño de la ventana
-        window.addEventListener('resize', function() {
-            const newWidth = container.offsetWidth;
-            const newHeight = container.offsetHeight;
-            
-            canvas.width = newWidth;
-            canvas.height = newHeight;
-            
-            // Ajustar posiciones de nodos si es necesario
-            for (const node of nodes) {
-                if (node.x > newWidth) node.x = newWidth - 10;
-                if (node.y > newHeight) node.y = newHeight - 10;
-            }
-        });
+
+        // Filtrado de tecnologías
+        const techFilters = document.querySelectorAll('.tech-filter');
+        const techCards = document.querySelectorAll('.tech-card');
+
+        if (techFilters.length > 0 && techCards.length > 0) {
+            techFilters.forEach(filter => {
+                filter.addEventListener('click', () => {
+                    // Remover clase activa de todos los filtros
+                    techFilters.forEach(f => f.classList.remove('active'));
+
+                    // Agregar clase activa al filtro seleccionado
+                    filter.classList.add('active');
+
+                    const category = filter.getAttribute('data-filter');
+
+                    // Mostrar u ocultar tarjetas según la categoría
+                    techCards.forEach(card => {
+                        if (category === 'all') {
+                            card.style.display = 'block';
+                            // Agregar animación de aparición
+                            setTimeout(() => {
+                                card.style.opacity = '1';
+                                card.style.transform = 'translateY(0)';
+                            }, 50);
+                        } else {
+                            if (card.classList.contains(category)) {
+                                card.style.display = 'block';
+                                // Agregar animación de aparición
+                                setTimeout(() => {
+                                    card.style.opacity = '1';
+                                    card.style.transform = 'translateY(0)';
+                                }, 50);
+                            } else {
+                                // Animar desaparición
+                                card.style.opacity = '0';
+                                card.style.transform = 'translateY(10px)';
+                                setTimeout(() => {
+                                    card.style.display = 'none';
+                                }, 300);
+                            }
+                        }
+                    });
+                });
+            });
+
+            // Agregar estilos de transición a todas las tarjetas
+            techCards.forEach(card => {
+                card.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+            });
+
+            // Activar el filtro "Todas" al inicio
+            document.querySelector('.tech-filter[data-filter="all"]').click();
+        }
     });
 </script>
 @endsection
