@@ -158,6 +158,17 @@
     .design-elements .triangle {
         animation-delay: 1s;
     }
+
+    /* Animación de pulso para los nodos de la red */
+    .pulse-dot {
+        animation: pulseDot 2.5s infinite ease-in-out;
+    }
+
+    @keyframes pulseDot {
+        0% { transform: scale(1); opacity: 0.8; }
+        50% { transform: scale(1.3); opacity: 1; }
+        100% { transform: scale(1); opacity: 0.8; }
+    }
 </style>
 @endsection
 
@@ -209,9 +220,12 @@
                             } elseif (strpos($role, 'design') !== false || strpos($role, 'ux') !== false || strpos($role, 'ui') !== false) {
                                 $bgClass = 'from-pink-500 to-red-500';
                                 $iconClass = 'fas fa-pencil-ruler';
-                            } elseif (strpos($role, 'project') !== false || strpos($role, 'manager') !== false) {
+                            } elseif (strpos($role, 'manager') !== false) {
                                 $bgClass = 'from-yellow-500 to-orange-500';
                                 $iconClass = 'fas fa-tasks';
+                            } elseif (strpos($role, 'project') !== false) {
+                                $bgClass = 'from-amber-500 to-yellow-500';
+                                $iconClass = 'fas fa-project-diagram';
                             } elseif (strpos($role, 'scrum') !== false) {
                                 $bgClass = 'from-green-500 to-teal-500';
                                 $iconClass = 'fas fa-clipboard-list';
@@ -435,7 +449,42 @@
                 </a>
             </div>
             <div class="md:w-1/2">
-                <img src="{{ asset('images/team-culture.jpg') }}" alt="Cultura de equipo" class="rounded-xl shadow-lg">
+                <div class="bg-gray-800 rounded-xl shadow-lg p-8 h-full relative overflow-hidden">
+                    <!-- Elementos decorativos de fondo -->
+                    <div class="absolute w-64 h-64 rounded-full bg-blue-600 opacity-10 -top-32 -right-32"></div>
+                    <div class="absolute w-64 h-64 rounded-full bg-purple-600 opacity-10 -bottom-32 -left-32"></div>
+
+                    <!-- Visualización dinámica de equipo -->
+                    <div class="relative z-10 h-full flex flex-col items-center justify-center">
+                        <!-- Red neuronal visual -->
+                        <div class="grid grid-cols-4 gap-4 mb-12 relative">
+                            @for ($i = 1; $i <= 8; $i++)
+                                <div class="w-6 h-6 bg-gradient-to-br
+                                    @if($i % 4 == 1) from-blue-500 to-blue-700
+                                    @elseif($i % 4 == 2) from-purple-500 to-purple-700
+                                    @elseif($i % 4 == 3) from-green-500 to-green-700
+                                    @else from-pink-500 to-pink-700
+                                    @endif
+                                rounded-full shadow pulse-dot" style="animation-delay: {{ 0.2 * $i }}s"></div>
+                            @endfor
+
+                            <!-- Líneas de conexión (SVG) -->
+                            <svg class="absolute inset-0 w-full h-full" style="z-index: -1">
+                                <line x1="15%" y1="30%" x2="40%" y2="60%" stroke="rgba(59, 130, 246, 0.5)" stroke-width="1.5" />
+                                <line x1="40%" y1="30%" x2="65%" y2="60%" stroke="rgba(59, 130, 246, 0.5)" stroke-width="1.5" />
+                                <line x1="65%" y1="30%" x2="90%" y2="60%" stroke="rgba(59, 130, 246, 0.5)" stroke-width="1.5" />
+                                <line x1="40%" y1="60%" x2="15%" y2="90%" stroke="rgba(59, 130, 246, 0.5)" stroke-width="1.5" />
+                                <line x1="65%" y1="60%" x2="40%" y2="90%" stroke="rgba(59, 130, 246, 0.5)" stroke-width="1.5" />
+                                <line x1="90%" y1="60%" x2="65%" y2="90%" stroke="rgba(59, 130, 246, 0.5)" stroke-width="1.5" />
+                            </svg>
+                        </div>
+
+                        <div class="text-center">
+                            <span class="inline-block py-2 px-4 rounded-full bg-gradient-to-r from-blue-500 to-blue-700 text-white font-bold text-lg mb-4">¡Únete a nosotros!</span>
+                            <p class="text-gray-300">Forma parte de un equipo innovador y colaborativo.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
