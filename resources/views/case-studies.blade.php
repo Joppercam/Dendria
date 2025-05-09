@@ -20,15 +20,27 @@
     <div class="container mx-auto px-6">
         <div class="bg-gray-800 rounded-xl overflow-hidden shadow-xl">
             <div class="md:flex">
-                <!-- Imagen del Proyecto -->
+                <!-- Imagen del Proyecto - Visualización Dinámica -->
                 <div class="md:w-1/2 h-80 md:h-auto relative overflow-hidden">
-                    <div class="absolute inset-0 bg-blue-500 opacity-10"></div>
-                    <img 
-                        src="{{ asset('images/conocia-case-study.jpg') }}" 
-                        alt="ConocIA Portal" 
-                        class="w-full h-full object-cover"
-                        onerror="this.onerror=null; this.src='https://www.conocia.cl/wp-content/uploads/2023/03/logo.png';"
-                    >
+                    <div class="absolute inset-0 bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900"></div>
+
+                    <!-- Fondo dinámico con animación similar a la red neuronal -->
+                    <div class="knowledge-network-animation absolute inset-0">
+                        <!-- La animación se generará con JS -->
+                    </div>
+
+                    <!-- Logo superpuesto con efecto de iluminación -->
+                    <div class="absolute inset-0 flex items-center justify-center z-10">
+                        <div class="relative">
+                            <div class="absolute inset-0 bg-blue-500 opacity-20 blur-3xl rounded-full animate-pulse"></div>
+                            <img
+                                src="{{ asset('images/conocia-case-study.jpg') }}"
+                                alt="ConocIA Portal"
+                                class="h-32 relative z-10 floating"
+                                onerror="this.onerror=null; this.src='https://www.conocia.cl/wp-content/uploads/2023/03/logo.png';"
+                            >
+                        </div>
+                    </div>
                 </div>
                 
                 <!-- Información del Proyecto -->
@@ -114,31 +126,34 @@
         <div class="mb-16">
             <h3 class="text-2xl font-bold mb-10 text-center">Características Destacadas</h3>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="bg-gray-900 p-6 rounded-xl">
-                    <div class="w-14 h-14 bg-blue-900/40 rounded-xl flex items-center justify-center mb-6">
-                        <i class="fas fa-robot text-2xl text-blue-400"></i>
+                <div class="bg-gray-900 p-6 rounded-xl hover:shadow-lg hover:shadow-blue-900/20 transition transform hover:-translate-y-1">
+                    <div class="w-14 h-14 bg-gradient-to-br from-blue-600 to-blue-900 rounded-xl flex items-center justify-center mb-6 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-blue-500 opacity-20 animate-pulse"></div>
+                        <i class="fas fa-robot text-2xl text-white"></i>
                     </div>
-                    <h4 class="text-xl font-bold mb-4">Podcast por IA</h4>
+                    <h4 class="text-xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-300">Podcast por IA</h4>
                     <p class="text-gray-400">
                         Sistema de generación automatizada de podcasts a partir de artículos escritos, con voces naturales y controles de reproducción avanzados.
                     </p>
                 </div>
-                
-                <div class="bg-gray-900 p-6 rounded-xl">
-                    <div class="w-14 h-14 bg-blue-900/40 rounded-xl flex items-center justify-center mb-6">
-                        <i class="fas fa-newspaper text-2xl text-blue-400"></i>
+
+                <div class="bg-gray-900 p-6 rounded-xl hover:shadow-lg hover:shadow-blue-900/20 transition transform hover:-translate-y-1">
+                    <div class="w-14 h-14 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-xl flex items-center justify-center mb-6 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-blue-500 opacity-20 animate-pulse" style="animation-delay: 0.5s"></div>
+                        <i class="fas fa-newspaper text-2xl text-white"></i>
                     </div>
-                    <h4 class="text-xl font-bold mb-4">CMS Especializado</h4>
+                    <h4 class="text-xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-300">CMS Especializado</h4>
                     <p class="text-gray-400">
                         Sistema de gestión de contenido personalizado para diferentes formatos, con categorización avanzada y opciones de personalización.
                     </p>
                 </div>
-                
-                <div class="bg-gray-900 p-6 rounded-xl">
-                    <div class="w-14 h-14 bg-blue-900/40 rounded-xl flex items-center justify-center mb-6">
-                        <i class="fas fa-envelope text-2xl text-blue-400"></i>
+
+                <div class="bg-gray-900 p-6 rounded-xl hover:shadow-lg hover:shadow-blue-900/20 transition transform hover:-translate-y-1">
+                    <div class="w-14 h-14 bg-gradient-to-br from-cyan-600 to-blue-600 rounded-xl flex items-center justify-center mb-6 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-blue-500 opacity-20 animate-pulse" style="animation-delay: 1s"></div>
+                        <i class="fas fa-envelope text-2xl text-white"></i>
                     </div>
-                    <h4 class="text-xl font-bold mb-4">Newsletter Personalizable</h4>
+                    <h4 class="text-xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-300">Newsletter Personalizable</h4>
                     <p class="text-gray-400">
                         Sistema de suscripción con segmentación por categorías, permitiendo a los lectores recibir solo el contenido que les interesa.
                     </p>
@@ -149,18 +164,23 @@
         <!-- Resultados -->
         <div class="bg-gray-900 p-8 md:p-10 rounded-xl">
             <h3 class="text-2xl font-bold mb-8 text-center">Resultados</h3>
+
+            <!-- Visualización dinámica de resultados -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-                <div class="text-center">
-                    <div class="text-4xl font-bold text-blue-400 mb-2">+25K</div>
-                    <p class="text-gray-400">Lectores mensuales</p>
+                <div class="text-center relative">
+                    <div class="absolute inset-0 bg-blue-500 opacity-5 rounded-full blur-2xl animate-pulse" style="animation-delay: 0s"></div>
+                    <div class="text-4xl font-bold text-blue-400 mb-2 relative z-10">+25K</div>
+                    <p class="text-gray-400 relative z-10">Lectores mensuales</p>
                 </div>
-                <div class="text-center">
-                    <div class="text-4xl font-bold text-blue-400 mb-2">15min</div>
-                    <p class="text-gray-400">Tiempo promedio de lectura</p>
+                <div class="text-center relative">
+                    <div class="absolute inset-0 bg-blue-500 opacity-5 rounded-full blur-2xl animate-pulse" style="animation-delay: 1s"></div>
+                    <div class="text-4xl font-bold text-blue-400 mb-2 relative z-10">15min</div>
+                    <p class="text-gray-400 relative z-10">Tiempo promedio de lectura</p>
                 </div>
-                <div class="text-center">
-                    <div class="text-4xl font-bold text-blue-400 mb-2">+5K</div>
-                    <p class="text-gray-400">Suscriptores al newsletter</p>
+                <div class="text-center relative">
+                    <div class="absolute inset-0 bg-blue-500 opacity-5 rounded-full blur-2xl animate-pulse" style="animation-delay: 2s"></div>
+                    <div class="text-4xl font-bold text-blue-400 mb-2 relative z-10">+5K</div>
+                    <p class="text-gray-400 relative z-10">Suscriptores al newsletter</p>
                 </div>
             </div>
             <div class="text-gray-300">
@@ -191,4 +211,117 @@
         </div>
     </div>
 </section>
+@endsection
+
+@section('scripts')
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Configuración para la animación
+        const config = {
+            nodeCount: 25,            // Cantidad de nodos
+            connectionThreshold: 140, // Distancia máxima entre conexiones
+            nodeSize: [2, 4],         // Tamaño mínimo y máximo de nodos
+            speed: [0.1, 0.5],        // Velocidad mínima y máxima
+            colors: ['#3B82F6', '#38BDF8', '#7DD3FC'] // Colores azules para los nodos
+        };
+
+        // Obtener el contenedor
+        const container = document.querySelector('.knowledge-network-animation');
+        if (!container) return;
+
+        const width = container.offsetWidth;
+        const height = container.offsetHeight;
+
+        // Crear canvas
+        const canvas = document.createElement('canvas');
+        canvas.width = width;
+        canvas.height = height;
+        container.appendChild(canvas);
+
+        const ctx = canvas.getContext('2d');
+
+        // Crear nodos
+        const nodes = [];
+        for (let i = 0; i < config.nodeCount; i++) {
+            nodes.push({
+                x: Math.random() * width,
+                y: Math.random() * height,
+                size: config.nodeSize[0] + Math.random() * (config.nodeSize[1] - config.nodeSize[0]),
+                speedX: (Math.random() - 0.5) * config.speed[1],
+                speedY: (Math.random() - 0.5) * config.speed[1],
+                color: config.colors[Math.floor(Math.random() * config.colors.length)]
+            });
+        }
+
+        // Función de animación
+        function animate() {
+            // Limpiar canvas
+            ctx.clearRect(0, 0, width, height);
+
+            // Dibujar conexiones
+            ctx.lineWidth = 0.5;
+            for (let i = 0; i < nodes.length; i++) {
+                for (let j = i + 1; j < nodes.length; j++) {
+                    const dx = nodes[i].x - nodes[j].x;
+                    const dy = nodes[i].y - nodes[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+
+                    if (distance < config.connectionThreshold) {
+                        // Calcular opacidad basada en la distancia
+                        const opacity = 1 - (distance / config.connectionThreshold);
+                        ctx.strokeStyle = `rgba(59, 130, 246, ${opacity * 0.5})`;
+
+                        ctx.beginPath();
+                        ctx.moveTo(nodes[i].x, nodes[i].y);
+                        ctx.lineTo(nodes[j].x, nodes[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+
+            // Dibujar nodos
+            for (const node of nodes) {
+                ctx.fillStyle = node.color;
+                ctx.beginPath();
+                ctx.arc(node.x, node.y, node.size, 0, Math.PI * 2);
+                ctx.fill();
+
+                // Añadir brillo
+                ctx.fillStyle = 'rgba(255, 255, 255, 0.7)';
+                ctx.beginPath();
+                ctx.arc(node.x - node.size/3, node.y - node.size/3, node.size/3, 0, Math.PI * 2);
+                ctx.fill();
+
+                // Actualizar posición
+                node.x += node.speedX;
+                node.y += node.speedY;
+
+                // Rebotar en los bordes
+                if (node.x < 0 || node.x > width) node.speedX *= -1;
+                if (node.y < 0 || node.y > height) node.speedY *= -1;
+            }
+
+            // Continuar animación
+            requestAnimationFrame(animate);
+        }
+
+        // Iniciar animación
+        animate();
+
+        // Ajustar tamaño del canvas cuando cambia el tamaño de la ventana
+        window.addEventListener('resize', function() {
+            const newWidth = container.offsetWidth;
+            const newHeight = container.offsetHeight;
+
+            canvas.width = newWidth;
+            canvas.height = newHeight;
+
+            // Ajustar posiciones de nodos si es necesario
+            for (const node of nodes) {
+                if (node.x > newWidth) node.x = newWidth - 10;
+                if (node.y > newHeight) node.y = newHeight - 10;
+            }
+        });
+    });
+</script>
 @endsection
