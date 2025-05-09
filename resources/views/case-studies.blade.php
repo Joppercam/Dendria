@@ -40,16 +40,17 @@
                         </div>
                     </div>
 
-                    <!-- Logo superpuesto con efecto de iluminación -->
+                    <!-- Logo generado con CSS con efecto de iluminación -->
                     <div class="absolute inset-0 flex flex-col items-center justify-center z-10 p-8">
                         <div class="relative mb-4">
                             <div class="absolute inset-0 -m-4 bg-blue-500 opacity-20 blur-3xl rounded-full animate-pulse"></div>
-                            <img
-                                src="{{ asset('images/conocia-case-study.jpg') }}"
-                                alt="ConocIA Portal"
-                                class="h-20 md:h-24 relative z-10 floating"
-                                onerror="this.onerror=null; this.src='https://www.conocia.cl/wp-content/uploads/2023/03/logo.png';"
-                            >
+
+                            <!-- Logo text de ConocIA -->
+                            <div class="relative z-10 floating">
+                                <h2 class="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-cyan-200 tracking-tight">
+                                    Conoc<span class="text-white">IA</span>
+                                </h2>
+                            </div>
                         </div>
 
                         <!-- Texto descriptivo con efecto de brillo -->
@@ -143,12 +144,10 @@
             </div>
         </div>
         
-        <!-- Características Destacadas con Fondo Neural -->
+        <!-- Características Destacadas con Fondo de Gradiente -->
         <div class="mb-16 relative">
-            <!-- Fondo de red neural sutil -->
-            <div class="absolute inset-0 opacity-10">
-                <img src="{{ asset('images/neural-network.jpg') }}" alt="Red Neural" class="w-full h-full object-cover">
-            </div>
+            <!-- Fondo de gradiente en lugar de imagen -->
+            <div class="absolute inset-0 bg-gradient-to-br from-blue-900/10 via-transparent to-blue-800/10"></div>
 
             <div class="relative z-10">
                 <h3 class="text-2xl font-bold mb-10 text-center">Características Destacadas</h3>
