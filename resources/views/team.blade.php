@@ -170,18 +170,28 @@
         100% { transform: scale(1); opacity: 0.8; }
     }
 
-    /* Fix for card alignment */
-    .grid-cols-1 > div,
-    .grid-cols-2 > div,
-    .grid-cols-3 > div {
-        display: flex;
-        flex-direction: column;
-        height: 100%;
+    /* Card alignment tweaks */
+    .team-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2.5rem;
     }
 
-    .grid {
-        display: grid;
-        grid-auto-rows: 1fr;
+    @media (max-width: 1024px) {
+        .team-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 768px) {
+        .team-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .team-card {
+        height: auto;
+        margin-bottom: 0;
     }
 </style>
 @endsection
@@ -198,9 +208,9 @@
 
 <section class="py-20 bg-gray-900">
     <div class="container mx-auto px-6">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 auto-rows-fr">
+        <div class="team-grid">
             @foreach($team as $member)
-            <div class="bg-gray-800 rounded-xl overflow-hidden group transform transition duration-300 hover:-translate-y-2 hover:shadow-xl flex flex-col h-full">
+            <div class="bg-gray-800 rounded-xl overflow-hidden group transform transition duration-300 hover:-translate-y-2 hover:shadow-xl team-card">
                 <div class="relative h-64">
                     @if($member->photo)
                         <img src="{{ Storage::url($member->photo) }}" alt="{{ $member->name }}" class="w-full h-full object-cover">
@@ -390,12 +400,12 @@
                     </div>
                 </div>
 
-                <div class="p-6 flex-grow flex flex-col">
+                <div class="p-6">
                     <h3 class="font-bold text-xl mb-3">{{ $member->name }}</h3>
                     <p class="text-gray-400 text-sm mb-4">{{ Str::limit($member->bio, 120) }}</p>
 
                     @if($member->social_media)
-                    <div class="flex space-x-3 mt-auto self-start">
+                    <div class="flex space-x-3">
                         @foreach($member->social_media as $platform => $url)
                         <a href="{{ $url }}" target="_blank" class="text-gray-400 hover:text-blue-400 transition">
                             @if($platform == 'linkedin')
@@ -428,7 +438,7 @@
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="bg-gray-900 p-8 rounded-xl h-full flex flex-col">
+            <div class="bg-gray-900 p-8 rounded-xl">
                 <div class="w-16 h-16 bg-blue-600 rounded-lg mb-6 flex items-center justify-center">
                     <i class="fas fa-lightbulb text-2xl"></i>
                 </div>
@@ -436,7 +446,7 @@
                 <p class="text-gray-400">Buscamos constantemente nuevas formas de resolver problemas complejos, combinando creatividad y tecnología de vanguardia.</p>
             </div>
             
-            <div class="bg-gray-900 p-8 rounded-xl h-full flex flex-col">
+            <div class="bg-gray-900 p-8 rounded-xl">
                 <div class="w-16 h-16 bg-blue-600 rounded-lg mb-6 flex items-center justify-center">
                     <i class="fas fa-users text-2xl"></i>
                 </div>
@@ -444,7 +454,7 @@
                 <p class="text-gray-400">Trabajamos juntos, compartiendo conocimientos y habilidades para lograr resultados excepcionales para nuestros clientes.</p>
             </div>
             
-            <div class="bg-gray-900 p-8 rounded-xl h-full flex flex-col">
+            <div class="bg-gray-900 p-8 rounded-xl">
                 <div class="w-16 h-16 bg-blue-600 rounded-lg mb-6 flex items-center justify-center">
                     <i class="fas fa-trophy text-2xl"></i>
                 </div>
