@@ -2,139 +2,279 @@
 
 @section('title', 'Política de Cookies - DendrIA')
 
+@section('styles')
+<style>
+    .legal-header {
+        background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #06b6d4 100%);
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .legal-header::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
+        animation: rotate 20s linear infinite;
+        z-index: 0;
+    }
+    
+    .legal-content {
+        background: linear-gradient(to bottom, #374151, #1f2937);
+        border-radius: 1rem;
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+    }
+    
+    .section-card {
+        background: rgba(55, 65, 81, 0.5);
+        border: 1px solid rgba(59, 130, 246, 0.2);
+        border-radius: 0.75rem;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+        transition: all 0.3s ease;
+    }
+    
+    .section-card:hover {
+        border-color: rgba(59, 130, 246, 0.4);
+        background: rgba(55, 65, 81, 0.7);
+        transform: translateY(-2px);
+    }
+    
+    .section-number {
+        background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+        color: white;
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 0.875rem;
+        float: left;
+        margin-right: 1rem;
+        margin-top: 0.25rem;
+    }
+    
+    .cookie-type {
+        background: rgba(16, 185, 129, 0.1);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        border-radius: 0.5rem;
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .cookie-type h4 {
+        color: #10b981;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        display: flex;
+        align-items: center;
+    }
+    
+    .cookie-type h4 i {
+        margin-right: 0.5rem;
+    }
+    
+    @keyframes rotate {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+</style>
+@endsection
+
 @section('content')
-<div class="container mx-auto px-6 py-16 max-w-4xl">
-    <div class="mb-12">
-        <h1 class="text-3xl md:text-4xl font-bold mb-6">Política de Cookies</h1>
-        <p class="text-gray-400">Última actualización: {{ date('d/m/Y') }}</p>
+<!-- Header con gradiente -->
+<div class="legal-header py-16 relative">
+    <div class="container mx-auto px-6 text-center relative z-10">
+        <div class="max-w-3xl mx-auto">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4 text-white">Política de Cookies</h1>
+            <p class="text-xl text-blue-100 mb-6">Información sobre el uso de cookies en nuestro sitio web</p>
+            <div class="flex items-center justify-center space-x-4 text-blue-200">
+                <i class="fas fa-calendar-alt"></i>
+                <span>Última actualización: {{ date('d/m/Y') }}</span>
+            </div>
+        </div>
     </div>
+</div>
 
-    <div class="prose prose-invert prose-lg max-w-none">
-        <p>
-            Esta Política de Cookies explica qué son las cookies y cómo las utilizamos en DendrIA. 
-            Debe leer esta política para entender qué son las cookies, cómo las usamos, los tipos de cookies 
-            que utilizamos, la información que recopilamos usando cookies y cómo se utiliza esa información, 
-            y cómo controlar sus preferencias de cookies.
-        </p>
+<!-- Contenido principal -->
+<div class="bg-gray-900 py-16">
+    <div class="container mx-auto px-6 max-w-5xl">
+        <div class="legal-content p-8 md:p-12">
+            <!-- Introducción -->
+            <div class="text-center mb-12">
+                <div class="inline-flex items-center justify-center w-16 h-16 bg-yellow-600 rounded-full mb-4">
+                    <i class="fas fa-cookie-bite text-white text-2xl"></i>
+                </div>
+                <p class="text-lg text-gray-300 max-w-3xl mx-auto">
+                    Esta Política de Cookies explica qué son las cookies, cómo las utilizamos en nuestro sitio web 
+                    DendrIA y sus derechos para controlar nuestro uso de cookies.
+                </p>
+            </div>
 
-        <h2>1. ¿Qué son las Cookies?</h2>
-        <p>
-            Las cookies son pequeños archivos de texto que se almacenan en su navegador web o en el disco duro de su 
-            computadora o dispositivo móvil cuando visita un sitio web. Se utilizan ampliamente para hacer que los 
-            sitios web funcionen de manera más eficiente, así como para proporcionar información a los propietarios 
-            del sitio.
-        </p>
-        <p>
-            Las cookies pueden ser "persistentes" o "de sesión". Las cookies persistentes permanecen en su dispositivo 
-            personal hasta que caducan o hasta que las elimina, mientras que las cookies de sesión se eliminan tan 
-            pronto como cierra su navegador web.
-        </p>
+            <!-- Secciones -->
+            <div class="space-y-6">
+                <!-- Sección 1 -->
+                <div class="section-card">
+                    <div class="section-number">1</div>
+                    <h3 class="text-xl font-bold text-yellow-300 mb-3">¿Qué son las Cookies?</h3>
+                    <p class="text-gray-300 leading-relaxed">
+                        Las cookies son pequeños archivos de texto que se almacenan en su dispositivo (ordenador, tablet o móvil) 
+                        cuando visita un sitio web. Contienen información que permite al sitio web recordar sus preferencias y 
+                        mejorar su experiencia de navegación en visitas posteriores.
+                    </p>
+                </div>
 
-        <h2>2. Cómo Utilizamos las Cookies</h2>
-        <p>
-            Utilizamos cookies por varias razones, detalladas a continuación. Desafortunadamente, en la mayoría 
-            de los casos, no existen opciones estándar de la industria para deshabilitar las cookies sin 
-            deshabilitar por completo la funcionalidad y características que agregan a este sitio. Se recomienda 
-            que deje activadas todas las cookies si no está seguro de si las necesita o no, en caso de que se 
-            utilicen para proporcionar un servicio que usted utiliza.
-        </p>
+                <!-- Sección 2 -->
+                <div class="section-card">
+                    <div class="section-number">2</div>
+                    <h3 class="text-xl font-bold text-yellow-300 mb-3">¿Cómo Utilizamos las Cookies?</h3>
+                    <p class="text-gray-300 leading-relaxed mb-4">
+                        Utilizamos cookies para varios propósitos:
+                    </p>
+                    <ul class="text-gray-300 space-y-2 ml-4">
+                        <li class="flex items-start"><i class="fas fa-cog text-blue-400 mr-2 mt-1"></i>Garantizar el funcionamiento básico del sitio web</li>
+                        <li class="flex items-start"><i class="fas fa-user-cog text-blue-400 mr-2 mt-1"></i>Recordar sus preferencias y configuraciones</li>
+                        <li class="flex items-start"><i class="fas fa-chart-line text-blue-400 mr-2 mt-1"></i>Analizar el tráfico y el uso del sitio web</li>
+                        <li class="flex items-start"><i class="fas fa-shield-alt text-blue-400 mr-2 mt-1"></i>Proporcionar funciones de seguridad</li>
+                        <li class="flex items-start"><i class="fas fa-bullhorn text-blue-400 mr-2 mt-1"></i>Mostrar contenido y publicidad relevante</li>
+                    </ul>
+                </div>
 
-        <h2>3. Tipos de Cookies que Utilizamos</h2>
-        
-        <h3>3.1. Cookies Estrictamente Necesarias</h3>
-        <p>
-            Estas cookies son esenciales para proporcionarle servicios disponibles a través del sitio web y 
-            permitirle utilizar algunas de sus funciones. Sin estas cookies, no podemos proporcionar ciertos 
-            servicios del sitio web.
-        </p>
+                <!-- Sección 3 -->
+                <div class="section-card">
+                    <div class="section-number">3</div>
+                    <h3 class="text-xl font-bold text-yellow-300 mb-3">Tipos de Cookies que Utilizamos</h3>
+                    
+                    <div class="cookie-type">
+                        <h4><i class="fas fa-tools"></i>Cookies Estrictamente Necesarias</h4>
+                        <p class="text-gray-300">
+                            Estas cookies son esenciales para el funcionamiento del sitio web. Incluyen cookies de sesión 
+                            que permiten navegar por el sitio y utilizar sus funciones básicas.
+                        </p>
+                    </div>
 
-        <h3>3.2. Cookies de Funcionalidad</h3>
-        <p>
-            Estas cookies nos permiten recordar las elecciones que realiza cuando utiliza el sitio web, como 
-            recordar sus preferencias de inicio de sesión o preferencias de idioma. El propósito de estas cookies 
-            es proporcionarle una experiencia más personal y evitar que tenga que volver a ingresar sus preferencias 
-            cada vez que utilice el sitio web.
-        </p>
+                    <div class="cookie-type">
+                        <h4><i class="fas fa-sliders-h"></i>Cookies de Preferencias</h4>
+                        <p class="text-gray-300">
+                            Estas cookies permiten al sitio web recordar sus elecciones y preferencias, como el idioma, 
+                            la región o el tema visual, para proporcionar una experiencia más personalizada.
+                        </p>
+                    </div>
 
-        <h3>3.3. Cookies de Análisis y Rendimiento</h3>
-        <p>
-            Estas cookies se utilizan para recopilar información sobre el tráfico en nuestro sitio web y cómo los 
-            usuarios utilizan nuestro sitio web. La información recopilada a través de estas cookies no identifica 
-            a ningún visitante individual. Utilizamos esta información para ayudarnos a mejorar cómo funciona 
-            nuestro sitio web y entender qué interesa a nuestros usuarios.
-        </p>
+                    <div class="cookie-type">
+                        <h4><i class="fas fa-analytics"></i>Cookies de Análisis</h4>
+                        <p class="text-gray-300">
+                            Utilizamos Google Analytics para entender cómo los visitantes interactúan con nuestro sitio web. 
+                            Estas cookies nos ayudan a mejorar el rendimiento y el diseño del sitio.
+                        </p>
+                    </div>
 
-        <h3>3.4. Cookies de Marketing</h3>
-        <p>
-            Estas cookies rastrean sus hábitos de navegación para permitirnos mostrar publicidad que es más 
-            probable que le interese. Estas cookies utilizan información sobre su historial de navegación 
-            para agruparlo con otros usuarios que tienen intereses similares. Basándose en esa información, 
-            y con nuestro permiso, los anunciantes de terceros pueden colocar cookies para permitirles mostrar 
-            anuncios que creemos serán relevantes para sus intereses.
-        </p>
+                    <div class="cookie-type">
+                        <h4><i class="fas fa-ad"></i>Cookies de Marketing</h4>
+                        <p class="text-gray-300">
+                            Estas cookies se utilizan para mostrar anuncios más relevantes para usted y sus intereses. 
+                            También pueden limitar el número de veces que ve un anuncio.
+                        </p>
+                    </div>
+                </div>
 
-        <h3>3.5. Cookies de Terceros</h3>
-        <p>
-            En algunos casos especiales, también utilizamos cookies proporcionadas por terceros de confianza. 
-            La siguiente sección detalla qué cookies de terceros puede encontrar a través de este sitio.
-        </p>
-        <ul>
-            <li>Este sitio utiliza Google Analytics, una de las soluciones de análisis más extendidas y confiables 
-            en la web, que nos ayuda a comprender cómo utiliza el sitio y formas en que podemos mejorar su experiencia.</li>
-            <li>De vez en cuando, probamos nuevas características y hacemos cambios sutiles en la forma en que se 
-            entrega el sitio. Cuando todavía estamos probando nuevas funciones, estas cookies pueden usarse para 
-            asegurar que reciba una experiencia consistente mientras está en el sitio.</li>
-            <li>También utilizamos botones de redes sociales y/o plugins en este sitio que le permiten conectarse 
-            con su red social de varias maneras. Para que estos funcionen, los sitios de redes sociales como 
-            Facebook, Twitter, LinkedIn, etc., establecerán cookies a través de nuestro sitio que pueden usarse 
-            para mejorar su perfil en su sitio o contribuir a los datos que tienen para diversos fines.</li>
-        </ul>
+                <!-- Sección 4 -->
+                <div class="section-card">
+                    <div class="section-number">4</div>
+                    <h3 class="text-xl font-bold text-yellow-300 mb-3">Cookies de Terceros</h3>
+                    <p class="text-gray-300 leading-relaxed mb-4">
+                        Algunos servicios de terceros que utilizamos pueden establecer sus propias cookies:
+                    </p>
+                    <ul class="text-gray-300 space-y-2 ml-4">
+                        <li class="flex items-start"><i class="fas fa-chart-bar text-purple-400 mr-2 mt-1"></i><strong class="text-purple-400">Google Analytics:</strong> Para análisis del sitio web</li>
+                        <li class="flex items-start"><i class="fas fa-map-marker-alt text-purple-400 mr-2 mt-1"></i><strong class="text-purple-400">Google Maps:</strong> Para mostrar mapas e información de ubicación</li>
+                        <li class="flex items-start"><i class="fas fa-share-alt text-purple-400 mr-2 mt-1"></i><strong class="text-purple-400">Redes Sociales:</strong> Para botones de compartir en redes sociales</li>
+                    </ul>
+                </div>
 
-        <h2>4. Control de sus Preferencias de Cookies</h2>
-        <p>
-            Al navegar por primera vez en nuestro sitio web, tendrá la opción de aceptar o rechazar cookies a través 
-            de nuestro banner de cookies. Puede administrar sus preferencias de cookies a través de este banner en 
-            cualquier momento.
-        </p>
-        <p>
-            Además, la mayoría de los navegadores le permiten controlar cookies a través de sus configuraciones. 
-            Los siguientes enlaces muestran cómo ajustar la configuración de cookies en los navegadores comunes:
-        </p>
-        <ul>
-            <li><a href="https://support.google.com/chrome/answer/95647" target="_blank">Google Chrome</a></li>
-            <li><a href="https://support.mozilla.org/es/kb/habilitar-y-deshabilitar-cookies-sitios-web-rastrear-preferencias" target="_blank">Mozilla Firefox</a></li>
-            <li><a href="https://support.apple.com/es-es/guide/safari/sfri11471/mac" target="_blank">Safari</a></li>
-            <li><a href="https://support.microsoft.com/es-es/windows/eliminar-y-administrar-cookies-168dab11-0753-043d-7c16-ede5947fc64d" target="_blank">Microsoft Edge</a></li>
-        </ul>
-        <p>
-            Tenga en cuenta que bloquear algunas cookies puede afectar su experiencia en nuestro sitio web, ya que 
-            ciertas funciones y páginas no funcionarán como se espera.
-        </p>
+                <!-- Sección 5 -->
+                <div class="section-card">
+                    <div class="section-number">5</div>
+                    <h3 class="text-xl font-bold text-yellow-300 mb-3">Duración de las Cookies</h3>
+                    <p class="text-gray-300 leading-relaxed mb-4">
+                        Las cookies tienen diferentes duraciones según su propósito:
+                    </p>
+                    <ul class="text-gray-300 space-y-2 ml-4">
+                        <li class="flex items-start"><i class="fas fa-clock text-green-400 mr-2 mt-1"></i><strong class="text-green-400">Cookies de Sesión:</strong> Se eliminan cuando cierra el navegador</li>
+                        <li class="flex items-start"><i class="fas fa-calendar text-green-400 mr-2 mt-1"></i><strong class="text-green-400">Cookies Persistentes:</strong> Permanecen hasta su fecha de expiración o eliminación manual</li>
+                        <li class="flex items-start"><i class="fas fa-hourglass-half text-green-400 mr-2 mt-1"></i><strong class="text-green-400">Duración típica:</strong> Entre 30 días y 2 años, dependiendo del propósito</li>
+                    </ul>
+                </div>
 
-        <h2>5. Más Información</h2>
-        <p>
-            Esperamos que esto haya aclarado las cosas para usted. Como se mencionó anteriormente, si no está seguro 
-            de si necesita algo o no, generalmente es más seguro dejar las cookies habilitadas en caso de que 
-            interactúen con una de las funciones que utiliza en nuestro sitio.
-        </p>
-        <p>
-            Sin embargo, si todavía está buscando más información, puede contactarnos a través de uno de nuestros 
-            métodos de contacto preferidos:
-        </p>
-        <ul>
-            <li>Correo electrónico: <a href="mailto:privacidad@dendria.com">privacidad@dendria.com</a></li>
-            <li>Teléfono: (+56) 2 2123 4567</li>
-        </ul>
+                <!-- Sección 6 -->
+                <div class="section-card">
+                    <div class="section-number">6</div>
+                    <h3 class="text-xl font-bold text-yellow-300 mb-3">Control de Cookies</h3>
+                    <p class="text-gray-300 leading-relaxed mb-4">
+                        Tiene varias opciones para controlar o eliminar cookies:
+                    </p>
+                    <ul class="text-gray-300 space-y-2 ml-4">
+                        <li class="flex items-start"><i class="fas fa-cogs text-blue-400 mr-2 mt-1"></i>Configurar su navegador para rechazar cookies</li>
+                        <li class="flex items-start"><i class="fas fa-bell text-blue-400 mr-2 mt-1"></i>Recibir notificaciones cuando se establecen cookies</li>
+                        <li class="flex items-start"><i class="fas fa-trash text-blue-400 mr-2 mt-1"></i>Eliminar cookies existentes de su dispositivo</li>
+                        <li class="flex items-start"><i class="fas fa-filter text-blue-400 mr-2 mt-1"></i>Bloquear cookies de sitios específicos</li>
+                    </ul>
+                    <p class="text-gray-300 leading-relaxed mt-4">
+                        <span class="text-yellow-400 font-semibold">Nota:</span> Deshabilitar ciertas cookies puede afectar la funcionalidad del sitio web 
+                        y su experiencia de navegación.
+                    </p>
+                </div>
 
-        <h2>6. Cambios a Esta Política de Cookies</h2>
-        <p>
-            Podemos actualizar nuestra Política de Cookies de vez en cuando. Le notificaremos cualquier cambio 
-            publicando la nueva Política de Cookies en esta página.
-        </p>
-        <p>
-            Se le aconseja revisar esta Política de Cookies periódicamente para cualquier cambio. Los cambios a 
-            esta Política de Cookies son efectivos cuando se publican en esta página.
-        </p>
+                <!-- Sección 7 -->
+                <div class="section-card">
+                    <div class="section-number">7</div>
+                    <h3 class="text-xl font-bold text-yellow-300 mb-3">Cómo Gestionar Cookies en su Navegador</h3>
+                    <p class="text-gray-300 leading-relaxed mb-4">
+                        Cada navegador tiene diferentes formas de gestionar cookies:
+                    </p>
+                    <ul class="text-gray-300 space-y-2 ml-4">
+                        <li class="flex items-start"><i class="fab fa-chrome text-blue-400 mr-2 mt-1"></i><strong class="text-blue-400">Chrome:</strong> Configuración > Privacidad y seguridad > Cookies</li>
+                        <li class="flex items-start"><i class="fab fa-firefox text-orange-400 mr-2 mt-1"></i><strong class="text-orange-400">Firefox:</strong> Opciones > Privacidad y seguridad > Cookies</li>
+                        <li class="flex items-start"><i class="fab fa-safari text-blue-400 mr-2 mt-1"></i><strong class="text-blue-400">Safari:</strong> Preferencias > Privacidad > Cookies</li>
+                        <li class="flex items-start"><i class="fab fa-edge text-blue-400 mr-2 mt-1"></i><strong class="text-blue-400">Edge:</strong> Configuración > Privacidad > Cookies</li>
+                    </ul>
+                </div>
+
+                <!-- Sección 8 -->
+                <div class="section-card">
+                    <div class="section-number">8</div>
+                    <h3 class="text-xl font-bold text-yellow-300 mb-3">Cambios en esta Política</h3>
+                    <p class="text-gray-300 leading-relaxed">
+                        Podemos actualizar esta Política de Cookies ocasionalmente para reflejar cambios en las cookies que utilizamos 
+                        o por razones operativas, legales o reglamentarias. Le notificaremos de cualquier cambio material 
+                        actualizando la fecha en la parte superior de esta página.
+                    </p>
+                </div>
+
+                <!-- Sección 9 -->
+                <div class="section-card">
+                    <div class="section-number">9</div>
+                    <h3 class="text-xl font-bold text-yellow-300 mb-3">Contacto</h3>
+                    <p class="text-gray-300 leading-relaxed">
+                        Si tiene alguna pregunta sobre nuestra Política de Cookies, por favor contáctenos en 
+                        <a href="mailto:contacto@dendria.cl" class="text-yellow-400 hover:text-yellow-300 transition underline">contacto@dendria.cl</a>.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Footer de la página legal -->
+            <div class="mt-12 pt-8 border-t border-gray-600 text-center">
+                <div class="inline-flex items-center justify-center space-x-4 text-gray-400">
+                    <i class="fas fa-cookie-bite text-yellow-500"></i>
+                    <span>Gestione sus preferencias de cookies para una mejor experiencia</span>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 @endsection

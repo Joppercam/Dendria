@@ -98,129 +98,144 @@
 
             <!-- Secciones -->
             <div class="space-y-6">
-        <p>
-            En DendrIA, valoramos su privacidad y nos comprometemos a proteger sus datos personales. Esta Política de 
-            Privacidad explica cómo recopilamos, utilizamos y protegemos la información que nos proporciona cuando 
-            utiliza nuestro sitio web y nuestros servicios.
-        </p>
+                <!-- Sección 1 -->
+                <div class="section-card">
+                    <div class="section-number">1</div>
+                    <h3 class="text-xl font-bold text-green-300 mb-3">Información que Recopilamos</h3>
+                    <p class="text-gray-300 leading-relaxed mb-4">
+                        Podemos recopilar los siguientes tipos de información:
+                    </p>
+                    <ul class="text-gray-300 space-y-2 ml-4">
+                        <li class="flex items-start"><i class="fas fa-user text-green-400 mr-2 mt-1"></i><strong class="text-green-400">Información de contacto:</strong> Nombre, email, teléfono, dirección postal</li>
+                        <li class="flex items-start"><i class="fas fa-building text-green-400 mr-2 mt-1"></i><strong class="text-green-400">Información empresarial:</strong> Nombre de empresa, cargo, sector industrial</li>
+                        <li class="flex items-start"><i class="fas fa-project-diagram text-green-400 mr-2 mt-1"></i><strong class="text-green-400">Información del proyecto:</strong> Requisitos, especificaciones, documentación</li>
+                        <li class="flex items-start"><i class="fas fa-desktop text-green-400 mr-2 mt-1"></i><strong class="text-green-400">Información técnica:</strong> IP, navegador, ISP, páginas visitadas, sistema operativo</li>
+                    </ul>
+                </div>
 
-        <h2>1. Información que Recopilamos</h2>
-        <p>
-            Podemos recopilar los siguientes tipos de información:
-        </p>
-        <ul>
-            <li><strong>Información de contacto:</strong> Nombre, dirección de correo electrónico, número de teléfono, dirección postal y otros datos similares.</li>
-            <li><strong>Información de la empresa:</strong> Nombre de la empresa, cargo, sector industrial.</li>
-            <li><strong>Información del proyecto:</strong> Requisitos, especificaciones, documentación y otros datos relacionados con los proyectos en los que trabajamos.</li>
-            <li><strong>Información técnica:</strong> Dirección IP, tipo de navegador, proveedor de servicios de Internet, páginas de referencia/salida, archivos vistos en nuestro sitio, sistema operativo, fecha/hora y datos de navegación.</li>
-        </ul>
+                <!-- Sección 2 -->
+                <div class="section-card">
+                    <div class="section-number">2</div>
+                    <h3 class="text-xl font-bold text-green-300 mb-3">Cómo Utilizamos su Información</h3>
+                    <p class="text-gray-300 leading-relaxed mb-4">
+                        Utilizamos la información recopilada para:
+                    </p>
+                    <ul class="text-gray-300 space-y-2 ml-4">
+                        <li class="flex items-start"><i class="fas fa-cogs text-blue-400 mr-2 mt-1"></i>Proporcionar, operar y mantener nuestros servicios</li>
+                        <li class="flex items-start"><i class="fas fa-chart-line text-blue-400 mr-2 mt-1"></i>Mejorar, personalizar y ampliar nuestros servicios</li>
+                        <li class="flex items-start"><i class="fas fa-analytics text-blue-400 mr-2 mt-1"></i>Entender y analizar cómo utiliza nuestros servicios</li>
+                        <li class="flex items-start"><i class="fas fa-lightbulb text-blue-400 mr-2 mt-1"></i>Desarrollar nuevos productos y funcionalidades</li>
+                        <li class="flex items-start"><i class="fas fa-envelope text-blue-400 mr-2 mt-1"></i>Comunicarnos para actualizaciones y soporte</li>
+                        <li class="flex items-start"><i class="fas fa-shield-alt text-blue-400 mr-2 mt-1"></i>Prevenir y abordar problemas técnicos</li>
+                        <li class="flex items-start"><i class="fas fa-gavel text-blue-400 mr-2 mt-1"></i>Cumplir con obligaciones legales</li>
+                    </ul>
+                </div>
 
-        <h2>2. Cómo Utilizamos su Información</h2>
-        <p>
-            Utilizamos la información recopilada para:
-        </p>
-        <ul>
-            <li>Proporcionar, operar y mantener nuestros servicios</li>
-            <li>Mejorar, personalizar y ampliar nuestros servicios</li>
-            <li>Entender y analizar cómo utiliza nuestros servicios</li>
-            <li>Desarrollar nuevos productos, servicios, características y funcionalidad</li>
-            <li>Comunicarnos con usted para proporcionar actualizaciones, información sobre seguridad, y servicios relacionados</li>
-            <li>Prevenir y abordar problemas técnicos</li>
-            <li>Cumplir con cualquier obligación legal</li>
-        </ul>
+                <!-- Sección 3 -->
+                <div class="section-card">
+                    <div class="section-number">3</div>
+                    <h3 class="text-xl font-bold text-green-300 mb-3">Almacenamiento y Seguridad de Datos</h3>
+                    <p class="text-gray-300 leading-relaxed">
+                        Implementamos medidas de seguridad <span class="text-yellow-400 font-semibold">técnicas, administrativas y físicas</span> diseñadas para proteger sus datos 
+                        personales contra accesos no autorizados, pérdida, alteración o destrucción. Sin embargo, ningún método de 
+                        transmisión por Internet o método de almacenamiento electrónico es <span class="text-red-400 font-semibold">100% seguro</span>.
+                    </p>
+                </div>
 
-        <h2>3. Almacenamiento y Seguridad de Datos</h2>
-        <p>
-            Implementamos medidas de seguridad técnicas, administrativas y físicas diseñadas para proteger sus datos 
-            personales contra accesos no autorizados, pérdida, alteración o destrucción. Sin embargo, ningún método de 
-            transmisión por Internet o método de almacenamiento electrónico es 100% seguro.
-        </p>
+                <!-- Sección 4 -->
+                <div class="section-card">
+                    <div class="section-number">4</div>
+                    <h3 class="text-xl font-bold text-green-300 mb-3">Compartir Información</h3>
+                    <p class="text-gray-300 leading-relaxed">
+                        <span class="text-green-400 font-semibold">No vendemos, comercializamos ni transferimos</span> sus datos personales a terceros sin su consentimiento, 
+                        excepto cuando sea necesario para proporcionar nuestros servicios (como proveedores de hosting, 
+                        procesadores de pagos, etc.) o cuando estemos legalmente obligados a hacerlo.
+                    </p>
+                </div>
 
-        <h2>4. Compartir Información</h2>
-        <p>
-            No vendemos, comercializamos ni transferimos sus datos personales a terceros sin su consentimiento, 
-            excepto cuando sea necesario para proporcionar nuestros servicios (como proveedores de hosting, 
-            procesadores de pagos, etc.) o cuando estemos legalmente obligados a hacerlo.
-        </p>
+                <!-- Sección 5 -->
+                <div class="section-card">
+                    <div class="section-number">5</div>
+                    <h3 class="text-xl font-bold text-green-300 mb-3">Proveedores de Servicios</h3>
+                    <p class="text-gray-300 leading-relaxed mb-4">
+                        Podemos emplear compañías e individuos terceros por las siguientes razones:
+                    </p>
+                    <ul class="text-gray-300 space-y-2 ml-4">
+                        <li class="flex items-start"><i class="fas fa-server text-purple-400 mr-2 mt-1"></i>Facilitar nuestros servicios técnicos</li>
+                        <li class="flex items-start"><i class="fas fa-cloud text-purple-400 mr-2 mt-1"></i>Proporcionar servicios de hosting y almacenamiento</li>
+                        <li class="flex items-start"><i class="fas fa-credit-card text-purple-400 mr-2 mt-1"></i>Procesar pagos de forma segura</li>
+                        <li class="flex items-start"><i class="fas fa-chart-bar text-purple-400 mr-2 mt-1"></i>Analizar el uso de nuestros servicios</li>
+                    </ul>
+                </div>
 
-        <h2>5. Proveedores de Servicios</h2>
-        <p>
-            Podemos emplear compañías e individuos terceros por las siguientes razones:
-        </p>
-        <ul>
-            <li>Facilitar nuestro Servicio</li>
-            <li>Proporcionar el Servicio en nuestro nombre</li>
-            <li>Realizar servicios relacionados con el Servicio</li>
-            <li>Ayudarnos a analizar cómo se utiliza nuestro Servicio</li>
-        </ul>
-        <p>
-            Estos terceros tienen acceso a sus datos personales solo para realizar estas tareas en nuestro nombre y están 
-            obligados a no divulgarlos ni utilizarlos para ningún otro fin.
-        </p>
+                <!-- Sección 6 -->
+                <div class="section-card">
+                    <div class="section-number">6</div>
+                    <h3 class="text-xl font-bold text-green-300 mb-3">Sus Derechos</h3>
+                    <p class="text-gray-300 leading-relaxed mb-4">
+                        Usted tiene derecho a:
+                    </p>
+                    <ul class="text-gray-300 space-y-2 ml-4">
+                        <li class="flex items-start"><i class="fas fa-eye text-blue-400 mr-2 mt-1"></i><strong class="text-blue-400">Acceder</strong> a sus datos personales</li>
+                        <li class="flex items-start"><i class="fas fa-edit text-blue-400 mr-2 mt-1"></i><strong class="text-blue-400">Rectificar</strong> información incorrecta</li>
+                        <li class="flex items-start"><i class="fas fa-trash text-blue-400 mr-2 mt-1"></i><strong class="text-blue-400">Eliminar</strong> sus datos personales</li>
+                        <li class="flex items-start"><i class="fas fa-ban text-blue-400 mr-2 mt-1"></i><strong class="text-blue-400">Restringir</strong> el procesamiento</li>
+                        <li class="flex items-start"><i class="fas fa-download text-blue-400 mr-2 mt-1"></i><strong class="text-blue-400">Portabilidad</strong> de los datos</li>
+                        <li class="flex items-start"><i class="fas fa-times-circle text-blue-400 mr-2 mt-1"></i><strong class="text-blue-400">Oponerse</strong> al procesamiento</li>
+                    </ul>
+                </div>
 
-        <h2>6. Cookies y Tecnologías de Seguimiento</h2>
-        <p>
-            Utilizamos cookies y tecnologías de seguimiento similares para rastrear la actividad en nuestro sitio web 
-            y mantener cierta información. Las cookies son archivos con pequeñas cantidades de datos que pueden incluir 
-            un identificador único anónimo.
-        </p>
-        <p>
-            Puede instruir a su navegador para que rechace todas las cookies o para que le avise cuando se envía una cookie. 
-            Sin embargo, si no acepta cookies, es posible que no pueda utilizar algunas partes de nuestro servicio.
-        </p>
+                <!-- Sección 7 -->
+                <div class="section-card">
+                    <div class="section-number">7</div>
+                    <h3 class="text-xl font-bold text-green-300 mb-3">Retención de Datos</h3>
+                    <p class="text-gray-300 leading-relaxed">
+                        Retenemos sus datos personales solo durante el tiempo necesario para cumplir con los propósitos para los cuales 
+                        fueron recopilados, incluyendo cualquier período de retención requerido por la ley. 
+                        Los datos del proyecto se mantienen por <span class="text-yellow-400 font-semibold">5 años</span> después de la finalización.
+                    </p>
+                </div>
 
-        <h2>7. Enlaces a Otros Sitios</h2>
-        <p>
-            Nuestro servicio puede contener enlaces a otros sitios que no son operados por nosotros. Si hace clic en un 
-            enlace de terceros, será dirigido al sitio de ese tercero. Le recomendamos encarecidamente que revise la 
-            Política de Privacidad de cada sitio que visite.
-        </p>
-        <p>
-            No tenemos control ni asumimos ninguna responsabilidad por el contenido, las políticas de privacidad o las 
-            prácticas de sitios o servicios de terceros.
-        </p>
+                <!-- Sección 8 -->
+                <div class="section-card">
+                    <div class="section-number">8</div>
+                    <h3 class="text-xl font-bold text-green-300 mb-3">Cookies y Tecnologías de Seguimiento</h3>
+                    <p class="text-gray-300 leading-relaxed">
+                        Utilizamos cookies y tecnologías similares para mejorar su experiencia en nuestro sitio web. 
+                        Para más información, consulte nuestra 
+                        <a href="{{ route('cookies') }}" class="text-blue-400 hover:text-blue-300 transition underline">Política de Cookies</a>.
+                    </p>
+                </div>
 
-        <h2>8. Derechos de Privacidad</h2>
-        <p>
-            Dependiendo de su ubicación, puede tener ciertos derechos relacionados con sus datos personales, incluyendo:
-        </p>
-        <ul>
-            <li>El derecho a acceder a los datos personales que tenemos sobre usted</li>
-            <li>El derecho a solicitar la rectificación o eliminación de sus datos personales</li>
-            <li>El derecho a solicitar que restrinjamos el procesamiento de sus datos personales</li>
-            <li>El derecho a la portabilidad de datos</li>
-            <li>El derecho a oponerse al procesamiento de sus datos personales</li>
-        </ul>
-        <p>
-            Para ejercer estos derechos, contáctenos a través de la información proporcionada al final de esta política.
-        </p>
+                <!-- Sección 9 -->
+                <div class="section-card">
+                    <div class="section-number">9</div>
+                    <h3 class="text-xl font-bold text-green-300 mb-3">Cambios a esta Política</h3>
+                    <p class="text-gray-300 leading-relaxed">
+                        Podemos actualizar nuestra Política de Privacidad de vez en cuando. Le notificaremos cualquier cambio 
+                        publicando la nueva Política de Privacidad en esta página y actualizando la fecha de "última actualización".
+                    </p>
+                </div>
 
-        <h2>9. Retención de Datos</h2>
-        <p>
-            Retendremos sus datos personales solo durante el tiempo necesario para los fines establecidos en esta 
-            Política de Privacidad. Mantendremos y utilizaremos su información en la medida necesaria para cumplir 
-            con nuestras obligaciones legales, resolver disputas y hacer cumplir nuestros acuerdos.
-        </p>
+                <!-- Sección 10 -->
+                <div class="section-card">
+                    <div class="section-number">10</div>
+                    <h3 class="text-xl font-bold text-green-300 mb-3">Contacto</h3>
+                    <p class="text-gray-300 leading-relaxed">
+                        Si tiene alguna pregunta sobre esta Política de Privacidad, por favor contáctenos en 
+                        <a href="mailto:contacto@dendria.cl" class="text-green-400 hover:text-green-300 transition underline">contacto@dendria.cl</a>.
+                    </p>
+                </div>
+            </div>
 
-        <h2>10. Cambios a Esta Política de Privacidad</h2>
-        <p>
-            Podemos actualizar nuestra Política de Privacidad de vez en cuando. Le notificaremos cualquier cambio 
-            publicando la nueva Política de Privacidad en esta página.
-        </p>
-        <p>
-            Se le aconseja revisar esta Política de Privacidad periódicamente para cualquier cambio. Los cambios a 
-            esta Política de Privacidad son efectivos cuando se publican en esta página.
-        </p>
-
-        <h2>11. Contacto</h2>
-        <p>
-            Si tiene alguna pregunta sobre esta Política de Privacidad, por favor contáctenos:
-        </p>
-        <ul>
-            <li>Por correo electrónico: <a href="mailto:privacidad@dendria.com">privacidad@dendria.com</a></li>
-            <li>Por teléfono: (+56) 2 2123 4567</li>
-            <li>Por correo postal: Av. Providencia 1234, Of. 567, Providencia, Santiago, Chile</li>
-        </ul>
+            <!-- Footer de la página legal -->
+            <div class="mt-12 pt-8 border-t border-gray-600 text-center">
+                <div class="inline-flex items-center justify-center space-x-4 text-gray-400">
+                    <i class="fas fa-shield-alt text-green-500"></i>
+                    <span>Tu privacidad está protegida según estándares internacionales</span>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 @endsection

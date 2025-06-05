@@ -15,6 +15,19 @@
         overflow: hidden;
     }
 
+    /* Responsive height for mobile */
+    @media (max-width: 768px) {
+        .neural-network-animation {
+            height: 300px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .neural-network-animation {
+            height: 250px;
+        }
+    }
+
     .glass-card {
         position: relative;
         overflow: hidden;
@@ -1049,13 +1062,23 @@
 @section('scripts')
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        // Configuración simplificada para la animación
+        // Mobile detection and reduced motion support
+        const isMobile = window.innerWidth <= 768;
+        const isSmallMobile = window.innerWidth <= 480;
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        // Skip animation if user prefers reduced motion
+        if (prefersReducedMotion) {
+            return;
+        }
+
+        // Configuración adaptable para diferentes dispositivos
         const config = {
-            nodeCount: 15,           // Cantidad reducida de nodos
-            connectionThreshold: 120, // Distancia máxima entre conexiones
-            nodeSize: [2, 4],         // Tamaño mínimo y máximo de nodos
-            speed: [0.1, 0.3],        // Velocidad mínima y máxima reducida
-            colors: ['#3B82F6', '#2563EB'] // Paleta de colores simplificada
+            nodeCount: isSmallMobile ? 6 : (isMobile ? 8 : 15),
+            connectionThreshold: isSmallMobile ? 80 : (isMobile ? 100 : 120),
+            nodeSize: isSmallMobile ? [1.5, 3] : (isMobile ? [2, 3.5] : [2, 4]),
+            speed: isSmallMobile ? [0.05, 0.1] : (isMobile ? [0.08, 0.15] : [0.1, 0.3]),
+            colors: ['#3B82F6', '#2563EB']
         };
 
         // Obtener el contenedor
@@ -1085,13 +1108,28 @@
                 });
             }
 
-            // Función de animación
-            function animate() {
+            // Frame rate control for mobile optimization
+            let lastFrame = 0;
+            const frameInterval = isMobile ? 1000/30 : 1000/60; // 30fps on mobile, 60fps on desktop
+            let animationId;
+            let isAnimating = true;
+
+            // Función de animación optimizada
+            function animate(currentTime) {
+                // Control de frame rate para dispositivos móviles
+                if (currentTime - lastFrame < frameInterval) {
+                    if (isAnimating) {
+                        animationId = requestAnimationFrame(animate);
+                    }
+                    return;
+                }
+                lastFrame = currentTime;
+
                 // Limpiar canvas
                 ctx.clearRect(0, 0, width, height);
 
-                // Dibujar conexiones
-                ctx.lineWidth = 0.3; // Conexiones más sutiles
+                // Dibujar conexiones (reducidas en móvil)
+                ctx.lineWidth = isMobile ? 0.2 : 0.3;
                 for (let i = 0; i < nodes.length; i++) {
                     for (let j = i + 1; j < nodes.length; j++) {
                         const dx = nodes[i].x - nodes[j].x;
@@ -1101,7 +1139,8 @@
                         if (distance < config.connectionThreshold) {
                             // Calcular opacidad basada en la distancia
                             const opacity = 1 - (distance / config.connectionThreshold);
-                            ctx.strokeStyle = `rgba(59, 130, 246, ${opacity * 0.3})`;  // Opacidad reducida
+                            const finalOpacity = isMobile ? opacity * 0.2 : opacity * 0.3;
+                            ctx.strokeStyle = `rgba(59, 130, 246, ${finalOpacity})`;
 
                             ctx.beginPath();
                             ctx.moveTo(nodes[i].x, nodes[i].y);
@@ -1122,30 +1161,60 @@
                     node.x += node.speedX;
                     node.y += node.speedY;
 
-                    // Rebotar en los bordes
-                    if (node.x < 0 || node.x > width) node.speedX *= -1;
-                    if (node.y < 0 || node.y > height) node.speedY *= -1;
+                    // Rebotar en los bordes con pequeño margen
+                    const margin = 5;
+                    if (node.x < margin || node.x > width - margin) {
+                        node.speedX *= -1;
+                        node.x = Math.max(margin, Math.min(width - margin, node.x));
+                    }
+                    if (node.y < margin || node.y > height - margin) {
+                        node.speedY *= -1;
+                        node.y = Math.max(margin, Math.min(height - margin, node.y));
+                    }
                 }
 
-                // Continuar animación
-                requestAnimationFrame(animate);
+                // Continuar animación solo si está activa
+                if (isAnimating) {
+                    animationId = requestAnimationFrame(animate);
+                }
             }
 
             // Iniciar animación
             animate();
 
             // Ajustar tamaño del canvas cuando cambia el tamaño de la ventana
+            let resizeTimeout;
             window.addEventListener('resize', function() {
-                const newWidth = container.offsetWidth;
-                const newHeight = container.offsetHeight;
+                // Debounce resize events to improve performance
+                clearTimeout(resizeTimeout);
+                resizeTimeout = setTimeout(() => {
+                    const newWidth = container.offsetWidth;
+                    const newHeight = container.offsetHeight;
 
-                canvas.width = newWidth;
-                canvas.height = newHeight;
+                    canvas.width = newWidth;
+                    canvas.height = newHeight;
 
-                // Ajustar posiciones de nodos si es necesario
-                for (const node of nodes) {
-                    if (node.x > newWidth) node.x = newWidth - 10;
-                    if (node.y > newHeight) node.y = newHeight - 10;
+                    // Ajustar posiciones de nodos si es necesario
+                    for (const node of nodes) {
+                        if (node.x > newWidth) node.x = newWidth - 10;
+                        if (node.y > newHeight) node.y = newHeight - 10;
+                        if (node.x < 0) node.x = 10;
+                        if (node.y < 0) node.y = 10;
+                    }
+                }, 250);
+            });
+
+            // Pause animation when page is not visible (mobile battery optimization)
+            
+            document.addEventListener('visibilitychange', function() {
+                if (document.hidden) {
+                    isAnimating = false;
+                    if (animationId) {
+                        cancelAnimationFrame(animationId);
+                    }
+                } else {
+                    isAnimating = true;
+                    animate();
                 }
             });
         }
