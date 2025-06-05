@@ -2,14 +2,102 @@
 
 @section('title', 'Política de Privacidad - DendrIA')
 
-@section('content')
-<div class="container mx-auto px-6 py-16 max-w-4xl">
-    <div class="mb-12">
-        <h1 class="text-3xl md:text-4xl font-bold mb-6">Política de Privacidad</h1>
-        <p class="text-gray-400">Última actualización: {{ date('d/m/Y') }}</p>
-    </div>
+@section('styles')
+<style>
+    .legal-header {
+        background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #06b6d4 100%);
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .legal-header::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
+        animation: rotate 20s linear infinite;
+        z-index: 0;
+    }
+    
+    .legal-content {
+        background: linear-gradient(to bottom, #374151, #1f2937);
+        border-radius: 1rem;
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+    }
+    
+    .section-card {
+        background: rgba(55, 65, 81, 0.5);
+        border: 1px solid rgba(59, 130, 246, 0.2);
+        border-radius: 0.75rem;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+        transition: all 0.3s ease;
+    }
+    
+    .section-card:hover {
+        border-color: rgba(59, 130, 246, 0.4);
+        background: rgba(55, 65, 81, 0.7);
+        transform: translateY(-2px);
+    }
+    
+    .section-number {
+        background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+        color: white;
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 0.875rem;
+        float: left;
+        margin-right: 1rem;
+        margin-top: 0.25rem;
+    }
+    
+    @keyframes rotate {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+</style>
+@endsection
 
-    <div class="prose prose-invert prose-lg max-w-none">
+@section('content')
+<!-- Header con gradiente -->
+<div class="legal-header py-16 relative">
+    <div class="container mx-auto px-6 text-center relative z-10">
+        <div class="max-w-3xl mx-auto">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4 text-white">Política de Privacidad</h1>
+            <p class="text-xl text-blue-100 mb-6">Cómo protegemos y manejamos tu información personal</p>
+            <div class="flex items-center justify-center space-x-4 text-blue-200">
+                <i class="fas fa-calendar-alt"></i>
+                <span>Última actualización: {{ date('d/m/Y') }}</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Contenido principal -->
+<div class="bg-gray-900 py-16">
+    <div class="container mx-auto px-6 max-w-5xl">
+        <div class="legal-content p-8 md:p-12">
+            <!-- Introducción -->
+            <div class="text-center mb-12">
+                <div class="inline-flex items-center justify-center w-16 h-16 bg-green-600 rounded-full mb-4">
+                    <i class="fas fa-shield-alt text-white text-2xl"></i>
+                </div>
+                <p class="text-lg text-gray-300 max-w-3xl mx-auto">
+                    En DendrIA, valoramos su privacidad y nos comprometemos a proteger sus datos personales. Esta Política de 
+                    Privacidad explica cómo recopilamos, utilizamos y protegemos la información que nos proporciona.
+                </p>
+            </div>
+
+            <!-- Secciones -->
+            <div class="space-y-6">
         <p>
             En DendrIA, valoramos su privacidad y nos comprometemos a proteger sus datos personales. Esta Política de 
             Privacidad explica cómo recopilamos, utilizamos y protegemos la información que nos proporciona cuando 
