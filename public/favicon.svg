@@ -1,41 +1,76 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="32" height="32">
-  <!-- Fondo circular con gradiente -->
+  <!-- Fondo circular con gradiente vibrante -->
   <circle cx="50" cy="50" r="48" fill="url(#bg-gradient)" />
   
-  <!-- Borde sutil -->
-  <circle cx="50" cy="50" r="48" fill="none" stroke="#3b82f6" stroke-width="1.5" />
+  <!-- Borde brillante -->
+  <circle cx="50" cy="50" r="48" fill="none" stroke="url(#border-gradient)" stroke-width="2" />
   
   <!-- Red neuronal estilizada (símbolo de DendrIA) -->
-  <g fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round">
-    <!-- Nodo central -->
-    <circle cx="50" cy="50" r="8" fill="#3b82f6" stroke-width="0" />
+  <g fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" opacity="0.95">
+    <!-- Nodo central más prominente -->
+    <circle cx="50" cy="50" r="9" fill="url(#center-gradient)" stroke-width="0" />
     
-    <!-- Conexiones -->
-    <path d="M50,42 L50,28" />
-    <path d="M50,58 L50,72" />
-    <path d="M42,50 L28,50" />
-    <path d="M58,50 L72,50" />
-    <path d="M44,44 L30,30" />
-    <path d="M56,44 L70,30" />
-    <path d="M44,56 L30,70" />
-    <path d="M56,56 L70,70" />
+    <!-- Conexiones principales -->
+    <path d="M50,41 L50,26" stroke="url(#line-gradient)" />
+    <path d="M50,59 L50,74" stroke="url(#line-gradient)" />
+    <path d="M41,50 L26,50" stroke="url(#line-gradient)" />
+    <path d="M59,50 L74,50" stroke="url(#line-gradient)" />
+    <path d="M43,43 L28,28" stroke="url(#line-gradient)" />
+    <path d="M57,43 L72,28" stroke="url(#line-gradient)" />
+    <path d="M43,57 L28,72" stroke="url(#line-gradient)" />
+    <path d="M57,57 L72,72" stroke="url(#line-gradient)" />
     
-    <!-- Nodos secundarios -->
-    <circle cx="50" cy="25" r="5" fill="#3b82f6" stroke-width="0" />
-    <circle cx="50" cy="75" r="5" fill="#3b82f6" stroke-width="0" />
-    <circle cx="25" cy="50" r="5" fill="#3b82f6" stroke-width="0" />
-    <circle cx="75" cy="50" r="5" fill="#3b82f6" stroke-width="0" />
-    <circle cx="28" cy="28" r="5" fill="#3b82f6" stroke-width="0" />
-    <circle cx="72" cy="28" r="5" fill="#3b82f6" stroke-width="0" />
-    <circle cx="28" cy="72" r="5" fill="#3b82f6" stroke-width="0" />
-    <circle cx="72" cy="72" r="5" fill="#3b82f6" stroke-width="0" />
+    <!-- Nodos secundarios con brillo -->
+    <circle cx="50" cy="24" r="6" fill="url(#node-gradient)" stroke-width="0" />
+    <circle cx="50" cy="76" r="6" fill="url(#node-gradient)" stroke-width="0" />
+    <circle cx="24" cy="50" r="6" fill="url(#node-gradient)" stroke-width="0" />
+    <circle cx="76" cy="50" r="6" fill="url(#node-gradient)" stroke-width="0" />
+    <circle cx="27" cy="27" r="5" fill="url(#node-gradient)" stroke-width="0" />
+    <circle cx="73" cy="27" r="5" fill="url(#node-gradient)" stroke-width="0" />
+    <circle cx="27" cy="73" r="5" fill="url(#node-gradient)" stroke-width="0" />
+    <circle cx="73" cy="73" r="5" fill="url(#node-gradient)" stroke-width="0" />
   </g>
   
-  <!-- Definición del gradiente -->
+  <!-- Efecto de brillo central -->
+  <circle cx="50" cy="50" r="25" fill="url(#glow-gradient)" opacity="0.3" />
+  
+  <!-- Definiciones de gradientes -->
   <defs>
+    <!-- Gradiente de fondo más vibrante -->
     <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#1e3a8a" />
-      <stop offset="100%" stop-color="#3b82f6" />
+      <stop offset="0%" stop-color="#1e40af" />
+      <stop offset="50%" stop-color="#3b82f6" />
+      <stop offset="100%" stop-color="#06b6d4" />
     </linearGradient>
+    
+    <!-- Gradiente para el borde -->
+    <linearGradient id="border-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fbbf24" />
+      <stop offset="100%" stop-color="#f59e0b" />
+    </linearGradient>
+    
+    <!-- Gradiente para el nodo central -->
+    <radialGradient id="center-gradient" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#fbbf24" />
+      <stop offset="100%" stop-color="#f59e0b" />
+    </radialGradient>
+    
+    <!-- Gradiente para nodos secundarios -->
+    <radialGradient id="node-gradient" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#60a5fa" />
+      <stop offset="100%" stop-color="#3b82f6" />
+    </radialGradient>
+    
+    <!-- Gradiente para líneas -->
+    <linearGradient id="line-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#e5e7eb" />
+    </linearGradient>
+    
+    <!-- Gradiente para efecto de brillo -->
+    <radialGradient id="glow-gradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+    </radialGradient>
   </defs>
 </svg>
