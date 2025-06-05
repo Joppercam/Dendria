@@ -128,15 +128,56 @@
             });
         });
         
-        // Script para menú móvil
-        const mobileMenuButton = document.querySelector('.md\\:hidden button');
-        const mobileMenu = document.querySelector('.md\\:flex');
+        // Script para menú móvil mejorado
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const mobileMenuBackdrop = document.getElementById('mobile-menu-backdrop');
+        const menuIcon = document.getElementById('menu-icon');
+        
+        function openMobileMenu() {
+            mobileMenu.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+            menuIcon.className = 'fas fa-times text-2xl';
+        }
+        
+        function closeMobileMenu() {
+            mobileMenu.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+            menuIcon.className = 'fas fa-bars text-2xl';
+        }
         
         if (mobileMenuButton) {
             mobileMenuButton.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
+                if (mobileMenu.classList.contains('hidden')) {
+                    openMobileMenu();
+                } else {
+                    closeMobileMenu();
+                }
             });
         }
+        
+        if (mobileMenuClose) {
+            mobileMenuClose.addEventListener('click', closeMobileMenu);
+        }
+        
+        if (mobileMenuBackdrop) {
+            mobileMenuBackdrop.addEventListener('click', closeMobileMenu);
+        }
+        
+        // Cerrar menú al hacer clic en enlaces
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                closeMobileMenu();
+            });
+        });
+        
+        // Cerrar menú al presionar ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
+                closeMobileMenu();
+            }
+        });
     </script>
 </body>
 </html>

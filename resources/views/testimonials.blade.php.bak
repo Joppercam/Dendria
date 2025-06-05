@@ -1,0 +1,623 @@
+@extends('layouts.app')
+
+@section('title', 'Testimonios - DendrIA')
+
+@section('styles')
+<style>
+    /* Animación del encabezado igual que productos y servicios */
+    .testimonials-header {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .testimonials-header::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, rgba(0, 0, 0, 0) 60%);
+        animation: rotate 20s linear infinite;
+        z-index: 0;
+    }
+
+    @keyframes rotate {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    /* Estilos para el carrusel */
+    .testimonial-carousel {
+        position: relative;
+        overflow: hidden;
+        padding-bottom: 60px;
+    }
+
+    .testimonial-slide {
+        opacity: 0;
+        transition: all 0.5s ease;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        transform: translateX(100%);
+    }
+
+    .testimonial-slide.active {
+        opacity: 1;
+        transform: translateX(0);
+        position: relative;
+    }
+
+    .testimonial-slide.previous {
+        transform: translateX(-100%);
+    }
+
+    .carousel-indicators {
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        bottom: 20px;
+        left: 0;
+        right: 0;
+    }
+
+    .carousel-indicator {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.3);
+        margin: 0 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .carousel-indicator.active {
+        background-color: rgba(59, 130, 246, 0.8);
+    }
+
+    .carousel-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 44px;
+        height: 44px;
+        background-color: rgba(59, 130, 246, 0.2);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 10;
+        transition: all 0.3s;
+    }
+
+    .carousel-arrow:hover {
+        background-color: rgba(59, 130, 246, 0.4);
+    }
+
+    .carousel-arrow.prev {
+        left: 20px;
+    }
+
+    .carousel-arrow.next {
+        right: 20px;
+    }
+</style>
+@endsection
+
+@section('content')
+<div class="gradient-bg py-12 testimonials-header">
+    <div class="container mx-auto px-6">
+        <div class="text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4 relative z-10">Testimonios</h1>
+            <p class="text-xl text-gray-300 max-w-3xl mx-auto relative z-10 mb-8">
+                Lo que nuestros clientes dicen sobre trabajar con DendrIA
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- Carrusel de Testimonios -->
+<section class="py-16 bg-gradient-to-b from-gray-900 to-gray-900/80">
+    <div class="container mx-auto px-6">
+        <div class="max-w-5xl mx-auto">
+            <div class="testimonial-carousel" id="testimonialCarousel">
+                <!-- Flechas de navegación -->
+                <div class="carousel-arrow prev" id="prevButton">
+                    <i class="fas fa-chevron-left text-white"></i>
+                </div>
+                <div class="carousel-arrow next" id="nextButton">
+                    <i class="fas fa-chevron-right text-white"></i>
+                </div>
+
+                @forelse($featuredTestimonials as $index => $testimonial)
+                <div class="testimonial-slide {{ $index === 0 ? 'active' : '' }}" data-index="{{ $index }}">
+                    <div class="bg-gray-800/80 backdrop-blur-sm rounded-xl p-10 shadow-xl relative">
+                        <div class="absolute -top-6 -left-6 text-7xl text-blue-600 opacity-30">"</div>
+                        <div class="absolute -bottom-6 -right-6 text-7xl text-blue-600 opacity-30">"</div>
+
+                        <div class="relative z-10">
+                            <p class="text-xl md:text-2xl text-gray-200 mb-10 italic leading-relaxed">
+                                "{{ $testimonial->content }}"
+                            </p>
+
+                            <div class="flex flex-col md:flex-row justify-between items-center">
+                                <div class="flex items-center mb-4 md:mb-0">
+                                    <div class="w-16 h-16 bg-gray-700 rounded-full flex items-center justify-center mr-4 overflow-hidden">
+                                        @if($testimonial->avatar)
+                                            <img src="{{ Storage::url($testimonial->avatar) }}" alt="{{ $testimonial->client_name }}" class="w-full h-full object-cover">
+                                        @else
+                                            <i class="fas fa-user text-gray-500 text-2xl"></i>
+                                        @endif
+                                    </div>
+                                    <div>
+                                        <h4 class="text-xl font-bold">{{ $testimonial->client_name }}</h4>
+                                        <p class="text-blue-400">{{ $testimonial->client_position }}, {{ $testimonial->company }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex">
+                                    @for($i = 0; $i < $testimonial->rating; $i++)
+                                        <i class="fas fa-star text-yellow-500"></i>
+                                    @endfor
+                                    @for($i = $testimonial->rating; $i < 5; $i++)
+                                        <i class="fas fa-star text-gray-400"></i>
+                                    @endfor
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @empty
+                <!-- Testimonial predeterminado 1 -->
+                <div class="testimonial-slide active" data-index="0">
+                    <div class="bg-gray-800/80 backdrop-blur-sm rounded-xl p-10 shadow-xl relative">
+                        <div class="absolute -top-6 -left-6 text-7xl text-blue-600 opacity-30">"</div>
+                        <div class="absolute -bottom-6 -right-6 text-7xl text-blue-600 opacity-30">"</div>
+
+                        <div class="relative z-10">
+                            <p class="text-xl md:text-2xl text-gray-200 mb-10 italic leading-relaxed">
+                                "La implementación del sistema de análisis predictivo desarrollado por DendrIA transformó por completo nuestra capacidad para entender el comportamiento de nuestros clientes. Desde que lanzamos la plataforma, hemos visto un aumento del 45% en la retención de clientes y un 32% en las ventas cruzadas."
+                            </p>
+
+                            <div class="flex flex-col md:flex-row justify-between items-center">
+                                <div class="flex items-center mb-4 md:mb-0">
+                                    <div class="w-16 h-16 bg-gray-700 rounded-full flex items-center justify-center mr-4 overflow-hidden">
+                                        <i class="fas fa-user text-gray-500 text-2xl"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-xl font-bold">Roberto González</h4>
+                                        <p class="text-blue-400">CEO, InsightMind</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex">
+                                    <i class="fas fa-star text-yellow-500"></i>
+                                    <i class="fas fa-star text-yellow-500"></i>
+                                    <i class="fas fa-star text-yellow-500"></i>
+                                    <i class="fas fa-star text-yellow-500"></i>
+                                    <i class="fas fa-star text-yellow-500"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial predeterminado 2 -->
+                <div class="testimonial-slide" data-index="1">
+                    <div class="bg-gray-800/80 backdrop-blur-sm rounded-xl p-10 shadow-xl relative">
+                        <div class="absolute -top-6 -left-6 text-7xl text-blue-600 opacity-30">"</div>
+                        <div class="absolute -bottom-6 -right-6 text-7xl text-blue-600 opacity-30">"</div>
+
+                        <div class="relative z-10">
+                            <p class="text-xl md:text-2xl text-gray-200 mb-10 italic leading-relaxed">
+                                "Después de trabajar con varios proveedores de tecnología, finalmente encontramos en DendrIA un socio que realmente entiende las necesidades de las pequeñas y medianas empresas. Su plataforma de comercio electrónico con IA integrada nos permitió competir con grandes marcas, ofreciendo una experiencia personalizada a cada cliente."
+                            </p>
+
+                            <div class="flex flex-col md:flex-row justify-between items-center">
+                                <div class="flex items-center mb-4 md:mb-0">
+                                    <div class="w-16 h-16 bg-gray-700 rounded-full flex items-center justify-center mr-4 overflow-hidden">
+                                        <i class="fas fa-user text-gray-500 text-2xl"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-xl font-bold">María Jiménez</h4>
+                                        <p class="text-blue-400">COO, PymeCommerce</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex">
+                                    <i class="fas fa-star text-yellow-500"></i>
+                                    <i class="fas fa-star text-yellow-500"></i>
+                                    <i class="fas fa-star text-yellow-500"></i>
+                                    <i class="fas fa-star text-yellow-500"></i>
+                                    <i class="fas fa-star text-yellow-500"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial predeterminado 3 -->
+                <div class="testimonial-slide" data-index="2">
+                    <div class="bg-gray-800/80 backdrop-blur-sm rounded-xl p-10 shadow-xl relative">
+                        <div class="absolute -top-6 -left-6 text-7xl text-blue-600 opacity-30">"</div>
+                        <div class="absolute -bottom-6 -right-6 text-7xl text-blue-600 opacity-30">"</div>
+
+                        <div class="relative z-10">
+                            <p class="text-xl md:text-2xl text-gray-200 mb-10 italic leading-relaxed">
+                                "El chatbot impulsado por IA que implementaron en nuestro sitio ha reducido la carga de nuestro equipo de soporte en un 65%, mientras mejora la satisfacción del cliente. La capacidad de respuesta y personalización ha superado todas nuestras expectativas, y el ROI ha sido extraordinario."
+                            </p>
+
+                            <div class="flex flex-col md:flex-row justify-between items-center">
+                                <div class="flex items-center mb-4 md:mb-0">
+                                    <div class="w-16 h-16 bg-gray-700 rounded-full flex items-center justify-center mr-4 overflow-hidden">
+                                        <i class="fas fa-user text-gray-500 text-2xl"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-xl font-bold">Carlos Vargas</h4>
+                                        <p class="text-blue-400">Director de Atención al Cliente, TechSupport Inc.</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex">
+                                    <i class="fas fa-star text-yellow-500"></i>
+                                    <i class="fas fa-star text-yellow-500"></i>
+                                    <i class="fas fa-star text-yellow-500"></i>
+                                    <i class="fas fa-star text-yellow-500"></i>
+                                    <i class="fas fa-star-half-alt text-yellow-500"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endforelse
+
+                <!-- Indicadores -->
+                <div class="carousel-indicators">
+                    @forelse($featuredTestimonials as $index => $testimonial)
+                        <div class="carousel-indicator {{ $index === 0 ? 'active' : '' }}" data-slide-to="{{ $index }}"></div>
+                    @empty
+                        <div class="carousel-indicator active" data-slide-to="0"></div>
+                        <div class="carousel-indicator" data-slide-to="1"></div>
+                        <div class="carousel-indicator" data-slide-to="2"></div>
+                    @endforelse
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonios destacados -->
+<section class="py-20 bg-gray-900">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-300">Testimonios Destacados</h2>
+            <p class="text-gray-300 max-w-3xl mx-auto">
+                Historias de éxito de clientes que han transformado su negocio con nuestras soluciones
+            </p>
+        </div>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+            @forelse($featuredTestimonials as $testimonial)
+            <div class="bg-gray-800 rounded-xl p-8 shadow-lg relative">
+                <div class="absolute -top-5 -left-5 text-6xl text-blue-600 opacity-50">"</div>
+                <div class="relative z-10">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 bg-gray-700 rounded-full flex items-center justify-center mr-4 overflow-hidden">
+                            @if($testimonial->avatar)
+                                <img src="{{ Storage::url($testimonial->avatar) }}" alt="{{ $testimonial->client_name }}" class="w-full h-full object-cover">
+                            @else
+                                <i class="fas fa-user text-gray-500 text-2xl"></i>
+                            @endif
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold">{{ $testimonial->client_name }}</h4>
+                            <p class="text-blue-400">{{ $testimonial->client_position }}, {{ $testimonial->company }}</p>
+                        </div>
+                    </div>
+
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        "{{ $testimonial->content }}"
+                    </p>
+
+                    <div class="flex">
+                        @for($i = 0; $i < $testimonial->rating; $i++)
+                            <i class="fas fa-star text-yellow-500"></i>
+                        @endfor
+
+                        @for($i = $testimonial->rating; $i < 5; $i++)
+                            <i class="fas fa-star text-gray-400"></i>
+                        @endfor
+                    </div>
+                </div>
+            </div>
+            @empty
+            <div class="bg-gray-800 rounded-xl p-8 shadow-lg relative">
+                <div class="absolute -top-5 -left-5 text-6xl text-blue-600 opacity-50">"</div>
+                <div class="relative z-10">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 bg-gray-700 rounded-full flex items-center justify-center mr-4 overflow-hidden">
+                            <i class="fas fa-user text-gray-500 text-2xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold">Roberto González</h4>
+                            <p class="text-blue-400">CEO, InsightMind</p>
+                        </div>
+                    </div>
+
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        "La implementación del sistema de análisis predictivo desarrollado por DendrIA transformó por completo nuestra capacidad para entender el comportamiento de nuestros clientes. Desde que lanzamos la plataforma, hemos visto un aumento del 45% en la retención de clientes y un 32% en las ventas cruzadas. El equipo de DendrIA no solo entendió nuestras necesidades técnicas, sino también los objetivos de negocio."
+                    </p>
+
+                    <div class="flex">
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-gray-800 rounded-xl p-8 shadow-lg relative">
+                <div class="absolute -top-5 -left-5 text-6xl text-blue-600 opacity-50">"</div>
+                <div class="relative z-10">
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 bg-gray-700 rounded-full flex items-center justify-center mr-4 overflow-hidden">
+                            <i class="fas fa-user text-gray-500 text-2xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold">María Jiménez</h4>
+                            <p class="text-blue-400">COO, PymeCommerce</p>
+                        </div>
+                    </div>
+
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        "Después de trabajar con varios proveedores de tecnología, finalmente encontramos en DendrIA un socio que realmente entiende las necesidades de las pequeñas y medianas empresas. Su plataforma de comercio electrónico con IA integrada nos permitió competir con grandes marcas, ofreciendo una experiencia personalizada a cada cliente. El ROI superó nuestras expectativas en menos de 6 meses."
+                    </p>
+
+                    <div class="flex">
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                    </div>
+                </div>
+            </div>
+            @endforelse
+        </div>
+    </div>
+</section>
+
+<!-- Todos los testimonios -->
+<section class="py-20 bg-gray-800">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl font-bold mb-6">Lo Que Dicen Nuestros Clientes</h2>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            @forelse($testimonials->where('featured', false) as $testimonial)
+            <div class="bg-gray-900 rounded-xl p-6 shadow-lg">
+                <div class="mb-4">
+                    <div class="flex">
+                        @for($i = 0; $i < $testimonial->rating; $i++)
+                            <i class="fas fa-star text-yellow-500"></i>
+                        @endfor
+
+                        @for($i = $testimonial->rating; $i < 5; $i++)
+                            @if($i == $testimonial->rating && $testimonial->rating - floor($testimonial->rating) >= 0.5)
+                                <i class="fas fa-star-half-alt text-yellow-500"></i>
+                            @else
+                                <i class="fas fa-star text-gray-400"></i>
+                            @endif
+                        @endfor
+                    </div>
+                </div>
+                <p class="text-gray-300 mb-6 italic">
+                    "{{ $testimonial->content }}"
+                </p>
+                <div class="flex items-center">
+                    <div class="w-12 h-12 bg-gray-700 rounded-full flex items-center justify-center mr-4 overflow-hidden">
+                        @if($testimonial->avatar)
+                            <img src="{{ Storage::url($testimonial->avatar) }}" alt="{{ $testimonial->client_name }}" class="w-full h-full object-cover">
+                        @else
+                            <i class="fas fa-user text-gray-500"></i>
+                        @endif
+                    </div>
+                    <div>
+                        <h5 class="font-bold">{{ $testimonial->client_name }}</h5>
+                        <p class="text-sm text-gray-400">{{ $testimonial->client_position }}, {{ $testimonial->company }}</p>
+                    </div>
+                </div>
+            </div>
+            @empty
+            <div class="bg-gray-900 rounded-xl p-6 shadow-lg">
+                <div class="mb-4">
+                    <div class="flex">
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                    </div>
+                </div>
+                <p class="text-gray-300 mb-6 italic">
+                    "El chatbot impulsado por IA que implementaron en nuestro sitio ha reducido la carga de nuestro equipo de soporte en un 65%, mientras mejora la satisfacción del cliente."
+                </p>
+                <div class="flex items-center">
+                    <div class="w-12 h-12 bg-gray-700 rounded-full flex items-center justify-center mr-4">
+                        <i class="fas fa-user text-gray-500"></i>
+                    </div>
+                    <div>
+                        <h5 class="font-bold">Carlos Vargas</h5>
+                        <p class="text-sm text-gray-400">Director de Atención al Cliente, TechSupport Inc.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-gray-900 rounded-xl p-6 shadow-lg">
+                <div class="mb-4">
+                    <div class="flex">
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                    </div>
+                </div>
+                <p class="text-gray-300 mb-6 italic">
+                    "La aplicación móvil desarrollada por DendrIA no solo mejoró nuestra presencia digital, sino que también aumentó nuestras ventas en un 40% en el primer trimestre desde su lanzamiento."
+                </p>
+                <div class="flex items-center">
+                    <div class="w-12 h-12 bg-gray-700 rounded-full flex items-center justify-center mr-4">
+                        <i class="fas fa-user text-gray-500"></i>
+                    </div>
+                    <div>
+                        <h5 class="font-bold">Ana Muñoz</h5>
+                        <p class="text-sm text-gray-400">Gerente de Marketing, Retail Solutions</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-gray-900 rounded-xl p-6 shadow-lg">
+                <div class="mb-4">
+                    <div class="flex">
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star text-yellow-500"></i>
+                        <i class="fas fa-star-half-alt text-yellow-500"></i>
+                    </div>
+                </div>
+                <p class="text-gray-300 mb-6 italic">
+                    "Lo que más valoramos de DendrIA es su enfoque en entender nuestro negocio antes de proponer soluciones tecnológicas. No venden tecnología por vender, sino que aportan valor real."
+                </p>
+                <div class="flex items-center">
+                    <div class="w-12 h-12 bg-gray-700 rounded-full flex items-center justify-center mr-4">
+                        <i class="fas fa-user text-gray-500"></i>
+                    </div>
+                    <div>
+                        <h5 class="font-bold">Fernando Rivas</h5>
+                        <p class="text-sm text-gray-400">CFO, Financial Innovation Group</p>
+                    </div>
+                </div>
+            </div>
+            @endforelse
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="py-20 bg-gradient-to-r from-blue-600 to-blue-900">
+    <div class="container mx-auto px-6 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold mb-8">¿Listo para transformar tu negocio?</h2>
+        <p class="text-xl text-blue-100 mb-10 max-w-3xl mx-auto">
+            Únete a nuestros clientes satisfechos y descubre cómo DendrIA puede ayudarte a impulsar tu negocio con soluciones tecnológicas avanzadas.
+        </p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+            <a href="{{ route('contact') }}" class="inline-block bg-white text-blue-600 font-bold py-4 px-8 rounded-lg shadow-lg transition transform hover:scale-105 hover:shadow-xl">
+                Contáctanos
+            </a>
+            <a href="{{ route('case-studies') }}" class="inline-block bg-transparent border-2 border-white text-white font-bold py-4 px-8 rounded-lg shadow-lg transition transform hover:scale-105 hover:shadow-xl">
+                Ver casos de éxito
+            </a>
+        </div>
+    </div>
+</section>
+
+@section('scripts')
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Inicializar el carrusel
+        const carousel = document.getElementById('testimonialCarousel');
+        if (!carousel) return;
+
+        const slides = carousel.querySelectorAll('.testimonial-slide');
+        const indicators = carousel.querySelectorAll('.carousel-indicator');
+        const prevButton = document.getElementById('prevButton');
+        const nextButton = document.getElementById('nextButton');
+
+        let currentIndex = 0;
+        const totalSlides = slides.length;
+        let autoplayInterval;
+
+        // Configurar autoplay
+        function startAutoplay() {
+            autoplayInterval = setInterval(() => {
+                goToSlide(currentIndex + 1);
+            }, 8000); // Cambiar cada 8 segundos
+        }
+
+        function stopAutoplay() {
+            clearInterval(autoplayInterval);
+        }
+
+        // Ir a una slide específica
+        function goToSlide(index) {
+            // Asegurarse de que el índice esté dentro del rango
+            if (index < 0) index = totalSlides - 1;
+            if (index >= totalSlides) index = 0;
+
+            // Quitar clases activas
+            slides.forEach(slide => {
+                slide.classList.remove('active', 'previous');
+                if (parseInt(slide.dataset.index) === currentIndex) {
+                    slide.classList.add('previous');
+                }
+            });
+
+            indicators.forEach(indicator => {
+                indicator.classList.remove('active');
+            });
+
+            // Añadir clases activas a la slide actual
+            slides[index].classList.add('active');
+            indicators[index].classList.add('active');
+
+            // Actualizar índice actual
+            currentIndex = index;
+        }
+
+        // Manejar clics en los indicadores
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                stopAutoplay();
+                goToSlide(index);
+                startAutoplay();
+            });
+        });
+
+        // Manejar clics en los botones de navegación
+        if (prevButton) {
+            prevButton.addEventListener('click', () => {
+                stopAutoplay();
+                goToSlide(currentIndex - 1);
+                startAutoplay();
+            });
+        }
+
+        if (nextButton) {
+            nextButton.addEventListener('click', () => {
+                stopAutoplay();
+                goToSlide(currentIndex + 1);
+                startAutoplay();
+            });
+        }
+
+        // Pausar autoplay al pasar el ratón sobre el carrusel
+        carousel.addEventListener('mouseenter', stopAutoplay);
+        carousel.addEventListener('mouseleave', startAutoplay);
+
+        // Iniciar autoplay
+        startAutoplay();
+    });
+</script>
+@endsection
