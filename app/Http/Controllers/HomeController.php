@@ -78,12 +78,40 @@ class HomeController extends Controller
             'message' => 'required|string',
         ]);
 
-        // Here you would typically send an email
-        // For example, using Laravel's Mail facade
-        // Mail::to('contacto@dendria.com')->send(new ContactFormMail($request->all()));
+        try {
+            // Enviar email al equipo de DendrIA
+            \Mail::to('contacto@dendria.cl')->send(new \App\Mail\ContactFormMail($request->all()));
+            
+            // Guardar en base de datos para backup
+            \App\Models\Contact::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'subject' => $request->subject,
+                'message' => $request->message,
+            ]);
 
-        // For now, let's just redirect with a success message
-        return redirect()->route('contact')->with('success', 'Gracias por tu mensaje. Te contactaremos a la brevedad.');
+            return redirect()->route('contact')->with('success', 'Gracias por tu mensaje. Te contactaremos a la brevedad.');
+            
+        } catch (\Exception $e) {
+            // Si falla el envío de email, al menos guardar en BD
+            try {
+                \App\Models\Contact::create([
+                    'name' => $request->name,
+                    'email' => $request->email,
+                    'subject' => $request->subject,
+                    'message' => $request->message,
+                ]);
+                
+                \Log::error('Error enviando email de contacto: ' . $e->getMessage());
+                
+                return redirect()->route('contact')->with('success', 'Gracias por tu mensaje. Te contactaremos a la brevedad.');
+                
+            } catch (\Exception $dbError) {
+                \Log::error('Error guardando contacto: ' . $dbError->getMessage());
+                
+                return redirect()->route('contact')->with('error', 'Hubo un problema al enviar tu mensaje. Por favor, intenta nuevamente.');
+            }
+        }
     }
 
     public function showProject(Project $project)
