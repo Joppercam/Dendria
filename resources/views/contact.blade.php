@@ -218,13 +218,13 @@
                 <h3 class="text-xl font-bold mb-2 text-blue-300">Redes Sociales</h3>
                 <p class="text-gray-300 mb-4">Mantente al día con nuestras novedades</p>
                 <div class="flex justify-center space-x-4 mt-6">
-                    <a href="#" class="w-10 h-10 bg-gray-800 border border-blue-500/30 rounded-full flex items-center justify-center text-blue-400 hover:bg-blue-600 hover:text-white hover:border-blue-400 transition-all duration-300 shadow-lg">
+                    <a href="javascript:void(0)" class="w-10 h-10 bg-gray-800 border border-blue-500/30 rounded-full flex items-center justify-center text-blue-400 hover:bg-blue-600 hover:text-white hover:border-blue-400 transition-all duration-300 shadow-lg" onclick="window.open('https://linkedin.com/company/dendria', '_blank')">
                         <i class="fab fa-linkedin-in"></i>
                     </a>
-                    <a href="#" class="w-10 h-10 bg-gray-800 border border-blue-500/30 rounded-full flex items-center justify-center text-blue-400 hover:bg-blue-600 hover:text-white hover:border-blue-400 transition-all duration-300 shadow-lg">
+                    <a href="javascript:void(0)" class="w-10 h-10 bg-gray-800 border border-blue-500/30 rounded-full flex items-center justify-center text-blue-400 hover:bg-blue-600 hover:text-white hover:border-blue-400 transition-all duration-300 shadow-lg" onclick="window.open('https://twitter.com/dendria_cl', '_blank')">
                         <i class="fab fa-twitter"></i>
                     </a>
-                    <a href="#" class="w-10 h-10 bg-gray-800 border border-blue-500/30 rounded-full flex items-center justify-center text-blue-400 hover:bg-blue-600 hover:text-white hover:border-blue-400 transition-all duration-300 shadow-lg">
+                    <a href="javascript:void(0)" class="w-10 h-10 bg-gray-800 border border-blue-500/30 rounded-full flex items-center justify-center text-blue-400 hover:bg-blue-600 hover:text-white hover:border-blue-400 transition-all duration-300 shadow-lg" onclick="window.open('https://github.com/dendria', '_blank')">
                         <i class="fab fa-github"></i>
                     </a>
                 </div>
@@ -387,7 +387,7 @@
         </p>
 
         <div class="flex flex-wrap justify-center gap-6">
-            <a href="#" class="submit-button py-4 px-8 rounded-lg shadow-lg text-white font-bold transition-all duration-300 hover:shadow-blue-600/30 hover:transform hover:-translate-y-1 relative overflow-hidden">
+            <a href="{{ route('project.start') }}" class="submit-button py-4 px-8 rounded-lg shadow-lg text-white font-bold transition-all duration-300 hover:shadow-blue-600/30 hover:transform hover:-translate-y-1 relative overflow-hidden">
                 <span class="relative z-10 flex items-center">
                     <i class="fas fa-rocket mr-2"></i>
                     <span>Iniciar un proyecto</span>

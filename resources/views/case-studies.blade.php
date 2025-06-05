@@ -343,7 +343,7 @@
                                 eCommerce
                             </span>
                         </div>
-                        <a href="#" class="text-blue-400 hover:text-blue-300 font-medium">Ver detalles <i class="fas fa-arrow-right ml-1"></i></a>
+                        <a href="javascript:void(0)" class="text-blue-400 hover:text-blue-300 font-medium case-details-btn" data-case="pymecommerce">Ver detalles <i class="fas fa-arrow-right ml-1"></i></a>
                     </div>
                 </div>
             </div>
@@ -375,7 +375,7 @@
                                 BigData
                             </span>
                         </div>
-                        <a href="#" class="text-blue-400 hover:text-blue-300 font-medium">Ver detalles <i class="fas fa-arrow-right ml-1"></i></a>
+                        <a href="javascript:void(0)" class="text-blue-400 hover:text-blue-300 font-medium case-details-btn" data-case="insightmind">Ver detalles <i class="fas fa-arrow-right ml-1"></i></a>
                     </div>
                 </div>
             </div>
@@ -407,7 +407,7 @@
                                 API
                             </span>
                         </div>
-                        <a href="#" class="text-blue-400 hover:text-blue-300 font-medium">Ver detalles <i class="fas fa-arrow-right ml-1"></i></a>
+                        <a href="javascript:void(0)" class="text-blue-400 hover:text-blue-300 font-medium case-details-btn" data-case="securitech">Ver detalles <i class="fas fa-arrow-right ml-1"></i></a>
                     </div>
                 </div>
             </div>
@@ -463,7 +463,7 @@
                                 SaaS
                             </span>
                         </div>
-                        <a href="#" class="text-blue-400 hover:text-blue-300 font-medium">Ver detalles <i class="fas fa-arrow-right ml-1"></i></a>
+                        <a href="javascript:void(0)" class="text-blue-400 hover:text-blue-300 font-medium case-details-btn" data-case="dendriachat">Ver detalles <i class="fas fa-arrow-right ml-1"></i></a>
                     </div>
                 </div>
             </div>
@@ -590,8 +590,8 @@
             });
         });
 
-        // Smooth scroll para enlaces internos
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        // Smooth scroll para enlaces internos (solo para enlaces válidos con ID)
+        document.querySelectorAll('a[href^="#"]:not([href="#"])').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
 
@@ -606,6 +606,47 @@
                 }
             });
         });
+
+        // Funcionalidad para botones "Ver detalles"
+        document.querySelectorAll('.case-details-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const caseType = this.getAttribute('data-case');
+                
+                // Mostrar información adicional o modal
+                showCaseDetails(caseType);
+            });
+        });
+
+        function showCaseDetails(caseType) {
+            const caseInfo = {
+                'pymecommerce': {
+                    title: 'PymeCommerce - Plataforma eCommerce',
+                    description: 'Plataforma completa de comercio electrónico diseñada específicamente para PyMEs chilenas con integración nativa a Transbank, Webpay y sistemas de pago locales.',
+                    features: ['Integración Transbank/Webpay', 'Gestión de inventario', 'Panel administrativo', 'Responsive design', 'SEO optimizado']
+                },
+                'insightmind': {
+                    title: 'InsightMind - Analítica Predictiva',
+                    description: 'Plataforma de análisis de datos impulsada por IA que transforma información compleja en insights accionables para la toma de decisiones estratégicas.',
+                    features: ['Machine Learning', 'Dashboards interactivos', 'Predicciones en tiempo real', 'Integración APIs', 'Reportes automatizados']
+                },
+                'securitech': {
+                    title: 'SecuriTech - Ciberseguridad',
+                    description: 'Sistema integral de monitoreo de seguridad que utiliza IA para detectar amenazas y vulnerabilidades en tiempo real.',
+                    features: ['Detección de amenazas IA', 'Monitoreo 24/7', 'Alertas en tiempo real', 'Análisis de vulnerabilidades', 'Reportes de seguridad']
+                },
+                'dendriachat': {
+                    title: 'DendriaChat - Chatbot IA',
+                    description: 'Plataforma de chatbot inteligente que revoluciona la atención al cliente con IA avanzada y procesamiento de lenguaje natural.',
+                    features: ['NLP avanzado', 'Integración multi-canal', 'Analytics conversacional', 'Aprendizaje automático', 'API REST completa']
+                }
+            };
+
+            const info = caseInfo[caseType];
+            if (info) {
+                alert(`${info.title}\n\n${info.description}\n\nCaracterísticas principales:\n• ${info.features.join('\n• ')}\n\n¡Contáctanos para más información!`);
+            }
+        }
     });
 </script>
 @endsection

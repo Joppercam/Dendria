@@ -8,16 +8,16 @@
                 </h3>
                 <p class="text-gray-400 mb-6">Soluciones de software inteligentes para el mundo moderno.</p>
                 <div class="flex space-x-4">
-                    <a href="#" class="text-gray-400 hover:text-blue-400">
+                    <a href="https://linkedin.com/company/dendria" target="_blank" class="text-gray-400 hover:text-blue-400">
                         <i class="fab fa-linkedin-in"></i>
                     </a>
-                    <a href="#" class="text-gray-400 hover:text-blue-400">
+                    <a href="https://twitter.com/dendria_cl" target="_blank" class="text-gray-400 hover:text-blue-400">
                         <i class="fab fa-twitter"></i>
                     </a>
-                    <a href="#" class="text-gray-400 hover:text-blue-400">
+                    <a href="https://instagram.com/dendria.cl" target="_blank" class="text-gray-400 hover:text-blue-400">
                         <i class="fab fa-instagram"></i>
                     </a>
-                    <a href="#" class="text-gray-400 hover:text-blue-400">
+                    <a href="https://github.com/dendria" target="_blank" class="text-gray-400 hover:text-blue-400">
                         <i class="fab fa-github"></i>
                     </a>
                 </div>

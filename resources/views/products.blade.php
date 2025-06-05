@@ -320,7 +320,7 @@
             </div>
             <div class="mt-2 flex justify-between text-xs text-gray-500">
                 <span>Demo - Las respuestas son simuladas</span>
-                <a href="#" class="text-blue-400 hover:text-blue-300">Ver planes</a>
+                <a href="javascript:void(0)" class="text-blue-400 hover:text-blue-300" onclick="alert('Próximamente dispondremos de planes comerciales. ¡Contáctanos para más información!')">Ver planes</a>
             </div>
         </div>
     </div>
@@ -1473,7 +1473,7 @@
                         "DendrIA Chat transformó nuestra capacidad de respuesta a pacientes. Ahora podemos brindar información precisa 24/7 y nuestro personal médico puede enfocarse en casos que realmente requieren atención especializada."
                         <footer class="mt-2 text-sm font-semibold">— Carolina Méndez, Directora de Operaciones</footer>
                     </blockquote>
-                    <a href="#" class="inline-flex items-center text-blue-400 hover:text-blue-300 transition">
+                    <a href="javascript:void(0)" class="inline-flex items-center text-blue-400 hover:text-blue-300 transition" onclick="alert('Caso de éxito: CliniSalud implementó DendrIA Chat con 90% de satisfacción y reducción del 60% en tiempo de respuesta. ¡Contáctanos para conocer más detalles!')">
                         Ver caso completo
                         <i class="fas fa-arrow-right ml-2"></i>
                     </a>
@@ -1555,7 +1555,7 @@
                         "Pasamos de tener una tienda física con ventas limitadas a convertirnos en un referente nacional del mueble artesanal. La plataforma se adaptó perfectamente a nuestras necesidades y presupuesto inicial."
                         <footer class="mt-2 text-sm font-semibold">— Manuel Arriagada, Fundador</footer>
                     </blockquote>
-                    <a href="#" class="inline-flex items-center text-green-400 hover:text-green-300 transition">
+                    <a href="javascript:void(0)" class="inline-flex items-center text-green-400 hover:text-green-300 transition" onclick="alert('Caso de éxito: Muebles Nativos expandió su negocio nacionalmente con 300% de incremento en ventas y integración completa con Transbank. ¡Contáctanos para más detalles!')">
                         Ver caso completo
                         <i class="fas fa-arrow-right ml-2"></i>
                     </a>
@@ -1637,7 +1637,7 @@
                         "Gracias a InsightMind pudimos analizar patrones climáticos, rendimiento histórico y condiciones del suelo para optimizar nuestras operaciones. Las predicciones de IA nos han permitido tomar decisiones que antes eran imposibles."
                         <footer class="mt-2 text-sm font-semibold">— Javiera Soto, Directora de Innovación</footer>
                     </blockquote>
-                    <a href="#" class="inline-flex items-center text-purple-400 hover:text-purple-300 transition">
+                    <a href="javascript:void(0)" class="inline-flex items-center text-purple-400 hover:text-purple-300 transition" onclick="alert('Caso de éxito: AgroTech Chile optimizó sus operaciones con 94% de precisión en predicciones y 25% de aumento en productividad. ¡Contáctanos para conocer más!')">
                         Ver caso completo
                         <i class="fas fa-arrow-right ml-2"></i>
                     </a>
