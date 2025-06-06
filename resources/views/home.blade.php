@@ -15,16 +15,53 @@
         overflow: hidden;
     }
 
-    /* Responsive height for mobile */
+    .neural-network-animation canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    /* Responsive behavior for mobile */
     @media (max-width: 768px) {
-        .neural-network-animation {
-            height: 300px;
+        /* Ocultar la columna de animación en móvil */
+        .md\\:w-1\\/2:last-child {
+            display: none;
+        }
+        
+        /* Hacer que el contenedor principal sea relativo y tenga la animación de fondo */
+        .hero-container {
+            position: relative;
+            min-height: auto;
+            padding: 1rem 0 2rem 0;
+        }
+        
+        .hero-background-animation {
+            position: absolute;
+            top: -2rem;
+            left: 0;
+            right: 0;
+            bottom: 2rem;
+            z-index: 0;
+        }
+        
+        .hero-background-animation .neural-network-animation {
+            height: 100%;
+            width: 100%;
+        }
+        
+        /* Asegurar que el contenido esté sobre la animación */
+        .hero-text-content {
+            position: relative;
+            z-index: 1;
+            padding: 0;
         }
     }
 
     @media (max-width: 480px) {
-        .neural-network-animation {
-            height: 250px;
+        .hero-container {
+            padding: 0.5rem 0 1.5rem 0;
         }
     }
 
@@ -398,13 +435,20 @@
 
 @section('hero')
 <!-- Contenedor principal -->
-<div class="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between mt-8">
+<div class="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between mt-4 md:mt-8 hero-container">
+    <!-- Animación de fondo para móvil -->
+    <div class="hero-background-animation md:hidden">
+        <div class="neural-network-animation">
+            <!-- Las partículas y conexiones se generarán con JS -->
+        </div>
+    </div>
+    
     <!-- Contenido de texto -->
-    <div class="md:w-1/2 text-center md:text-left z-10">
-        <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-6">
+    <div class="md:w-1/2 text-center md:text-left hero-text-content">
+        <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-4 md:mb-6">
             Desarrollo de <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-300">Software Inteligente</span> para el mundo moderno
         </h1>
-        <p class="text-xl md:text-xl text-gray-300 mb-8">
+        <p class="text-xl md:text-xl text-gray-300 mb-6 md:mb-8">
             Transformamos ideas en soluciones tecnológicas avanzadas, impulsadas por Inteligencia Artificial y desarrolladas con Laravel
         </p>
         <div class="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
@@ -417,8 +461,8 @@
         </div>
     </div>
     
-    <!-- Elemento visual: Animación de partículas/conexiones neuronales -->
-    <div class="md:w-1/2 mt-12 md:mt-0 relative">
+    <!-- Elemento visual: Animación de partículas/conexiones neuronales para desktop -->
+    <div class="md:w-1/2 mt-12 md:mt-0 relative hidden md:block">
         <div class="neural-network-animation">
             <!-- Las partículas y conexiones se generarán con JS -->
         </div>
@@ -426,7 +470,7 @@
 </div>
 
 <!-- Logros clave -->
-<div class="container mx-auto mt-24">
+<div class="container mx-auto mt-20 md:mt-24">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div class="bg-gray-800 border border-gray-700 rounded-xl p-6 text-center shadow-lg transition hover:border-blue-800">
             <div class="mb-4">
@@ -1062,30 +1106,41 @@
 @section('scripts')
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        // Mobile detection and reduced motion support
-        const isMobile = window.innerWidth <= 768;
-        const isSmallMobile = window.innerWidth <= 480;
-        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
         // Skip animation if user prefers reduced motion
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         if (prefersReducedMotion) {
             return;
         }
 
-        // Configuración adaptable para diferentes dispositivos
-        const config = {
-            nodeCount: isSmallMobile ? 6 : (isMobile ? 8 : 15),
-            connectionThreshold: isSmallMobile ? 80 : (isMobile ? 100 : 120),
-            nodeSize: isSmallMobile ? [1.5, 3] : (isMobile ? [2, 3.5] : [2, 4]),
-            speed: isSmallMobile ? [0.05, 0.1] : (isMobile ? [0.08, 0.15] : [0.1, 0.3]),
-            colors: ['#3B82F6', '#2563EB']
-        };
+        // Obtener todos los contenedores de animación
+        const containers = document.querySelectorAll('.neural-network-animation');
+        if (containers.length === 0) {
+            return;
+        }
+        
+        // Crear animación para cada contenedor
+        containers.forEach(container => {
 
-        // Obtener el contenedor
-        const container = document.querySelector('.neural-network-animation');
-        if (container) {
+        // Esperar un momento para asegurar que el contenedor tenga dimensiones
+        setTimeout(() => {
+            // Mobile detection
+            const isMobile = window.innerWidth <= 768;
+            const isSmallMobile = window.innerWidth <= 480;
+
+            // Configuración adaptable para diferentes dispositivos
+            const config = {
+                nodeCount: isSmallMobile ? 8 : (isMobile ? 10 : 15),
+                connectionThreshold: isSmallMobile ? 100 : (isMobile ? 120 : 150),
+                nodeSize: isSmallMobile ? [2, 4] : (isMobile ? [2.5, 4.5] : [2, 4]),
+                speed: isSmallMobile ? [0.3, 0.6] : (isMobile ? [0.4, 0.8] : [0.1, 0.3]),
+                colors: ['#3B82F6', '#2563EB']
+            };
             const width = container.offsetWidth;
             const height = container.offsetHeight;
+            
+            if (width === 0 || height === 0) {
+                return;
+            }
 
             // Crear canvas
             const canvas = document.createElement('canvas');
@@ -1094,6 +1149,10 @@
             container.appendChild(canvas);
 
             const ctx = canvas.getContext('2d');
+            
+            if (!ctx) {
+                return;
+            }
 
             // Crear nodos
             const nodes = [];
@@ -1217,7 +1276,8 @@
                     animate();
                 }
             });
-        }
+        }, 100); // Cerrar setTimeout
+        }); // Cerrar forEach
 
         // Filtrado de tecnologías
         const techFilters = document.querySelectorAll('.tech-filter');
